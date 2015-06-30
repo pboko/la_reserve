@@ -1,0 +1,14 @@
+<h2> Le <%= Restaurant.find(1).name%> - Waiters list : </h2>
+<ol>
+  <% @waiters.each do |waiter| %>
+    <li>
+    <%= waiter.name %>
+    <%= link_to 'Remove', restaurant_waiter_path(Restaurant.find(1), waiter),
+    method: :delete,
+    data: { confirm: "Are you sure sure sure ?" }
+    %>
+    </li>
+  <% end %>
+</ol>
+
+<%= link_to 'Add a waiter', new_restaurant_waiter_path(Restaurant.find(1))%>
