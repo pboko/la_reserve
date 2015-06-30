@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <h1>New Customer</h1>
+
+      <%= simple_form_for(@customer) do |f| %>
+        <%= f.error_notification %>
+
+
+          <%= f.input :first_name %>
+          <%= f.input :last_name %>
+          <%= f.input :email %>
+          <%= f.input :phone_number %>
+          <%= f.input :gender, collection: ["Mr", "Ms"], as: :select %>
+          <%= f.input :status, collection: ["Excellent customer", "Very good customer", "Good customer", "Regular", "Brown list", "Prospect", "Black list"], as: :select %>
+          <%= f.input :comments %>
+
+        <%= f.button :submit, class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

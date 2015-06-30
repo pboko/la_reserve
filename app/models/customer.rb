@@ -18,4 +18,8 @@
 class Customer < ActiveRecord::Base
   has_many :restaurant_customers
   has_many :bookings
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end
