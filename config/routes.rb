@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :restaurants do
     resources :waiters
+    resources :spots
   end
 
 end
