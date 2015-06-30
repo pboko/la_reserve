@@ -1,13 +1,18 @@
+
+<div class="container">
+<div class="col-xs-3">
 <%= simple_form_for [@restaurant, @booking] do |f| %>
   <%= f.error_notification %>
 
-  <%= f.input :date %>
-  <%= f.input :start_time %>
-  <%= f.input :end_time %>
-  <%= f.input :pax, placeholder: 'number of people' %>
+  <%= f.label :date %>
+  <%= f.text_field :date, class: "form-control", :data => {:provide => :datepicker, 'date-format' => "dd/mm/yyyy"} %>
+  <%= f.label :start_time %>
+  <%= f.time_field :start_time, class: "form-control" %>
+  <%= f.label :end_time %>
+  <%= f.time_field :end_time, class: "form-control" %>
+  <%= f.input :pax, class: "form-control", placeholder: 'number of people' %>
 
-  <%= f.button :submit %>
-
-
+  <%= f.button :submit, class: "btn btn-danger"%>
 
 <% end %>
+</div>

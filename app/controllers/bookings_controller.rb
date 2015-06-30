@@ -8,7 +8,6 @@ class BookingsController < ApplicationController
   end
 
   def show
-
   end
 
   def new
@@ -25,7 +24,6 @@ class BookingsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
