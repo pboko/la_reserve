@@ -15,7 +15,7 @@
 class Restaurant < ActiveRecord::Base
   has_many :spots
   has_many :restaurant_customers
-  has_many :waiters
+  has_many :waiters, dependent: :destroy
   has_many :bookings
   has_many :restaurant_users
   has_many :users, through: :restaurant_users
