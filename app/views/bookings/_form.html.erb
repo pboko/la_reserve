@@ -1,0 +1,13 @@
+<%= simple_form_for [@restaurant, @booking] do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :date %>
+  <%= f.input :start_time %>
+  <%= f.input :end_time %>
+  <%= f.input :pax, placeholder: 'number of people' %>
+
+  <%= f.button :submit %>
+
+
+
+<% end %>

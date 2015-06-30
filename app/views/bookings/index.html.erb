@@ -1,2 +1,34 @@
 <h1>Bookings#index</h1>
-<p>Find me in app/views/bookings/index.html.erb</p>
+
+<table class="table">
+  <% @bookings.each do |booking| %>
+    <tbody>
+      <tr>
+        <td>
+          <%= booking.customer.last_name %>
+        </td>
+        <td>
+          <%= booking.pax %>
+        </td>
+        <td>
+          <%= booking.date %>
+        </td>
+        <td>
+          <%= booking.start_time %>
+        </td>
+        <td>
+          <%= booking.end_time %>
+        </td>
+        <td><%= link_to "Delete", restaurant_booking_path(booking),
+          method: :delete,
+          data: { confirm: "Are you sure?" } %>
+        </td>
+      </tr>
+    </tbody>
+  <% end %>
+
+</table>
+
+
+
+
