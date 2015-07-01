@@ -4,6 +4,7 @@
 
 //= require bootstrap-datepicker
 //= require bootstrap-datepicker/core
+//= require fullcalendar
 //= require_tree ./app
 
 // Please do not put any code in here. Create a new .js file in
