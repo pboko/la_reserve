@@ -1,6 +1,7 @@
 class SpotsController < ApplicationController
 
   before_action :find_spot, only: [:show, :edit, :update, :destroy]
+  before_action :find_restaurant, only: [:new, :create, :index]
 
   def index
     @spots = Spot.all
@@ -11,12 +12,10 @@ class SpotsController < ApplicationController
   end
 
   def new
-    @restaurant = Restaurant.find(params[:restaurant_id])
     @spot = Spot.new
   end
 
   def create
-    @restaurant = Restaurant.find(params[:restaurant_id])
     @spot = @restaurant.spots.build(spot_params)
     @spot.save
     redirect_to restaurant_spots_path(@restaurant)
@@ -42,6 +41,10 @@ class SpotsController < ApplicationController
 
   def find_spot
     @spot = Spot.find(params[:id])
+  end
+
+  def find_restaurant
+    @restaurant = Restaurant.find(params[:restaurant_id])
   end
 
   def spot_params

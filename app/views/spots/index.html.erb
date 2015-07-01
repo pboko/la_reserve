@@ -1,8 +1,9 @@
-<h2> Le <%= Restaurant.find(1).name%> - Tables list : </h2>
+<h2> Tables list : </h2>
 <ol>
   <% @spots.each do |spot| %>
     <li> Table #<%= spot.name %> - <%= spot.capacity %> pax</li>
-    <%= link_to 'Remove', restaurant_spot_path(Restaurant.find(1), spot),
+    <%= link_to 'Edit', edit_restaurant_spot_path(@restaurant, spot) %>
+    <%= link_to 'Remove', restaurant_spot_path(@restaurant, spot),
     method: :delete,
     data: { confirm: "Are you sure sure sure ?" }
     %>
@@ -10,4 +11,4 @@
   <% end %>
 </ol>
 
-<%= link_to 'Add a table', new_restaurant_spot_path(Restaurant.find(1))%>
+<%= link_to 'Add a table', new_restaurant_spot_path(@restaurant)%>
