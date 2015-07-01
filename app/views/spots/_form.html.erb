@@ -1,0 +1,9 @@
+<%= simple_form_for [@restaurant,@spot] do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :name %>
+  <%= f.input :capacity %>
+
+
+  <%= f.button :submit %>
+<% end %>

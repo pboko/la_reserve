@@ -1,7 +1,7 @@
 class WaitersController < ApplicationController
 
   before_action :find_waiter, only: [:show, :edit, :update, :destroy]
-  before_action :find_restaurant, only: [:new, :create]
+  before_action :find_restaurant, only: [:index, :edit, :update, :new, :create]
 
   def index
     @waiters = Waiter.all
@@ -25,7 +25,7 @@ class WaitersController < ApplicationController
 
   def update
     if @waiter.update(waiter_params)
-      redirect_to restaurant_waiter_path(@waiter)
+      redirect_to restaurant_waiters_path(@restaurant)
     else
       render :edit
     end
@@ -49,6 +49,5 @@ class WaitersController < ApplicationController
   def waiter_params
     params.require(:waiter).permit(:name)
   end
-
 
 end
