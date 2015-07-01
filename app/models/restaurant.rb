@@ -23,6 +23,5 @@ class Restaurant < ActiveRecord::Base
 
   validates :name, presence: true
 
->>>>>>> master
 end
 

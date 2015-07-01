@@ -19,7 +19,7 @@ class Spot < ActiveRecord::Base
   has_many :booking_spots
   has_many :bookings, through: :booking_spots
 
-  validates: :capacity, presence: true
-  validates: :name, presence: true
+  validates :capacity, presence: true
+  validates :name, presence: true
 
 end
