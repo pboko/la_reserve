@@ -17,5 +17,5 @@ class Waiter < ActiveRecord::Base
   belongs_to :restaurant
   has_many :bookings
 
-  validates: :name, presence: true
+  validates :name, presence: true
 end

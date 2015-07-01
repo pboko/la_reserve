@@ -7,8 +7,6 @@ class CustomersController < ApplicationController
   end
 
   def show
-    @customers = Customer.all
-
   end
 
   def new
@@ -18,7 +16,7 @@ class CustomersController < ApplicationController
   def create
     @customer = Customer.new(customer_params)
     @customer.save
-    redirect_to customer_path(@customer)
+    redirect_to customers_path
   end
 
   def edit
@@ -26,7 +24,7 @@ class CustomersController < ApplicationController
 
   def update
     @customer.update(customer_params)
-    redirect_to customer_path(@customer)
+    redirect_to customers_path
   end
 
   private
