@@ -22,5 +22,7 @@ class Restaurant < ActiveRecord::Base
   has_many :customers, through: :restaurant_customers
 
   validates :name, presence: true
+
+>>>>>>> master
 end
 

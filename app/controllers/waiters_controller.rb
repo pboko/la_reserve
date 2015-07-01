@@ -8,7 +8,6 @@ class WaitersController < ApplicationController
   end
 
   def show
-    @waiter = Waiter.find(params[:id])
   end
 
   def new
