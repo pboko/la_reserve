@@ -1,5 +1,5 @@
 #nav-container {
-  width: 205px;
+  width: 230px;
   top: 70px;
   left: 0;
   bottom: 0;
@@ -7,4 +7,36 @@
   height: auto;
   position: absolute;
   background: #FA7470;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 25px;
+  h1 {
+    font-size: 23px;
+    text-transform: uppercase;
+    color: white;
+    padding-bottom: 30px;
+  }
+  button {
+    width: 100%;
+    background-color: white;
+    color: #FA7470;
+    border-color: #FA7470;
+    border-radius: 4px;
+    &:hover{
+      color: darken(#FA7470, 13.5%);
+    }
+  }
+  hr {
+    border-color: white;
+  }
+  p {
+    font-size: 20px;
+    color: white;
+    &:hover {
+      color: lighten(#FA7470, 50%);
+    }
+  i {
+    margin-right: 10px;
+  }
+  }
 }
