@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
   # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
-  # before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_filter :configure_permitted_parameters, if: :devise_controller?
   ## ...
 
 
@@ -38,11 +38,11 @@ class ApplicationController < ActionController::Base
     redirect_to(root_path)
   end
 
-  # protected
+  protected
 
-  # def configure_permitted_parameters
-  #   devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:first_name, :last_name, :email, :password) }
-  #   devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:first_name, :last_name, :email, :password) }
-  # end
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:first_name, :last_name, :email, :password) }
+    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:first_name, :last_name, :email, :password) }
+  end
 
 end
