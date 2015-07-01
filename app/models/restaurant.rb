@@ -21,6 +21,7 @@ class Restaurant < ActiveRecord::Base
   has_many :users, through: :restaurant_users
   has_many :customers, through: :restaurant_customers
 
+  validates: :name, presence: true
 
 end
 

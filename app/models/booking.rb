@@ -26,4 +26,9 @@ class Booking < ActiveRecord::Base
   belongs_to :waiter
   has_many :booking_spots
   has_many :spots, through: :booking_spots
+
+  validates: :date, presence: true
+  validates: :start_time, presence: true
+  validates: :end_time, presence: true
+  validates: :pax, presence: true
 end
