@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
   has_many :restaurant_users
   has_many :restaurants, through: :restaurant_users
 
-  validates: :email, presence: true
-  validates: :first_name, presence: true
-  validates: :last_name, presence: true
+  validates :email, presence: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
 end
