@@ -27,6 +27,8 @@ gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails', :git
 gem "calendar_helper"
 gem 'fullcalendar-rails'
 
+gem "autoprefixer-rails"
+
 group :development, :test do
   gem "spring"
   gem "annotate"

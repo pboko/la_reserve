@@ -12,6 +12,70 @@
   }
  }
 
+ .edit_restaurant {
+  input {
+    &:focus {
+      outline: 0;
+      border-color: $dark-grey;
+      box-shadow: none;
+    }
+  }
+ }
+
+ .new_booking {
+  input {
+    &:focus {
+      outline: 0;
+      border-color: $dark-grey;
+      box-shadow: none;
+    }
+  }
+  select {
+    &:focus {
+      outline: 0;
+      border-color: $dark-grey;
+      box-shadow: none;
+    }
+  }
+ }
+
 .panel-title {
   font-weight: 700;
+}
+
+.margin-left-neg {
+  margin-left:-40px;
+}
+
+.margin-left-neg12 {
+  margin-left:-12px;
+}
+
+.margin-left-15 {
+  margin-left: 15px;
+}
+
+.margin-top-30 {
+  margin-top: 30px;
+}
+
+.margin-right-17 {
+  margin-right: 17px;
+}
+
+.control-label {
+  text-align: left;
+  padding-top: 6px;
+}
+
+#row-1{
+  label {
+    margin-right: 10px;
+  }
+}
+
+.panel-body {
+  hr {
+    border: none;
+  }
 }
