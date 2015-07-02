@@ -16,8 +16,11 @@ class WaitersController < ApplicationController
 
   def create
     @waiter = @restaurant.waiters.build(waiter_params)
-    @waiter.save
+    if @waiter.save
     redirect_to restaurant_waiters_path(@restaurant)
+    else
+      render :new
+    end
   end
 
   def edit
