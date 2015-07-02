@@ -1,18 +1,28 @@
-<div id="customers">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-2 col-md-offset-2">
-        <div class="bordered-right">
-          <ul>
-            <%= link_to "Add a customer", new_customer_path, class: "btn btn-primary" %>
-            <% @customers.each do |customer| %>
-              <li> <%= link_to customer.full_name, customer_path(customer), remote: true %></li>
-              <hr class="dividor">
-            <% end %>
-          </ul>
+<div class="margin-top">
+  <div id="customers">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2 col-md-offset-2">
+          <div class="bordered-right">
+            <div class="margin-bottom">
+              <%= link_to new_customer_path do %>
+                <p><i class="fa fa-plus"></i> Add a customer</p>
+              <% end %>
+            </div>
+
+            <div id="list-customers">
+              <ul>
+                <% @customers.each do |customer| %>
+                  <li>
+                    <%= link_to customer.full_name, customer_path(customer), remote: true %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
-      <div id="customer_show" class="col-md-8">
+        <div id="customer_show" class="col-md-8">
+        </div>
       </div>
     </div>
   </div>

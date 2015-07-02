@@ -1,19 +1,41 @@
-<h2> My restaurants </h2>
+<div class="margin-top">
 
-<ol>
-  <% @restaurants.each do |restaurant| %>
-    <%= link_to restaurant_path(restaurant) do %>
-    <li>
-      <%= restaurant.name %>
-      <%= link_to 'Edit', edit_restaurant_path(restaurant) %>
-      <%= link_to 'Delete', restaurant_path(restaurant),
-      method: :delete,
-      data: { confirm: "Are you sure sure sure ?" }
-      %>
-    </li>
-    <% end %>
-  <% end %>
-</ol>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-2">
 
-<%= link_to 'Add a restaurant', new_restaurant_path %>
+<!--       <h2> My restaurants </h2> -->
 
+        <div class="row">
+          <% @restaurants.each do |restaurant| %>
+            <div class="col-md-3">
+              <div class="card-burgundy text-center">
+                <%= link_to restaurant_path(restaurant) do %>
+                  <%= restaurant.name %>
+                  <%#= link_to 'Edit', edit_restaurant_path(restaurant) %>
+                  <%#= link_to 'Delete', restaurant_path(restaurant),
+                  method: :delete,
+                  data: { confirm: "Are you sure sure sure ?" }
+                  %>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+          <div class="col-md-3">
+            <div class="card-burgundy text-center">
+              <%= link_to new_restaurant_path do %>
+                <i class="fa fa-plus"></i>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+</div>

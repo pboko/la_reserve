@@ -2,9 +2,9 @@
  * Fonts
  * ------------------------------------- */
 // Google fonts
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Montserrat:400,700|Raleway:300,400");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Lato:100,300|Raleway:300,400");
 $base-font: "Open Sans", "Helvetica", "sans-serif";
-$header-font: "Montserrat", "sans-serif";
+$header-font: "Open Sans", "sans-serif";
 $navbar-font: 'Raleway', "sans-serif";
 
 // Local fonts (uncomment following lines)
@@ -25,6 +25,8 @@ $base-height: 1.4;
  * Colors
  * ------------------------------------- */
 // Scheme
+$burgundy: #7A1B2C;
+$dark-grey: #333333;
 $red: #EE5F5B;
 $blue: #469AE0;
 $yellow: #FDB631;

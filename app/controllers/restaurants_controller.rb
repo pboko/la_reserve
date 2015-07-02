@@ -4,7 +4,7 @@ class RestaurantsController < ApplicationController
 
   def index
     @user = current_user
-    @restaurants = Restaurant.all
+    @restaurants = current_user.restaurants
   end
 
   def show
