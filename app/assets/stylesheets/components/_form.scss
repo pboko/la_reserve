@@ -1,3 +1,17 @@
 /* -------------------------------------
  * You killer form SASS module
  * ------------------------------------- */
+
+ .new_restaurant {
+  input {
+    &:focus {
+      outline: 0;
+      border-color: $dark-grey;
+      box-shadow: none;
+    }
+  }
+ }
+
+.panel-title {
+  font-weight: 700;
+}

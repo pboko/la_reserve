@@ -40,6 +40,34 @@
   padding-left: 40px;
 }
 
+.margin-bottom {
+  margin-bottom: 30px;
+}
+
+.margin-top {
+  margin-top: 100px;
+}
+
+.padded-right {
+  padding-right: 30px;
+}
+
 .bordered-right {
   border-right: 1px solid #eeeeee;
+}
+
+
+.card-burgundy {
+  background: $burgundy;
+  padding: 98px 0px;
+  margin-right: 20px;
+  margin-top: 90px;
+  a {
+    color: white;
+  }
+
+  &:hover {
+    background: darken($burgundy, 10%)
+  }
+
 }
