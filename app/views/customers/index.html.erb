@@ -6,7 +6,6 @@
           <ul>
             <%= link_to "Add a customer", new_customer_path, class: "btn btn-primary" %>
             <% @customers.each do |customer| %>
-
               <li> <%= link_to customer.full_name, customer_path(customer), remote: true %></li>
               <hr class="dividor">
             <% end %>
