@@ -13,8 +13,8 @@
               <%= f.time_field :start_time, class: "form-control" %>
               <%= f.label :end_time %>
               <%= f.time_field :end_time, class: "form-control" %>
-              <%= f.input :pax, class: "form-control", placeholder: 'number of people' %>
-              <%= f.input :status, collection: ["Confirmé", "Assis", "Arrivés", "Message", "Annulée", "No show"], as: :select %>
+              <%= f.input :pax, class: "form-control", placeholder: 'Number of guests' %>
+              <%= f.input :status, collection: ["Reservé", "Confirmé", "Assis", "Arrivés", "Message", "Annulée", "No show"], as: :select %>
               <%= f.input :notes %>
 
               <%= f.button :submit, class: "btn btn-danger"%>

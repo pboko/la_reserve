@@ -40,7 +40,6 @@ class RestaurantsController < ApplicationController
     redirect_to restaurants_path
   end
 
-
   private
 
   def find_restaurant
