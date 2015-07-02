@@ -1,25 +1,26 @@
 class WaitersController < ApplicationController
 
-  before_action :set_waiter, only: [:show, :edit, :update, :destroy]
+  before_action :find_waiter, only: [:show, :edit, :update, :destroy]
+  before_action :find_restaurant, only: [:index, :edit, :update, :new, :create]
 
   def index
     @waiters = Waiter.all
   end
 
   def show
-    @waiter = Waiter.find(params[:id])
   end
 
   def new
-    @restaurant = Restaurant.find(params[:restaurant_id])
     @waiter = Waiter.new
   end
 
   def create
-    @restaurant = Restaurant.find(params[:restaurant_id])
     @waiter = @restaurant.waiters.build(waiter_params)
-    @waiter.save
+    if @waiter.save
     redirect_to restaurant_waiters_path(@restaurant)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -27,7 +28,7 @@ class WaitersController < ApplicationController
 
   def update
     if @waiter.update(waiter_params)
-      redirect_to restaurant_waiter_path(@waiter)
+      redirect_to restaurant_waiters_path(@restaurant)
     else
       render :edit
     end
@@ -40,13 +41,16 @@ class WaitersController < ApplicationController
 
   private
 
-  def set_waiter
+  def find_waiter
     @waiter = Waiter.find(params[:id])
+  end
+
+  def find_restaurant
+    @restaurant = Restaurant.find(params[:restaurant_id])
   end
 
   def waiter_params
     params.require(:waiter).permit(:name)
   end
-
 
 end

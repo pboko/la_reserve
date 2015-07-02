@@ -19,6 +19,10 @@ class Customer < ActiveRecord::Base
   has_many :restaurant_customers
   has_many :bookings
 
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :email, presence: true
+
   def full_name
     "#{first_name} #{last_name}"
   end

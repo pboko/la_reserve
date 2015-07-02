@@ -1,0 +1,11 @@
+<%= simple_form_for @restaurant do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :name %>
+  <%= f.input :street %>
+  <%= f.input :zip_code %>
+  <%= f.input :city %>
+  <%= f.input :capacity %>
+  <%= f.button :submit %>
+
+<% end %>

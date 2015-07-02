@@ -12,6 +12,9 @@
 #  waiter_id     :integer
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  status        :string
+#  notes         :text
+#  period        :string
 #
 # Indexes
 #
@@ -26,4 +29,12 @@ class Booking < ActiveRecord::Base
   belongs_to :waiter
   has_many :booking_spots
   has_many :spots, through: :booking_spots
+
+  validates :date, presence: true
+  validates :start_time, presence: true
+  validates :end_time, presence: true
+  validates :pax, presence: true
+
+  scope :for_period, ->(period) { where(:period => period.to_s.capitalize) }
+  scope :for_date, ->(date) { where(:date => date) }
 end

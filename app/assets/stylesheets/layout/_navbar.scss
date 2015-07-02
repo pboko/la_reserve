@@ -1,15 +1,15 @@
 /* -------------------------------------
  * Colors & Fonts
  * ------------------------------------- */
-$navbar-color: $gray-light;
-$navbar-hover-color: $yellow;
+$navbar-color: white;
+$navbar-hover-color: lighten(#7A1B2C, 50%);
 $navbar-font-family: $navbar-font;
 $navbar-font-size: 14px;
 $navbar-text-transform: capitalize;
 $navbar-font-weight: 300;
 $navbar-letter-spacing: 1.5px;
 $navbar-font-family: $navbar-font;
-$navbar-bg: white;
+$navbar-bg: #7A1B2C;
 
 /* -------------------------------------
  * Box model
@@ -64,6 +64,13 @@ $navbar-profile-border-width: 2px;
     padding-bottom: $navbar-vertical-padding;
     background-color: transparent;
   }
+
+  // .navbar-nav > li {
+  //   color: $navbar-color;
+  //   line-height: $navbar-height;
+  //   padding-top: $navbar-vertical-padding;
+  //   padding-bottom: $navbar-vertical-padding;
+  // }
 
   .navbar-nav > li > a:hover,
   .navbar-nav > .open > a:hover {

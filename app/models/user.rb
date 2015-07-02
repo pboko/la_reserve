@@ -15,6 +15,8 @@
 #  last_sign_in_ip        :inet
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  first_name             :string
+#  last_name              :string
 #
 # Indexes
 #
@@ -30,4 +32,8 @@ class User < ActiveRecord::Base
 
   has_many :restaurant_users
   has_many :restaurants, through: :restaurant_users
+
+  validates :email, presence: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
 end

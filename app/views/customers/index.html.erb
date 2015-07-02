@@ -2,14 +2,17 @@
   <div class="container">
     <div class="row">
       <div class="col-md-2 col-md-offset-2">
-        <ul>
-          <%= link_to "Add a customer", new_customer_path, class: "btn btn-primary" %>
-          <% @customers.each do |customer| %>
-
-            <li> <%= link_to customer.full_name, customer_path(customer) %></li>
-            <hr class="dividor">
-          <% end %>
-        </ul>
+        <div class="bordered-right">
+          <ul>
+            <%= link_to "Add a customer", new_customer_path, class: "btn btn-primary" %>
+            <% @customers.each do |customer| %>
+              <li> <%= link_to customer.full_name, customer_path(customer), remote: true %></li>
+              <hr class="dividor">
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <div id="customer_show" class="col-md-8">
       </div>
     </div>
   </div>

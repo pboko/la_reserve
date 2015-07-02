@@ -11,7 +11,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%#= render "shared/navbar" %>
+  <%= render "shared/navbar" %>
+  <% if user_signed_in? %>
+    <%= render "shared/sidebar" %>
+  <% end %>
   <%= render "shared/flashes" %>
 
   <%= yield %>

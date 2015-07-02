@@ -1,0 +1,9 @@
+<h2> <%= @restaurant.name %></h2>
+    <p>Direction : <%= @restaurant.street %> </p>
+
+    <p> Zip code : <%= @restaurant.zip_code %> </p>
+    <p> City :  <%= @restaurant.city %> </p>
+
+    <p> Capacity : <%= @restaurant.capacity %> personnes</p>
+
+   <%= link_to 'Back to all restaurants', restaurants_path %>

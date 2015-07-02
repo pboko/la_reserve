@@ -1,0 +1,43 @@
+#nav-container {
+  width: 230px;
+  top: 70px;
+  left: 0;
+  bottom: 0;
+  overflow: none;
+  height: auto;
+  position: absolute;
+  background: white;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 25px;
+  h1 {
+    font-size: 23px;
+    text-transform: uppercase;
+    color: #333333;
+    padding-bottom: 30px;
+  }
+  button {
+    width: 100%;
+    background-color: #333333;
+    color: white;
+    border-color: #333333;
+    border-radius: 4px;
+    &:hover{
+      background-color: #333333;
+    }
+  }
+  hr {
+    border-color: #333333;
+  }
+  p {
+    font-size: 18px;
+    font-weight: 300;
+    color: #333333;
+    &:hover {
+      color: #7A1B2C;
+    }
+  i {
+    margin-right: 10px;
+  }
+  }
+}

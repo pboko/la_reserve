@@ -1,0 +1,19 @@
+<h2> My restaurants </h2>
+
+<ol>
+  <% @restaurants.each do |restaurant| %>
+    <%= link_to restaurant_path(restaurant) do %>
+    <li>
+      <%= restaurant.name %>
+      <%= link_to 'Edit', edit_restaurant_path(restaurant) %>
+      <%= link_to 'Delete', restaurant_path(restaurant),
+      method: :delete,
+      data: { confirm: "Are you sure sure sure ?" }
+      %>
+    </li>
+    <% end %>
+  <% end %>
+</ol>
+
+<%= link_to 'Add a restaurant', new_restaurant_path %>
+
