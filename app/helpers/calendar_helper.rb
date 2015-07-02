@@ -239,13 +239,7 @@ module CalendarHelper
 
   def generate_cell(cell_text, cell_attrs)
     cell_attrs = cell_attrs.map {|k, v| %(#{k}="#{v}") }.join(" ")
-    "<td #{cell_attrs}>
-      <html>
-        <div class='col-xs-6' style='background-color: black; padding:17px'>
-          <a href='http://www.google.fr'>ici</a>
-        </div>
-      </html>
-    </td>"
+    "<td #{cell_attrs}>#{cell_text}#{render("bookings/calendar/day")}</td>"
   end
 
   def generate_other_month_cell(date, options)

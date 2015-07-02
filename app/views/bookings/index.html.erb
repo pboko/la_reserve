@@ -1,7 +1,8 @@
 <h1>Bookings index</h1>
 
-<%= calendar(:year => 2015, :month => 7, :first_day_of_week => 1) %>
-
+<%= calendar(:year => 2015, :month => 7, :first_day_of_week => 1) do |d|
+      [d.mday, {:class => "specialDay"}]
+end %>
 <table class="table">
 
   <% @bookings.each do |booking| %>

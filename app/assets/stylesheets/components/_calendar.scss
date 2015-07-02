@@ -1,7 +1,29 @@
+th {
+  text-align: center;
+}
+
+.dejdin{
+  padding: 5px;
+  // border: 1px dotted black;
+  p{
+    font-size: 10px;
+  }
+}
+
+#dej{
+
+}
+
+#din{
+
+}
+
 .calendar {
   margin: auto;
   color: white;
   text-align: center;
+  min-width: 600px;
+  width: 70%;
 }
 
 thead tr {
@@ -10,9 +32,9 @@ thead tr {
 
 .monthName th {
   font-weight: normal;
-  text-align: right;
-  padding-top: 1em;
-  padding-bottom: 0.7em;
+  text-align: center;
+  // padding-top: 1em;
+  // padding-bottom: 0.7em;
   color: black;
 }
 
@@ -26,7 +48,7 @@ thead tr {
 }
 
 .otherMonth, .day, .specialDay {
-  padding: 0.7em 1em;
+  padding: 0px;
   border-right: 1px solid #111111;
 }
 
