@@ -1,47 +1,46 @@
-<div id="nav-container">
+<% if !current_user.restaurants.blank? %>
+  <div id="nav-container">
 
-  <h1 class= "text-center"><%= @restaurant.name %></h1>
+    <h1 class= "text-center"><%= @restaurant.name %></h1>
 
-  <% if @restaurant.persisted? %>
-    <button data-toggle="modal" data-target="#myModal2" class="btn btn-primary">Create booking</button>
-  <% end %>
+      <button data-toggle="modal" data-target="#myModal2" class="btn btn-primary">Create booking</button>
 
-  <hr class="dividor">
+    <hr class="dividor">
 
-  <div id="home">
-    <%= link_to root_path do %>
-      <p><i class="fa fa-th-large"></i> Accueil</p>
-    <% end %>
-  </div>
+    <div id="home">
+        <%= link_to restaurant_path(@restaurant) do %>
+          <p><i class="fa fa-th-large"></i> Accueil</p>
+        <% end %>
+    </div>
 
-  <hr class="dividor">
+    <hr class="dividor">
 
-  <div id="calendar">
-    <% if @restaurant.persisted? %>
-      <%= link_to restaurant_bookings_path(@restaurant) do %>
-        <p><i class="fa fa-calendar"></i> Calendrier</p>
+    <div id="calendar">
+        <%= link_to restaurant_bookings_path(@restaurant) do %>
+          <p><i class="fa fa-calendar"></i> Calendrier</p>
+        <% end %>
+        <hr class="dividor">
+    </div>
+
+
+    <div id="contact">
+      <%= link_to customers_path do %>
+        <p><i class="fa fa-users"></i> Contacts</p>
       <% end %>
-      <hr class="dividor">
-    <% end %>
+    </div>
+
+    <hr class="dividor">
+
+    <div id="config">
+      <%= link_to "#" do %>
+        <p><i class="fa fa-cog"></i> Configuration</p>
+      <% end %>
+    </div>
+
+    <hr class="dividor">
+
   </div>
 
-
-  <div id="contact">
-    <%= link_to customers_path do %>
-      <p><i class="fa fa-users"></i> Contacts</p>
-    <% end %>
-  </div>
-
-  <hr class="dividor">
-
-  <div id="config">
-    <%= link_to "#" do %>
-      <p><i class="fa fa-cog"></i> Configuration</p>
-    <% end %>
-  </div>
-
-  <hr class="dividor">
-
-</div>
+<% end %>
 
 <%= render 'bookings/modal' %>
