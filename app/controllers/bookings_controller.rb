@@ -1,10 +1,10 @@
 class BookingsController < ApplicationController
 
-  before_action :find_restaurant, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  before_action :find_restaurant
   before_action :find_booking, only: [:show, :edit, :update, :destroy]
 
   def index
-    @bookings = @restaurant.bookings
+    @bookings = Booking.all
   end
 
   def show
@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
   def create
     @booking = @restaurant.bookings.build(booking_params)
     if @booking.save
-      redirect_to restaurant_bookings_path(@booking)
+      redirect_to restaurant_bookings_path(@restaurant)
     else
       render :new
     end
@@ -28,14 +28,13 @@ class BookingsController < ApplicationController
 
   def update
     if @booking.update(booking_params)
-      redirect_to restaurant_path(@restaurant)
+      redirect_to restaurant_bookings_path(@restaurant)
     else
       render :edit
     end
   end
 
   def destroy
-    @booking = Booking.find(params[:id])
     @booking.destroy
     redirect_to restaurant_bookings_path
   end
@@ -47,7 +46,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_time, :end_time, :date, :pax)
+    params.require(:booking).permit(:start_time, :end_time, :date, :status, :period, :pax, :notes)
   end
 
   def find_booking

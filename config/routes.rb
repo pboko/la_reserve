@@ -6,7 +6,6 @@ Rails.application.routes.draw do
     resources :waiters
     resources :spots
     resources :bookings
-
   end
 
   resources :customers, only: [:index, :show, :new, :create, :edit, :update]
