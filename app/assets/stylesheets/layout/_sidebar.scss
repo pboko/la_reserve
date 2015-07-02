@@ -6,34 +6,35 @@
   overflow: none;
   height: auto;
   position: absolute;
-  background: #FA7470;
+  background: white;
   padding-left: 30px;
   padding-right: 30px;
   padding-top: 25px;
   h1 {
     font-size: 23px;
     text-transform: uppercase;
-    color: white;
+    color: #333333;
     padding-bottom: 30px;
   }
   button {
     width: 100%;
-    background-color: white;
-    color: #FA7470;
-    border-color: #FA7470;
+    background-color: #333333;
+    color: white;
+    border-color: #333333;
     border-radius: 4px;
     &:hover{
-      color: darken(#FA7470, 13.5%);
+      background-color: #333333;
     }
   }
   hr {
-    border-color: white;
+    border-color: #333333;
   }
   p {
-    font-size: 20px;
-    color: white;
+    font-size: 18px;
+    font-weight: 300;
+    color: #333333;
     &:hover {
-      color: lighten(#FA7470, 50%);
+      color: #FA7470;
     }
   i {
     margin-right: 10px;
