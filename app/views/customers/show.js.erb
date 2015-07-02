@@ -1,0 +1,6 @@
+ // Create a paragraph for the new review. But hide it.
+  var customer = $("<%= j render 'customers/show', customer: @customer %>"); //.hide();
+  // Add it to the DOM, at the end of the existing reviews. It's still hidden.
+  $('#customer_show').html(customer);
+  // Show the new review with an animation!
+  // customer.slideRight();

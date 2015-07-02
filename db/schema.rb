@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 20150701171219) do
     t.datetime "updated_at",    null: false
     t.string   "status"
     t.text     "notes"
-    t.string   "service"
     t.string   "period"
   end
 
