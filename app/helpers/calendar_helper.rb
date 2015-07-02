@@ -121,7 +121,9 @@ module CalendarHelper
 
     # TODO Use some kind of builder instead of straight HTML
     cal = %(<table id="#{options[:table_id]}" class="#{options[:table_class]}" border="0" cellspacing="0" cellpadding="0" summary="#{options[:summary]}">)
+
     cal << %(<thead>)
+
 
     if (options[:month_header])
       cal << %(<tr>)
@@ -133,6 +135,7 @@ module CalendarHelper
       end
       cal << %(<th colspan="#{colspan}" class="#{options[:month_name_class]}">#{options[:calendar_title]}</th>)
       cal << %(<th colspan="2">#{options[:next_month_text]}</th>) if options[:next_month_text]
+
       cal << %(</tr>)
     end
 
@@ -274,9 +277,22 @@ module CalendarHelper
     [0, 6].include?(date.wday)
   end
 
+def next_month(date)
+   date + 1.month
+end
+
+def previous_month(date)
+  date - 1.month
+end
+
+
+
+
+
   class Engine < Rails::Engine # :nodoc:
     ActiveSupport.on_load(:action_view) do
       include CalendarHelper
     end
   end if defined? Rails::Engine
+
 end

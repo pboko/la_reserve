@@ -5,6 +5,11 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = @restaurant.bookings
+    if params[:date]
+      @date = Date.parse(params[:date])
+    else
+      @date = Date.today
+    end
   end
 
   def show

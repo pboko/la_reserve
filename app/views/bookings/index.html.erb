@@ -1,8 +1,14 @@
 <h1>Bookings index</h1>
 
-<%= calendar(:year => 2015, :month => 7, :first_day_of_week => 1) do |d|
+<div class="container text-center" id="chevrons">
+<%= link_to "<<", :date => previous_month(@date) %>
+<%= link_to ">>", :date => next_month(@date) %>
+</div>
+<%= calendar(:year => @date.year, :month => @date.month, :first_day_of_week => 1) do |d|
       [d.mday, {:class => "specialDay"}]
 end %>
+
+
 <table class="table">
 
   <% @bookings.each do |booking| %>
@@ -33,6 +39,6 @@ end %>
 
 </table>
 
-
+<!-- <td data-year='2015' class='year'> -->
 
 

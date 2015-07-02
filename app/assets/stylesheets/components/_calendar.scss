@@ -10,12 +10,21 @@ th {
   }
 }
 
-#dej{
+#couverts{
+  font-size: 15px;
+}
 
+#file_attente{
+  font-size: 12px;
+  color: #B76500;
+}
+
+#dej{
+background-color: #C6FACA;
 }
 
 #din{
-
+background-color: #FCA6A6;
 }
 
 .calendar {
@@ -39,12 +48,13 @@ thead tr {
 }
 
 .dayName th {
-  font-size: 0.7em;
-  padding-top: 0.6em;
-  padding-bottom: 0.3em;
+  font-size: 0.9em;
+  padding-top: 0.9em;
+  padding-bottom: 0.8em;
   background-color: #303030;
   color: white;
   border-bottom: 1px solid white;
+  // border-radius: 5px;
 }
 
 .otherMonth, .day, .specialDay {
@@ -66,9 +76,9 @@ thead tr {
   color: black;
 }
 .specialDay a, .specialDay a:visited, .specialDay a:hover {
-  color: white;
+  color: black;
   text-decoration: none;
-  padding: 1em;
+  padding: 0em;
 }
 .specialDay a:hover {
   color: white;
@@ -85,3 +95,13 @@ thead tr {
   background-color: #222;
 }
 
+#chevrons {
+  a{
+  padding-left: 80px;
+  padding-right: 80px;
+  font-size: 20px;
+  color: black;
+  position: relative;
+  top: 25px;
+  }
+}
