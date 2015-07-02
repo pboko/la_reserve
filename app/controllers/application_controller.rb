@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  include Pundit
+  # include Pundit
 
   protect_from_forgery with: :exception
 
@@ -7,10 +7,10 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!, unless: :pages_controller?
 
-  after_action :verify_authorized, except:  :index, unless: :devise_or_pages_controller?
-  after_action :verify_policy_scoped, only: :index, unless: :devise_or_pages_controller?
+  # after_action :verify_authorized, except:  :index, unless: :devise_or_pages_controller?
+  # after_action :verify_policy_scoped, only: :index, unless: :devise_or_pages_controller?
 
-  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
   ## ...
