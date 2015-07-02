@@ -14,7 +14,6 @@
 #  updated_at    :datetime         not null
 #  status        :string
 #  notes         :text
-#  service       :string
 #  period        :string
 #
 # Indexes

@@ -1,15 +1,15 @@
 /* -------------------------------------
  * Colors & Fonts
  * ------------------------------------- */
-$navbar-color: $gray-light;
-$navbar-hover-color: white;
+$navbar-color: white;
+$navbar-hover-color: lighten(#7A1B2C, 50%);
 $navbar-font-family: $navbar-font;
 $navbar-font-size: 14px;
 $navbar-text-transform: capitalize;
 $navbar-font-weight: 300;
 $navbar-letter-spacing: 1.5px;
 $navbar-font-family: $navbar-font;
-$navbar-bg: #333333;
+$navbar-bg: #7A1B2C;
 
 /* -------------------------------------
  * Box model
