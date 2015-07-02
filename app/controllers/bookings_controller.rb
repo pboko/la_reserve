@@ -1,10 +1,10 @@
 class BookingsController < ApplicationController
 
-  before_action :find_restaurant, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  before_action :find_restaurant
   before_action :find_booking, only: [:show, :edit, :update, :destroy]
 
   def index
-    @bookings = @restaurant.bookings
+    @bookings = Booking.all
   end
 
   def show
