@@ -11,7 +11,7 @@ $line-height-base:        $base-height;
 $headings-font-family:    $header-font;
 
 // Semantic color scheme
-$brand-primary:   $blue;
+$brand-primary:   $dark-grey;
 $brand-success:   $green;
 $brand-info:      $yellow;
 $brand-danger:    $red;
@@ -24,8 +24,8 @@ $border-radius-small: 2px;
 
 // Links style
 $link-hover-decoration: none;
-$link-hover-color: $blue;
-$link-color: $green;
+$link-hover-color: darken($burgundy, 10%);
+$link-color: $burgundy;
 
 // Grid padding
 $grid-gutter-width: 0 ;

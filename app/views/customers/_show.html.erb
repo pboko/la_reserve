@@ -1,9 +1,17 @@
 <div class="padded-left">
-  <h1><%= customer.full_name %>
-    <%= link_to edit_customer_path(customer) do %>
-      <i class="fa fa-pencil-square"></i>
-    <% end %>
-  </h1>
+  <div class="row">
+    <div class="col-md-9">
+      <h2><%= customer.full_name %></h2>
+    </div>
+    <div class="col-md-3 text-right">
+      <h2>
+        <%= link_to edit_customer_path(customer) do %>
+          <i class="fa fa-pencil-square"></i>
+        <% end %>
+      </h2>
+    </div>
+  </div>
+
   <hr class="dividor">
   <div class="row">
     <div class="col-md-9">
@@ -14,7 +22,7 @@
         <p><%= customer.phone_number%></p>
       <% end %>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 text-right">
       <a href="#" class="btn btn-primary">Add a booking</a>
       <%#= link_to "Add a booking", class: "btn btn-primary" %>
     </div>

@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :set_restaurant, if: :user_signed_in?
+  before_action :set_restaurants, if: :user_signed_in?
 
   before_action :authenticate_user!, unless: :pages_controller?
 
@@ -34,6 +35,9 @@ class ApplicationController < ActionController::Base
     @booking    = Booking.new
   end
 
+  def set_restaurants
+    @restaurants = current_user.restaurants
+  end
 
   def user_not_authorized
     flash[:error] = I18n.t('controllers.application.user_not_authorized', default: "You can't access this page.")
