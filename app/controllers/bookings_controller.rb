@@ -4,10 +4,19 @@ class BookingsController < ApplicationController
   before_action :find_booking, only: [:show, :edit, :update, :destroy]
 
   def index
+
+    # @bookings = @restaurant.bookings
+    if params[:date]
+      @date = Date.parse(params[:date])
+    else
+      @date = Date.today
+    end
+
     @bookings = []
     @bookings = Booking.all
     @diner_booking_total = tot_diner(@bookings)
     @lunch_booking_total = tot_lunch(@bookings)
+
   end
 
   def show

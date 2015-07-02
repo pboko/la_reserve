@@ -1,3 +1,47 @@
+
+<h1>Bookings index</h1>
+
+<div class="container text-center" id="chevrons">
+<%= link_to "<<", :date => previous_month(@date) %>
+<%= link_to ">>", :date => next_month(@date) %>
+</div>
+<%= calendar(:year => @date.year, :month => @date.month, :first_day_of_week => 1) do |d|
+      [d.mday, {:class => "specialDay"}]
+end %>
+
+
+<table class="table">
+
+  <% @bookings.each do |booking| %>
+    <tbody>
+      <tr>
+        <td>
+          <%= booking.customer.last_name %>
+        </td>
+        <td>
+          <%= booking.pax %>
+        </td>
+        <td>
+          <%= booking.date %>
+        </td>
+        <td>
+          <%= booking.start_time %>
+        </td>
+        <td>
+          <%= booking.end_time %>
+        </td>
+        <td><%= link_to "Delete", restaurant_booking_path(booking),
+          method: :delete,
+          data: { confirm: "Are you sure?" } %>
+        </td>
+      </tr>
+    </tbody>
+  <% end %>
+
+</table>
+
+<!-- <td data-year='2015' class='year'> -->
+
 <div class="margin-left">
   <h2><%= Date.today.strftime("%a %d %b %Y") %> </h2>
 
@@ -130,5 +174,6 @@
     </div>
   </div>
 </div>
+
 
 

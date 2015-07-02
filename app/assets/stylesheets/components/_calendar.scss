@@ -1,0 +1,107 @@
+th {
+  text-align: center;
+}
+
+.dejdin{
+  padding: 5px;
+  // border: 1px dotted black;
+  p{
+    font-size: 10px;
+  }
+}
+
+#couverts{
+  font-size: 15px;
+}
+
+#file_attente{
+  font-size: 12px;
+  color: #B76500;
+}
+
+#dej{
+background-color: #C6FACA;
+}
+
+#din{
+background-color: #FCA6A6;
+}
+
+.calendar {
+  margin: auto;
+  color: white;
+  text-align: center;
+  min-width: 600px;
+  width: 70%;
+}
+
+thead tr {
+  color: black;
+}
+
+.monthName th {
+  font-weight: normal;
+  text-align: center;
+  // padding-top: 1em;
+  // padding-bottom: 0.7em;
+  color: black;
+}
+
+.dayName th {
+  font-size: 0.9em;
+  padding-top: 0.9em;
+  padding-bottom: 0.8em;
+  background-color: #303030;
+  color: white;
+  border-bottom: 1px solid white;
+  // border-radius: 5px;
+}
+
+.otherMonth, .day, .specialDay {
+  padding: 0px;
+  border-right: 1px solid #111111;
+}
+
+.otherMonth {
+  color: #999999;
+  background-color: #4f4f5b;
+}
+
+.day, .specialDay {
+  border-bottom: 1px solid #111111;
+  background-color: #333333;
+}
+.specialDay {
+  background-color: #a8a8a8;
+  color: black;
+}
+.specialDay a, .specialDay a:visited, .specialDay a:hover {
+  color: black;
+  text-decoration: none;
+  padding: 0em;
+}
+.specialDay a:hover {
+  color: white;
+  background-color: black;
+}
+.weekendDay {
+  background-color: #787888;
+}
+.today {
+  background-color: white;
+  color: black;
+}
+.weekNumber {
+  background-color: #222;
+}
+
+#chevrons {
+  a{
+  padding-left: 80px;
+  padding-right: 80px;
+  font-size: 20px;
+  color: black;
+  position: relative;
+  top: 25px;
+  }
+}
