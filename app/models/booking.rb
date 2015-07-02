@@ -36,4 +36,5 @@ class Booking < ActiveRecord::Base
   validates :pax, presence: true
 
   scope :for_period, ->(period) { where(:period => period.to_s.capitalize) }
+  scope :for_date, ->(date) { where(:date => date) }
 end

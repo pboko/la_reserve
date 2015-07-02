@@ -4,7 +4,10 @@ class BookingsController < ApplicationController
   before_action :find_booking, only: [:show, :edit, :update, :destroy]
 
   def index
+    @bookings = []
     @bookings = Booking.all
+    @diner_booking_total = tot_diner(@bookings)
+    @lunch_booking_total = tot_lunch(@bookings)
   end
 
   def show
@@ -39,7 +42,26 @@ class BookingsController < ApplicationController
     redirect_to restaurant_bookings_path
   end
 
+
+
   private
+
+  def tot_lunch(bookings)
+    count = 0
+    @bookings.for_period(:midi).for_date(Date.today).each do |booking|
+      count += booking.pax
+    end
+    return count
+  end
+
+  def tot_diner(bookings)
+    count = 0
+    bookings.for_period(:soir).for_date(Date.today).each do |booking|
+      count += booking.pax
+    end
+    return count
+  end
+
 
   def find_restaurant
     @restaurant = Restaurant.find(params[:restaurant_id])
@@ -52,4 +74,5 @@ class BookingsController < ApplicationController
   def find_booking
   @booking = Booking.find(params[:id])
   end
+
 end
