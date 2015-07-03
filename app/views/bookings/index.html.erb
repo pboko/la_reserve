@@ -1,107 +1,51 @@
+<div class="margin-top">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-2">
+        <div class="container text-center" id="chevrons">
+          <%= link_to :date => previous_month(@date) do  %>
+            <i class="fa fa-arrow-left"></i>
+          <% end %>
+          <%= link_to :date => next_month(@date) do  %>
+            <i class="fa fa-arrow-right"></i>
+          <% end %>
+        </div>
+        <%= calendar(:year => @date.year, :month => @date.month, :first_day_of_week => 1) do |d|
+              [d.mday, {:class => "specialDay"}]
+        end %>
 
-<h1>Bookings index</h1>
-
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-10 col-md-offset-2">
-      <div class="container"><h1><strong><%= @date.year %></strong></h1></div>
-      <div class="container text-center" id="chevrons">
-      <%= link_to "<<", :date => previous_month(@date) %>
-      <%= link_to ">>", :date => next_month(@date) %>
       </div>
-      <%= calendar(:year => @date.year, :month => @date.month, :first_day_of_week => 1) do |d|
-            [d.mday, {:class => "specialDay"}]
-      end %>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-10 col-md-offset-2">
-        <h2><%= Date.today.strftime("%a %d %b %Y") %> </h2>
+    <div class="row">
+      <div class="col-md-10 col-md-offset-2">
+          <h2><%= Date.today.strftime("%a %d %b %Y") %> </h2>
 
-          <ul class="nav nav-pills ">
-            <li role="presentation" class="active switch-button"><a href="#resa-midi" data-toggle="tab">Midi</a></li>
-            <li role="presentation" class="switch-button"><a href="#resa-soir" data-toggle="tab">Soir</a></li>
-          </ul>
+            <ul class="nav nav-pills ">
+              <li role="presentation" class="active switch-button"><a href="#resa-midi" data-toggle="tab">Midi</a></li>
+              <li role="presentation" class="switch-button"><a href="#resa-soir" data-toggle="tab">Soir</a></li>
+            </ul>
 
-      <div class="row">
-        <div class="col-md-11">
-          <div class="panel panel-default">
+        <div class="row">
+          <div class="col-md-11">
+            <div class="panel panel-default">
 
-              <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="resa-midi">
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th><i class="fa fa-clock-o"></i></th>
-                        <th>Statut</th>
-                        <th><i class="fa fa-cutlery"></i></th>
-                        <th>Client</th>
-                        <th>Table</th>
-                        <th>Notes</th>
-                        <th></th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <% @bookings.for_period(:midi).for_date(Date.today).each do |booking| %>
-                      <tr>
-                        <td>
-                          <%= booking.start_time.hour %>h<%= booking.start_time.min %>
-                        </td>
-                        <td>
-                          <%= booking.status %>
-                        </td>
-                        <td>
-                          <%= booking.pax %>
-                        </td>
-                        <td>
-                          Toto
-                        </td>
-                        <td>
-                          <%= booking.spots.name %>
-                        </td>
-                        <td>
-                          <%= booking.notes %>
-                        </td>
-                        <td class="index-icons">
-                          <%= link_to edit_restaurant_booking_path(@restaurant, booking) do %>
-                            <i class="fa fa-pencil"></i>
-                          <%end %>
-                        </td>
-                        <td class="index-icons">
-                          <%= link_to restaurant_booking_path(@restaurant, booking),
-                          method: :delete,
-                          data: { confirm: "Are you sure?" } do %>
-                            <i class="fa fa-trash-o"></i>
-                          <% end %>
-                        </td>
-                      </tr>
-                      <% end %>
-                    </tbody>
-                  </table>
-
-                  <div class="total">
-                    <p>Total : <%= @lunch_booking_total %> couverts </p>
-                  </div>
-                </div>
-
-                <div role="tabpanel" class="tab-pane" id="resa-soir">
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th><i class="fa fa-clock-o"></i></th>
-                        <th>Statut</th>
-                        <th><i class="fa fa-cutlery"></i></th>
-                        <th>Client</th>
-                        <th>Table</th>
-                        <th>Notes</th>
-                        <th></th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <% @bookings.for_period(:soir).for_date(Date.today).each do |booking| %>
+                <div class="tab-content">
+                  <div role="tabpanel" class="tab-pane active" id="resa-midi">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th><i class="fa fa-clock-o"></i></th>
+                          <th>Statut</th>
+                          <th><i class="fa fa-cutlery"></i></th>
+                          <th>Client</th>
+                          <th>Table</th>
+                          <th>Notes</th>
+                          <th></th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% @bookings.for_period(:midi).for_date(Date.today).each do |booking| %>
                         <tr>
                           <td>
                             <%= booking.start_time.hour %>h<%= booking.start_time.min %>
@@ -134,19 +78,77 @@
                             <% end %>
                           </td>
                         </tr>
-                      <% end %>
-                    </tbody>
-                  </table>
+                        <% end %>
+                      </tbody>
+                    </table>
 
-                  <div class="total">
-                    <p>Total : <%= @diner_booking_total %> couverts </p>
+                    <div class="total">
+                      <p>Total : <%= @lunch_booking_total %> couverts </p>
+                    </div>
                   </div>
 
+                  <div role="tabpanel" class="tab-pane" id="resa-soir">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th><i class="fa fa-clock-o"></i></th>
+                          <th>Statut</th>
+                          <th><i class="fa fa-cutlery"></i></th>
+                          <th>Client</th>
+                          <th>Table</th>
+                          <th>Notes</th>
+                          <th></th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% @bookings.for_period(:soir).for_date(Date.today).each do |booking| %>
+                          <tr>
+                            <td>
+                              <%= booking.start_time.hour %>h<%= booking.start_time.min %>
+                            </td>
+                            <td>
+                              <%= booking.status %>
+                            </td>
+                            <td>
+                              <%= booking.pax %>
+                            </td>
+                            <td>
+                              Toto
+                            </td>
+                            <td>
+                              <%= booking.spots.name %>
+                            </td>
+                            <td>
+                              <%= booking.notes %>
+                            </td>
+                            <td class="index-icons">
+                              <%= link_to edit_restaurant_booking_path(@restaurant, booking) do %>
+                                <i class="fa fa-pencil"></i>
+                              <%end %>
+                            </td>
+                            <td class="index-icons">
+                              <%= link_to restaurant_booking_path(@restaurant, booking),
+                              method: :delete,
+                              data: { confirm: "Are you sure?" } do %>
+                                <i class="fa fa-trash-o"></i>
+                              <% end %>
+                            </td>
+                          </tr>
+                        <% end %>
+                      </tbody>
+                    </table>
+
+                    <div class="total">
+                      <p>Total : <%= @diner_booking_total %> couverts </p>
+                    </div>
+
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+      </div>
     </div>
   </div>
 </div>

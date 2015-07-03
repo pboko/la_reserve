@@ -26,7 +26,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = @restaurant.bookings.build(booking_params)
-    if @booking.save
+    if @booking.save!
       redirect_to restaurant_bookings_path(@restaurant)
     else
       render :new
