@@ -17,6 +17,7 @@
 
 class Customer < ActiveRecord::Base
   has_many :restaurant_customers
+  has_many :restaurants, through: :restaurant_customers
   has_many :bookings
 
   validates :first_name, presence: true

@@ -1,12 +1,14 @@
-<% if !current_user.restaurants.blank? %>
- <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-     <div class="modal-dialog" role="document">
-       <div class="modal-content panel panel-default">
-         <div class="modal-header panel-heading">
-                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                 <h3 class="panel-title" id="myModalLabel">Prendre une réservation</h3>
-               </div>
-         <div class="modal-body panel-body text-center">
+<% if @restaurant.nil? %>
+  <% else %>
+    <% if !current_user.restaurants.blank? && @restaurant.persisted? %>
+      <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content panel panel-default">
+            <div class="modal-header panel-heading">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h3 class="panel-title" id="myModalLabel">Prendre une réservation</h3>
+            </div>
+            <div class="modal-body panel-body text-center">
            <%= form_for [@restaurant, @booking] do |f| %>
              <%#= f.error_notification %>
              <hr class="margin-top-30">
@@ -63,10 +65,11 @@
              <br>
              <hr class="margin-top-30">
              <%= f.submit "Réserver", class: "btn btn-primary btn-full-width", id: "submit" %>
-
            <% end %>
          </div>
        </div>
      </div>
    </div>
+  <% end %>
 <% end %>
+

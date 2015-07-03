@@ -57,8 +57,6 @@ class BookingsController < ApplicationController
     redirect_to restaurant_bookings_path
   end
 
-
-
   private
 
   def total_cuttlery(period, bookings)
