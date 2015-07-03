@@ -28,6 +28,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = @restaurant.bookings.build(booking_params)
+    params[:customer]
     if @booking.save
       redirect_to restaurant_bookings_path(@restaurant)
     else
@@ -77,7 +78,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_time, :end_time, :date, :status, :period, :pax, :notes)
+    params.require(:booking).permit(:start_time, :date, :status, :period, :pax, :notes)
   end
 
   def find_booking
