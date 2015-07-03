@@ -5,7 +5,7 @@
         <div class="col-md-2 col-md-offset-2">
           <div class="bordered-right">
             <div class="margin-bottom">
-              <%= link_to new_customer_path do %>
+              <%= link_to new_restaurant_customer_path(@restaurant) do %>
                 <p><i class="fa fa-plus"></i> Add a customer</p>
               <% end %>
             </div>
@@ -13,9 +13,10 @@
             <div id="list-customers">
 
               <ul>
-                <% @customers.each do |customer| %>
+                <% @restaurant.restaurant_customers.each do |restaurant_customer| %>
                   <li>
-                    <%= link_to customer.full_name, customer_path(customer), remote: true %>
+                    <% @customer = Customer.find(restaurant_customer.customer_id) %>
+                    <%= link_to @customer.full_name, restaurant_customer_path(@restaurant, @customer), remote: true %>
                   </li>
                 <% end %>
               </ul>

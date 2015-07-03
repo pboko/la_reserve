@@ -3,7 +3,7 @@
     <div class="col-md-4 col-md-offset-4">
       <h1>New Customer</h1>
 
-      <%= simple_form_for(@customer) do |f| %>
+      <%= simple_form_for([@restaurant, @customer]) do |f| %>
         <%= f.error_notification %>
 
 
