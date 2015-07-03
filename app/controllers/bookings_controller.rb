@@ -15,6 +15,11 @@ class BookingsController < ApplicationController
     @diner_booking_total = total_cuttlery(:soir, @bookings)
     @lunch_booking_total = total_cuttlery(:midi, @bookings)
 
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
   end
 
   def show
@@ -55,7 +60,7 @@ class BookingsController < ApplicationController
 
   def total_cuttlery(period, bookings)
     count = 0
-    bookings.for_period(period).for_date(Date.today).each do |booking|
+    bookings.for_period(period).for_date(@date).each do |booking|
       count += booking.pax
     end
     return count
