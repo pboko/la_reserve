@@ -32,6 +32,7 @@ class Booking < ActiveRecord::Base
 
   validates :date, presence: true
   validates :start_time, presence: true
+
   # validates :end_time, presence: true
   validates :pax, presence: true
 

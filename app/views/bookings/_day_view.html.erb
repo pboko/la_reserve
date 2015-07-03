@@ -20,7 +20,6 @@
                         <th>Statut</th>
                         <th><i class="fa fa-cutlery"></i></th>
                         <th>Client</th>
-                        <th>Table</th>
                         <th>Notes</th>
                         <th></th>
                         <th></th>
@@ -39,10 +38,7 @@
                           <%= booking.pax %>
                         </td>
                         <td>
-                          Toto
-                        </td>
-                        <td>
-                          <%= booking.spots.name %>
+                          <%= booking.customer.first_name if booking.customer.present? %>
                         </td>
                         <td>
                           <%= booking.notes %>
@@ -65,7 +61,7 @@
                   </table>
 
                   <div class="total">
-                    <p>Total : <%= lunch_booking_total %> couverts </p>
+                    <h2>Total : <%= lunch_booking_total %> couverts </h2>
                   </div>
                 </div>
 
@@ -77,7 +73,6 @@
                         <th>Statut</th>
                         <th><i class="fa fa-cutlery"></i></th>
                         <th>Client</th>
-                        <th>Table</th>
                         <th>Notes</th>
                         <th></th>
                         <th></th>
@@ -94,9 +89,6 @@
                           </td>
                           <td>
                             <%= booking.pax %>
-                          </td>
-                          <td>
-                            Toto
                           </td>
                           <td>
                             <%= booking.spots.name %>
@@ -122,7 +114,7 @@
                   </table>
 
                   <div class="total">
-                    <p>Total : <%= diner_booking_total %> couverts </p>
+                    <h2>Total : <%= diner_booking_total %> couverts </h2>
                   </div>
 
                 </div>

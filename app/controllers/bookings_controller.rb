@@ -31,7 +31,15 @@ class BookingsController < ApplicationController
 
   def create
     @booking = @restaurant.bookings.build(booking_params)
-    if @booking.save!
+    params[:customer]
+    params[:spot]
+
+    @customer = Customer.new(first_name: params[:first_name])
+    @customer.save
+    @booking.customer = @customer
+    @booking.save
+
+    if @booking.save
       redirect_to restaurant_bookings_path(@restaurant)
     else
       render :new
@@ -53,8 +61,6 @@ class BookingsController < ApplicationController
     @booking.destroy
     redirect_to restaurant_bookings_path
   end
-
-
 
   private
 
