@@ -5,17 +5,15 @@ class BookingsController < ApplicationController
 
   def index
 
-    # @bookings = @restaurant.bookings
     if params[:date]
       @date = Date.parse(params[:date])
     else
       @date = Date.today
     end
 
-    @bookings = []
-    @bookings = Booking.all
-    @diner_booking_total = tot_diner(@bookings)
-    @lunch_booking_total = tot_lunch(@bookings)
+    @bookings = @restaurant.bookings
+    @diner_booking_total = total_cuttlery(:soir, @bookings)
+    @lunch_booking_total = total_cuttlery(:midi, @bookings)
 
   end
 
@@ -56,22 +54,13 @@ class BookingsController < ApplicationController
 
   private
 
-  def tot_lunch(bookings)
+  def total_cuttlery(period, bookings)
     count = 0
-    @bookings.for_period(:midi).for_date(Date.today).each do |booking|
+    bookings.for_period(period).for_date(Date.today).each do |booking|
       count += booking.pax
     end
     return count
   end
-
-  def tot_diner(bookings)
-    count = 0
-    bookings.for_period(:soir).for_date(Date.today).each do |booking|
-      count += booking.pax
-    end
-    return count
-  end
-
 
   def find_restaurant
     @restaurant = Restaurant.find(params[:restaurant_id])

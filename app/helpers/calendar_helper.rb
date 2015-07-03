@@ -170,7 +170,7 @@ module CalendarHelper
       today = (Time.respond_to?(:zone) && !(zone = Time.zone).nil? ? zone.now.to_date : Date.today)
       cell_attrs[:class] += " today" if (cur == today) and options[:show_today]
 
-      cal << generate_cell(cell_text, cell_attrs)
+      cal << generate_cell(cell_text, cell_attrs, cur)
 
       if cur.wday == last_weekday
         cal << %(</tr>)
@@ -240,9 +240,9 @@ module CalendarHelper
     date - days_to_beg
   end
 
-  def generate_cell(cell_text, cell_attrs)
+  def generate_cell(cell_text, cell_attrs, date)
     cell_attrs = cell_attrs.map {|k, v| %(#{k}="#{v}") }.join(" ")
-    "<td #{cell_attrs}>#{cell_text}#{render("bookings/calendar/day")}</td>"
+    "<td #{cell_attrs}>#{cell_text}#{render(partial: 'bookings/calendar/day', locals: { date: date })}</td>"
   end
 
   def generate_other_month_cell(date, options)
@@ -260,7 +260,7 @@ module CalendarHelper
       cell_text += %(<span class="hidden"> #{month_names[date.month]}</span>)
     end
 
-    generate_cell(date.day, cell_attrs)
+    generate_cell(date.day, cell_attrs, date)
   end
 
   # Calculates id for th element.

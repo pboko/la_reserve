@@ -25,8 +25,11 @@
 .switch-button{
 width: 100px;
 background-color: #7A1B2C;
-color: white;
+color: white !important;
 border-radius: 5px;
+  a {
+    color: white;
+  }
 
   &.active {
     a {

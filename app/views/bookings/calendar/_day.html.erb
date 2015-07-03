@@ -6,15 +6,16 @@
 <div class="row">
 <a href="#">
 <div class= "col-xs-6 dejdin" id="dej">
-  <p class= "dejdin">Dej</p>
-  <span class= "dejdin" id="couverts">47/50</span>
+  <p class= "dejdin">Midi</p>
+
+  <span class= "dejdin" id="couverts"><%= total_cuttlery_for(:midi, date, @bookings) %>/<%= @restaurant.capacity %></span>
   <span class= "dejdin" id="file_attente">(4)</span>
 </div>
 </a>
 <a href="#">
 <div class= "col-xs-6 dejdin" id="din">
-  <p class= "dejdin">Din</p>
-  <span class= "dejdin" id="couverts">50/50</span>
+  <p class= "dejdin">Soir</p>
+  <span class= "dejdin" id="couverts"><%= total_cuttlery_for(:soir, date, @bookings) %>/<%= @restaurant.capacity %></span>
   <span class= "dejdin" id="file_attente">(4)</span>
 </div>
 </a>
