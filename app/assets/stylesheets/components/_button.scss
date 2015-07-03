@@ -8,6 +8,13 @@
     background-color: $burgundy;
     border-color: $burgundy;
   }
+  &:focus {
+    outline: inherit;
+  }
+  &:active {
+    outline: 0;
+    box-shadow: none;
+  }
 }
 
 .btn-full-width {
