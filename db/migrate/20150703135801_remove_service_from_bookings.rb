@@ -1,5 +1,5 @@
 class RemoveServiceFromBookings < ActiveRecord::Migration
   def change
-    remove_column :bookings, :service
+    remove_column :bookings, :service, :string
   end
 end

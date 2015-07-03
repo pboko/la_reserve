@@ -14,9 +14,7 @@
 #  updated_at    :datetime         not null
 #  status        :string
 #  notes         :text
-#  service       :string
 #  period        :string
-#  spot          :string
 #
 # Indexes
 #
@@ -34,7 +32,7 @@ class Booking < ActiveRecord::Base
 
   validates :date, presence: true
   validates :start_time, presence: true
-  validates :end_time, presence: true
+  #validates :end_time, presence: true
   validates :pax, presence: true
 
   scope :for_period, ->(period) { where(:period => period.to_s.capitalize) }
