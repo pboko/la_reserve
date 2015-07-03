@@ -133,7 +133,9 @@ module CalendarHelper
       else
         colspan = options[:show_week_numbers] ? 8 : 7
       end
+
       cal << %(<th colspan="#{colspan}" class="#{options[:month_name_class]}">#{options[:calendar_title]}, #{@date.year}</th>)
+
       cal << %(<th colspan="2">#{options[:next_month_text]}</th>) if options[:next_month_text]
 
       cal << %(</tr>)

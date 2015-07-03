@@ -5,19 +5,20 @@
 </div> -->
 <div class="row">
 <hr>
-<a href="#">
-<div class= "col-xs-6 dejdin" id="dej">
-  <p class= "dejdin">Midi</p>
+  <%= link_to(restaurant_bookings_path(@restaurant, date: date), remote: true) do %>
+  <div class= "col-xs-6 dejdin" id="dej">
+    <p class= "dejdin">Midi</p>
+    <span class= "dejdin" id="couverts"><%= total_cuttlery_for(:midi, date, @bookings) %>/<%= @restaurant.capacity %></span>
+    <span class= "dejdin" id="file_attente">(4)</span>
+  </div>
+<% end %>
 
-  <span class= "dejdin" id="couverts"><%= total_cuttlery_for(:midi, date, @bookings) %>/<%= @restaurant.capacity %></span>
-  <span class= "dejdin" id="file_attente">(4)</span>
-</div>
-</a>
-<a href="#">
-<div class= "col-xs-6 dejdin" id="din">
-  <p class= "dejdin">Soir</p>
-  <span class= "dejdin" id="couverts"><%= total_cuttlery_for(:soir, date, @bookings) %>/<%= @restaurant.capacity %></span>
-  <span class= "dejdin" id="file_attente">(4)</span>
-</div>
-</a>
+
+<%= link_to(restaurant_bookings_path(@restaurant, date: date), remote: true) do %>
+  <div class= "col-xs-6 dejdin" id="din">
+    <p class= "dejdin">Soir</p>
+    <span class= "dejdin" id="couverts"><%= total_cuttlery_for(:soir, date, @bookings) %>/<%= @restaurant.capacity %></span>
+    <span class= "dejdin" id="file_attente">(4)</span>
+  </div>
+  <% end %>
 </div>

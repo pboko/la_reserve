@@ -15,6 +15,11 @@ class BookingsController < ApplicationController
     @diner_booking_total = total_cuttlery(:soir, @bookings)
     @lunch_booking_total = total_cuttlery(:midi, @bookings)
 
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
   end
 
   def show
@@ -26,7 +31,15 @@ class BookingsController < ApplicationController
 
   def create
     @booking = @restaurant.bookings.build(booking_params)
-    if @booking.save!
+    params[:customer]
+    params[:spot]
+
+    @customer = Customer.new(first_name: params[:first_name])
+    @customer.save
+    @booking.customer = @customer
+    @booking.save
+
+    if @booking.save
       redirect_to restaurant_bookings_path(@restaurant)
     else
       render :new
@@ -49,13 +62,11 @@ class BookingsController < ApplicationController
     redirect_to restaurant_bookings_path
   end
 
-
-
   private
 
   def total_cuttlery(period, bookings)
     count = 0
-    bookings.for_period(period).for_date(Date.today).each do |booking|
+    bookings.for_period(period).for_date(@date).each do |booking|
       count += booking.pax
     end
     return count

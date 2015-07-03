@@ -1,54 +1,60 @@
+<div class="modal-body panel-body text-center">
+ <%= form_for [@restaurant, @booking] do |f| %>
+   <%#= f.error_notification %>
+   <hr class="margin-top-30">
+   <div class="form-group" id= "row-1">
+     <%= f.label :date, "Date *", class: "col-sm-2 control-label" %>
+     <div class="col-sm-4 margin-left-neg">
+       <%= f.text_field :date, class: "form-control", placeholder: 'Date', :data => {:provide => :datepicker, 'date-format' => "dd/mm/yyyy"} %>
+     </div>
+     <%= f.label :pax, "Pax *", class: "col-sm-1  control-label margin-left-15" %>
+     <div class="col-sm-5">
+       <%= f.number_field :pax, class: "form-control", placeholder: 'Nombre de couverts' %>
+     </div>
+   </div>
+   <br>
+   <hr class="margin-top-30">
+   <div class="form-group" id="row-2">
+     <%= f.label :start_time, "A *", class: "col-sm-1  control-label" %>
+     <div class="col-sm-2">
+       <%= f.time_field :start_time, class: "form-control margin-left-neg12"%>
+     </div>
+     <%= label_tag(:spot, "Table", :class => "col-sm-2  control-label") %>
+     <div class="col-sm-3">
+       <%= text_field_tag(:spot, nil, :class => "form-control margin-left-neg12")%>
+     </div>
+     <%= f.label :period, "Service", class: "col-sm-2 control-label" %>
+     <div class="col-sm-2">
+       <%= f.select :period, ["Midi", "Soir"], {}, { class: "form-control margin-left-neg12" } %>
+     </div>
+   </div>
+   <br>
+   <hr class="margin-top-30">
+   <div class="form-group">
+     <%= label_tag(:customer, "Client", :class => "col-sm-2  control-label") %>
+     <div class="col-sm-10">
+       <%= text_field_tag(:customer, nil, :class => "form-control") %>
+     </div>
+   </div>
+   <br>
+   <hr class="margin-top-30">
+   <div class="form-group">
+     <%= f.label :status, "Status", class: "col-sm-2  control-label" %>
+     <div class="col-sm-10">
+       <%= f.select :status, ["Reservé", "Confirmé", "Assis", "Arrivés", "Message", "Annulée", "No show"], {}, class: "form-control" %>
+     </div>
+   </div>
+   <br>
+   <hr class="margin-top-30">
+   <div class="form-group">
+     <%= f.label :notes, "Notes", class: "col-sm-2  control-label" %>
+     <div class="col-sm-10">
+       <%= f.text_field :notes, class: "form-control" %>
+     </div>
+   </div>
+   <br>
+   <hr class="margin-top-30">
+   <%= f.submit "Réserver", class: "btn btn-primary btn-full-width", id: "submit" %>
 
-  <div class="panel-body text-center">
-    <%= form_for [@restaurant, @booking] do |f| %>
-      <%#= f.error_notification %>
-      <div class="form-group" id= "row-1">
-        <%= f.label :date, "Date *", class: "col-sm-2 control-label" %>
-        <div class="col-sm-4 margin-left-neg">
-          <%= f.text_field :date, class: "form-control", placeholder: 'Date', :data => {:provide => :datepicker, 'date-format' => "dd/mm/yyyy"} %>
-        </div>
-        <%= f.label :pax, "Pax *", class: "col-sm-1  control-label margin-left-15" %>
-        <div class="col-sm-5">
-          <%= f.number_field :pax, class: "form-control", placeholder: 'Nombre de couverts' %>
-        </div>
-      </div>
-      <br>
-      <hr class="margin-top-30">
-      <div class="form-group" id="row-2">
-        <%= f.label :start_time, "De", class: "col-sm-1  control-label" %>
-        <div class="col-sm-3">
-          <%= f.time_field :start_time, class: "form-control margin-left-neg12"%>
-        </div>
-        <%= f.label :end_time, "A", class: "col-sm-1  control-label" %>
-        <div class="col-sm-3">
-          <%= f.time_field :end_time, class: "form-control margin-left-neg12"%>
-        </div>
-        <%= f.label :period, "Service", class: "col-sm-2 control-label" %>
-        <div class="col-sm-2">
-          <%= f.select :period, ["Midi", "Soir"], {}, { class: "form-control margin-left-neg12" } %>
-        </div>
-      </div>
-      <br>
-      <hr class="margin-top-30">
-      <div class="form-group">
-        <%= f.label :status, "Status", class: "col-sm-2  control-label" %>
-        <div class="col-sm-10">
-          <%= f.select :status, ["Reservé", "Confirmé", "Assis", "Arrivés", "Message", "Annulée", "No show"], {}, class: "form-control" %>
-        </div>
-      </div>
-      <br>
-      <hr class="margin-top-30">
-      <div class="form-group">
-        <%= f.label :notes, "Notes", class: "col-sm-2  control-label" %>
-        <div class="col-sm-10">
-          <%= f.text_field :notes, class: "form-control" %>
-        </div>
-      </div>
-      <br>
-      <hr class="margin-top-30">
-      <%= f.submit "Réserver", class: "btn btn-primary btn-full-width", id: "submit" %>
-
-    <% end %>
-  </div>
-
-
+ <% end %>
+</div>
