@@ -7,9 +7,10 @@ Rails.application.routes.draw do
     resources :waiters
     resources :spots
     resources :bookings
+    resources :customers, only: [:index, :show, :new, :create, :edit, :update]
     # resources :agenda, only: [:show]
   end
 
-  resources :customers, only: [:index, :show, :new, :create, :edit, :update]
+
 
 end

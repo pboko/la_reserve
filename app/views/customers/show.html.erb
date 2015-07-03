@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-4">
       <h1><%= @customer.full_name %>
-        <%= link_to edit_customer_path(@customer) do %>
+        <%= link_to edit_restaurant_customer_path(@restaurant, @customer) do %>
           <i class="fa fa-pencil-square"></i>
         <% end %>
       </h1>
