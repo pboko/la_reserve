@@ -1,0 +1,3 @@
+$('#dayview').replaceWith("<%= j render 'bookings/day_view', date: @date, restaurant: @restaurant, bookings: @bookings, diner_booking_total: @diner_booking_total, lunch_booking_total: @lunch_booking_total %>");
+//window.location.search = '<%= "date=#{@date}" %>'
+window.location.href = "#dayview";
