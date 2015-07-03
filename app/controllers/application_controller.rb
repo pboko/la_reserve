@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_restaurant
-    @restaurant = current_user.restaurants.first
+    #@restaurant = current_user.restaurants.first
     @booking    = Booking.new
   end
 

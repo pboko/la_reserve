@@ -1,8 +1,12 @@
 class CustomersController < ApplicationController
   before_action :find_customer, only: [:show, :edit, :update]
-
+  before_action :find_restaurant
   def index
-    @customers = Customer.all
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @customers = @restaurant.customers
+
+
+
   end
 
   def show
@@ -13,9 +17,12 @@ class CustomersController < ApplicationController
   end
 
   def create
-    @customer = Customer.new(customer_params)
+    @customer = Customer.create(customer_params)
     @customer.save
-    redirect_to customers_path
+    @customer_restaurant = RestaurantCustomer.new({restaurant: @restaurant, customer: @customer})
+    @customer_restaurant.save
+    redirect_to restaurant_customers_path(@restaurant)
+
   end
 
   def edit
@@ -23,13 +30,17 @@ class CustomersController < ApplicationController
 
   def update
     @customer.update(customer_params)
-    redirect_to customers_path
+    redirect_to restaurant_customers_path(@restaurant)
   end
 
   private
 
   def find_customer
     @customer = Customer.find(params[:id])
+  end
+
+  def find_restaurant
+    @restaurant = Restaurant.find(params[:restaurant_id])
   end
 
   def customer_params

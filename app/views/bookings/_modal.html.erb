@@ -1,4 +1,6 @@
-<% if !current_user.restaurants.blank? %>
+<% if @restaurant.nil? %>
+<% else %>
+<% if !current_user.restaurants.blank? && @restaurant.persisted? %>
   <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content panel panel-default">
@@ -60,6 +62,7 @@
         </div>
       </div>
     </div>
+<% end %>
 <% end %>
 
 
