@@ -51,4 +51,12 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:first_name, :last_name, :email, :password) }
   end
 
+  def after_sign_in_path_for(resource)
+    '/restaurants'
+  end
+
+  def after_sign_up_path_for(resource)
+    '/restaurants'
+  end
+
 end
