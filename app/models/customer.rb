@@ -27,4 +27,6 @@ class Customer < ActiveRecord::Base
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  scope :for_status, ->(status) { where(:status => status.to_s.upcase) }
 end
