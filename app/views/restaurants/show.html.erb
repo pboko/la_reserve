@@ -1,9 +1,40 @@
-<h2> <%= @restaurant.name %></h2>
-    <p>Direction : <%= @restaurant.street %> </p>
+<div class="margin-top">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-2">
 
-    <p> Zip code : <%= @restaurant.zip_code %> </p>
-    <p> City :  <%= @restaurant.city %> </p>
+        <h2><%= Date.today.strftime("%A %d %B %Y") %> </h2>
 
-    <p> Capacity : <%= @restaurant.capacity %> personnes</p>
+        <div class="accueil">
+            <h3> Midi </h3>
 
-   <%= link_to 'Back to all restaurants', restaurants_path %>
+            <p> <%= total_cuttlery_for(:midi, @date, @restaurant.bookings) %> couverts </p>
+            <p> Liste d'attente : </p>
+        </div>
+
+        <div class="accueil">
+          <h3> Soir </h3>
+          <p> <%= total_cuttlery_for(:soir, @date, @restaurant.bookings) %> couverts </p>
+          <p> Liste d'attente : </p>
+        </div>
+
+        <div class="accueil">
+          <h3> Liste d'attente </h3>
+          <p>  N réservations </p>
+        </div>
+
+        <div class="accueil">
+          <h3> Post-it </h3>
+        </div>
+
+        <div class="accueil">
+          <h3> VIP </h3>
+
+          <% @restaurant.customers.for_status(:vip).each do |customer| %>
+          <p> <%= customer.first_name %> <%= customer.last_name %> </p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
