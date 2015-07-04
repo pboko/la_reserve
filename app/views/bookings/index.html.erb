@@ -1,16 +1,20 @@
-<h1>Bookings index</h1>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-10 col-md-offset-2">
-      <div class="container"><h1><strong><%= @date.year %></strong></h1></div>
-      <div class="container text-center" id="chevrons">
-      <%= link_to "<<", :date => previous_month(@date) %>
-      <%= link_to ">>", :date => next_month(@date) %>
+<div class="margin-top">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-2">
+        <div class="container text-center" id="chevrons">
+          <%= link_to :date => previous_month(@date) do  %>
+            <i class="fa fa-arrow-left"></i>
+          <% end %>
+          <%= link_to :date => next_month(@date) do  %>
+            <i class="fa fa-arrow-right"></i>
+          <% end %>
+        </div>
+        <%= calendar(:year => @date.year, :month => @date.month, :first_day_of_week => 1) do |d|
+              [d.mday, {:class => "specialDay"}]
+        end %>
       </div>
-      <%= calendar(:year => @date.year, :month => @date.month, :first_day_of_week => 1) do |d|
-            [d.mday, {:class => "specialDay"}]
-      end %>
     </div>
   </div>
 

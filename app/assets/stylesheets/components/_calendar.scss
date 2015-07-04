@@ -2,12 +2,23 @@ th {
   text-align: center;
 }
 
+
+
 .dejdin{
-  padding: 5px;
-  // border: 1px dotted black;
-  p{
+  padding: 0px 5px;
+  padding-bottom: 5px;
+  color: $dark-grey;
+  p {
     font-size: 10px;
   }
+
+  // border: 1px dotted black;
+  // p{
+  //   padding: 1px;
+  //   font-size: 10px;
+  //   background: $burgundy;
+  //   color: white;
+  // }
 }
 
 #couverts{
@@ -16,91 +27,155 @@ th {
 
 #file_attente{
   font-size: 12px;
-  color: #B76500;
-}
-
-#dej{
-background-color: #C6FACA;
-}
-
-#din{
-background-color: #FCA6A6;
+  color: $burgundy;
+  padding-bottom: 5px;
 }
 
 .calendar {
   // margin: auto;
   color: white;
   text-align: center;
+  background-color: white;
   // min-width: 600px;
   // width: 70%;
 }
 
-thead tr {
-  color: black;
+
+.monthName {
+  font-weight: 400;
+  padding: 15px 0px;
+  text-transform: uppercase;
 }
 
 .monthName th {
-  font-weight: normal;
   text-align: center;
   // padding-top: 1em;
   // padding-bottom: 0.7em;
   color: black;
 }
 
+tr .monthName {
+  background-color: $burgundy;
+  color: white;
+}
+
+abbr[title] {
+  cursor: default;
+  border: none;
+}
+
 .dayName th {
   font-size: 0.9em;
   padding-top: 0.9em;
   padding-bottom: 0.8em;
-  background-color: #303030;
+  background-color: rgb(98, 21, 34);
   color: white;
   border-bottom: 1px solid white;
-  // border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.specialDay {
+  font-size: 12px;
+  background:white;
+  color: $dark-grey;
+  border: 1px solid #eeeeee;
+  padding-top: 10px !important;
+  hr {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  // p {
+  //   color: $dark-grey;
+  // }
+  a{
+    padding: 0px;
+    &:hover {
+      padding: 0px;
+    }
+  }
+}
+
+.specialDay #dejdin {
+  color: $dark-grey;
+}
+
+.otherMonth {
+  padding: 0;
+  background: #f9f9f9;
+  color: transparent;
+  border: 1px solid #eeeeee;
+
+  hr {
+    border:none;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+  a{
+    padding:0px;
+  }
+}
+
+.otherMonth .dejdin {
+  color: transparent;
+}
+
+
+.otherMonth #file_attente {
+  color: transparent;
 }
 
 .otherMonth, .day, .specialDay {
   padding: 0px;
-  border-right: 1px solid #111111;
+  // border-right: 1px solid #111111;
 }
 
-.otherMonth {
-  color: #999999;
-  background-color: #4f4f5b;
-}
-
-.day, .specialDay {
-  border-bottom: 1px solid #111111;
-  background-color: #333333;
-}
-.specialDay {
-  background-color: #a8a8a8;
-  color: black;
-}
-.specialDay a, .specialDay a:visited, .specialDay a:hover {
-  color: black;
-  text-decoration: none;
-  padding: 0em;
-}
-.specialDay a:hover {
-  color: white;
-  background-color: black;
-}
-.weekendDay {
-  background-color: #787888;
-}
-.today {
-  background-color: white;
-  color: black;
-}
-.weekNumber {
-  background-color: #222;
-}
+// .day, .specialDay {
+//   border-bottom: 1px solid #111111;
+//   background-color: #333333;
+// }
+// .specialDay {
+//   background-color: #a8a8a8;
+//   color: black;
+// }
+// .specialDay a, .specialDay a:visited, .specialDay a:hover {
+//   color: black;
+//   text-decoration: none;
+//   padding: 0em;
+// }
+// .specialDay a:hover {
+//   color: white;
+//   background-color: black;
+// }
+// .weekendDay {
+//   background-color: #787888;
+// }
+// .today {
+//   background-color: white;
+//   color: black;
+// }
+// .weekNumber {
+//   background-color: #222;
+// }
 
 #chevrons {
   a{
-  margin-right: 185px;
-  font-size: 20px;
-  color: black;
-  position: relative;
-  top: 25px;
+    margin-right: 185px;
+    font-size: 14px;
+    font-weight:300;
+    color: white;
+    position: relative;
+    top: 36px;
+
+    &:first-of-type {
+      float: left;
+      left: 20px;
+    }
+
+    &:last-of-type {
+      float: right;
+      right: 25px;
+    }
+
   }
 }
