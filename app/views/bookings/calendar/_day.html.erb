@@ -9,7 +9,7 @@
   <div class= "col-xs-6 dejdin" id="dej">
     <p class= "dejdin">Midi</p>
     <span class= "dejdin" id="couverts"><%= total_cuttlery_for(:midi, date, @bookings) %>/<%= @restaurant.capacity %></span>
-    <span class= "dejdin" id="file_attente">(4)</span>
+    <span class= "dejdin" id="file_attente">(<%= total_waiting_cuttlery_for(:midi, date, @bookings) %>)</span>
   </div>
 <% end %>
 
@@ -18,7 +18,7 @@
   <div class= "col-xs-6 dejdin" id="din">
     <p class= "dejdin">Soir</p>
     <span class= "dejdin" id="couverts"><%= total_cuttlery_for(:soir, date, @bookings) %>/<%= @restaurant.capacity %></span>
-    <span class= "dejdin" id="file_attente">(4)</span>
+    <span class= "dejdin" id="file_attente">(<%= total_waiting_cuttlery_for(:soir, date, @bookings) %>)</span>
   </div>
   <% end %>
 </div>
