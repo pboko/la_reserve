@@ -6,7 +6,15 @@
 <div class="row">
 <hr>
   <%= link_to(restaurant_bookings_path(@restaurant, date: date), remote: true) do %>
-  <div class= "col-xs-6 dejdin" id="dej">
+
+<% if total_cuttlery_for(:midi, date, @bookings) >= @restaurant.capacity %>
+   <div class='red col-xs-6 dejdinend'>
+<% elsif total_cuttlery_for(:midi, date, @bookings) >= (@restaurant.capacity - 10) %>
+   <div class="orange col-xs-6 dejdinend">
+<% else %>
+   <div class="col-xs-6 dejdinend">
+<% end %>
+
     <p class= "dejdin">Midi</p>
     <span class= "dejdin" id="couverts"><%= total_cuttlery_for(:midi, date, @bookings) %>/<%= @restaurant.capacity %></span>
     <span class= "dejdin" id="file_attente">(4)</span>
@@ -15,10 +23,16 @@
 
 
 <%= link_to(restaurant_bookings_path(@restaurant, date: date), remote: true) do %>
-  <div class= "col-xs-6 dejdin" id="din">
+  <% if total_cuttlery_for(:soir, date, @bookings) >= @restaurant.capacity %>
+    <div class='red col-xs-6 dejdinend'>
+  <% elsif total_cuttlery_for(:soir, date, @bookings) >= (@restaurant.capacity - 10) %>
+    <div class="orange col-xs-6 dejdinend">
+  <% else %>
+    <div class="col-xs-6 dejdinend">
+  <% end %>
     <p class= "dejdin">Soir</p>
     <span class= "dejdin" id="couverts"><%= total_cuttlery_for(:soir, date, @bookings) %>/<%= @restaurant.capacity %></span>
     <span class= "dejdin" id="file_attente">(4)</span>
-  </div>
+    </div>
   <% end %>
 </div>

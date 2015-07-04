@@ -91,7 +91,7 @@
                             <%= booking.pax %>
                           </td>
                           <td>
-                            <%= booking.spots.name %>
+                            <%= booking.customer.first_name if booking.customer.present? %>
                           </td>
                           <td>
                             <%= booking.notes %>
