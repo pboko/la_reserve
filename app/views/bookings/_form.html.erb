@@ -35,6 +35,8 @@
     <div class="form-group">
       <%= f.input :notes %>
     </div>
+    <%= f.label :waiting_list, "Liste d'attente"%>
+    <%= f.check_box :waiting_list, class: "margin-left-10"%>
     <%= f.button :submit, value: "Réserver", class: "btn btn-primary btn-full-width" %>
   <% end %>
 </div>

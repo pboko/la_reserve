@@ -30,24 +30,26 @@
                   <%= text_field_tag(:spot, nil, :class => "form-control")%>
                 </div>
                 <div class="col-sm-4 padding-left-5 pax-top">
-                   <%= f.input :period, label: "Service", collection: ["Midi", "Soir"], as: :select %>
+                   <%= f.input :period, label: "Service", collection: ["Midi", "Soir"], as: :select, default: "Midi" %>
                 </div>
               </div>
               <div class="form-group">
                 <div class="col-sm-6 padding-right-5">
                   <%= label_tag(:first_name, "Client", :class => "control-label") %>
-
                   <%= text_field_tag(:first_name, nil, :class => "form-control") %>
-
                 </div>
                 <div class="col-sm-6 padding-left-5 pax-top">
-                  <%= f.input :status, label: "Statut", collection: ["Reservé", "Confirmé", "Assis", "Arrivés", "Message", "Annulée", "No show"], as: :select, default: "Réservé" %>
+                  <%= f.input :status, label: "Statut", collection: ["VIP","Reservé", "Confirmé", "Assis", "Arrivés", "Message", "Annulée", "No show"], as: :select, default: "Réservé" %>
                 </div>
               </div>
               <div class="form-group">
                 <%= f.input :notes %>
               </div>
+              <%= f.label :waiting_list, "Liste d'attente"%>
+              <%= f.check_box :waiting_list, class: "margin-left-10"%>
+
               <%= f.button :submit, value: "Réserver", class: "btn btn-primary btn-full-width" %>
+
            <% end %>
          </div>
        </div>
