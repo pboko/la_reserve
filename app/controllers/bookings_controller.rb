@@ -31,7 +31,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = @restaurant.bookings.build(booking_params)
-    params[:customer]
+    params[:customer_id]
     params[:spot]
 
     @customer = Customer.new(first_name: params[:first_name])
@@ -77,7 +77,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_time, :end_time, :date, :status, :period, :pax, :notes)
+    params.require(:booking).permit(:start_time, :customer, :date, :status, :period, :pax, :notes)
   end
 
   def find_booking
