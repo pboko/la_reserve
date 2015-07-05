@@ -4,13 +4,17 @@
       <div class="col-md-10 col-md-offset-2">
 
         <div class="text-center" id="focus-day">
-          <%= link_to :date => previous_day(@date) do  %>
-            <i class="fa fa-arrow-left"></i>
-          <% end %>
-          <h2 class= "text-center"><%= @date.strftime("%A %d %B %Y") %> </h2>
-          <%= link_to :date => next_day(@date) do  %>
-            <i class="fa fa-arrow-right"></i>
-          <% end %>
+
+          <h2 class= "text-center">
+            <%= link_to :date => previous_day(@date) do  %>
+              <i class="fa fa-arrow-left"></i>
+            <% end %>
+            <%= @date.strftime("%A %d %B %Y") %>
+            <%= link_to :date => next_day(@date) do  %>
+              <i class="fa fa-arrow-right"></i>
+            <% end %>
+          </h2>
+
         </div>
 
         <div class="accueil">
