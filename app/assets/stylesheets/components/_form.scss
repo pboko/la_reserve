@@ -22,6 +22,24 @@
   }
  }
 
+ .new_user {
+  input {
+    &:focus {
+      outline: 0;
+      border-color: $dark-grey;
+      box-shadow: none;
+    }
+    &:active {
+      outline: 0;
+      border-color: $dark-grey;
+      box-shadow: none;
+    }
+  }
+
+ }
+
+
+
  .new_booking {
   input {
     &:focus {
@@ -41,6 +59,14 @@
 
 .panel-title {
   font-weight: 700;
+}
+
+.padding-left-5 {
+  padding-left:5px;
+}
+
+.padding-right-5 {
+  padding-right:5px;
 }
 
 .margin-left-neg {

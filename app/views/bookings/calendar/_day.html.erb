@@ -1,24 +1,34 @@
-<!-- <div class= "col-sm-12">
-  <div class="day">
-    déjeuner
-  </div>
-</div> -->
+
 <div class="row">
-<hr>
+
   <%= link_to(restaurant_bookings_path(@restaurant, date: date), remote: true) do %>
-  <div class= "col-xs-6 dejdin" id="dej">
-    <p class= "dejdin">Midi</p>
-    <span class= "dejdin" id="couverts"><%= total_cuttlery_for(:midi, date, @bookings) %>/<%= @restaurant.capacity %></span>
-    <span class= "dejdin" id="file_attente">(<%= total_waiting_cuttlery_for(:midi, date, @bookings) %>)</span>
-  </div>
-<% end %>
 
 
-<%= link_to(restaurant_bookings_path(@restaurant, date: date), remote: true) do %>
-  <div class= "col-xs-6 dejdin" id="din">
-    <p class= "dejdin">Soir</p>
-    <span class= "dejdin" id="couverts"><%= total_cuttlery_for(:soir, date, @bookings) %>/<%= @restaurant.capacity %></span>
-    <span class= "dejdin" id="file_attente">(<%= total_waiting_cuttlery_for(:soir, date, @bookings) %>)</span>
-  </div>
+    <% if total_cuttlery_for(:midi, date, @bookings) >= @restaurant.capacity %>
+       <div class='red col-xs-12 dejdinend'>
+    <% elsif total_cuttlery_for(:midi, date, @bookings) >= (@restaurant.capacity - 10) %>
+       <div class="orange col-xs-12 dejdinend">
+    <% else %>
+       <div class="col-xs-12 dejdinend">
+    <% end %>
+
+        <p class= "dejdin">midi</p>
+        <span class= "dejdin col-xs-8 text-center" id="couverts"><%= total_cuttlery_for(:midi, date, @bookings) %>/<%= @restaurant.capacity %></span>
+        <span class= "dejdin circle col-xs-4 text-center" id="file_attente"><%= total_waiting_cuttlery_for(:midi, date, @bookings) %></span>
+      </div>
+  <% end %>
+
+  <%= link_to(restaurant_bookings_path(@restaurant, date: date), remote: true) do %>
+    <% if total_cuttlery_for(:soir, date, @bookings) >= @restaurant.capacity %>
+      <div class='red col-xs-12 dejdinend'>
+    <% elsif total_cuttlery_for(:soir, date, @bookings) >= (@restaurant.capacity - 10) %>
+      <div class="orange col-xs-12 dejdinend">
+    <% else %>
+      <div class="col-xs-12 dejdinend">
+    <% end %>
+      <p class= "dejdin">soir</p>
+      <span class= "dejdin col-xs-8 text-center" id="couverts"><%= total_cuttlery_for(:soir, date, @bookings) %>/<%= @restaurant.capacity %></span>
+      <span class= "dejdin circle col-xs-4 text-center" id="file_attente"><%= total_waiting_cuttlery_for(:soir, date, @bookings) %></span>
+      </div>
   <% end %>
 </div>

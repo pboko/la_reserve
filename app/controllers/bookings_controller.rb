@@ -78,7 +78,10 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
+
     params.require(:booking).permit(:start_time, :end_time, :date, :status, :period, :pax, :notes, :waiting_list)
+
+
   end
 
   def find_booking

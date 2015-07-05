@@ -1,4 +1,4 @@
-<div class="modal-body panel-body text-center">
+<div class="panel-body text-center">
  <%= form_for [@restaurant, @booking] do |f| %>
    <%#= f.error_notification %>
    <hr class="margin-top-30">
@@ -31,9 +31,9 @@
    <br>
    <hr class="margin-top-30">
    <div class="form-group">
-     <%= label_tag(:customer, "Client", :class => "col-sm-2  control-label") %>
+     <%= label_tag(:first_name, "Client", :class => "col-sm-2  control-label") %>
      <div class="col-sm-10">
-       <%= text_field_tag(:customer, nil, :class => "form-control") %>
+       <%= text_field_tag(:first_name, nil, :class => "form-control") %>
      </div>
    </div>
    <br>

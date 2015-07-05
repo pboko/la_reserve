@@ -2,14 +2,26 @@ th {
   text-align: center;
 }
 
+tbody {
+  border-bottom: 1px solid #eeeeee;
+  border-left: 1px solid #eeeeee;
+}
 
+.red{
+  background: #F78181;
+}
+
+.orange{
+  background: orange;
+}
 
 .dejdin{
   padding: 0px 5px;
-  padding-bottom: 5px;
   color: $dark-grey;
   p {
     font-size: 10px;
+    margin: 0px;
+    margin-bottom: 5px;
   }
 
   // border: 1px dotted black;
@@ -21,15 +33,58 @@ th {
   // }
 }
 
-#couverts{
-  font-size: 15px;
+.dejdinend {
+  border-right: 1px solid #eeeeee;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
-#file_attente{
-  font-size: 12px;
+#couverts{
+  font-size: 15px;
   color: $burgundy;
-  padding-bottom: 5px;
+  font-weight: 700;
 }
+
+.circle{
+    width:25px;
+    height:25px;
+    border-radius:100%;
+    background-color:$dark-grey;
+    color:white;
+    text-align:center;
+    font-size:14px;
+    overflow:hidden;
+    padding: 2px;
+}
+
+// .circle {
+//   width:100%;
+//   height:100%;
+//   border-radius:50%;
+//   font-size:12px;
+//   color:white;
+//   line-height:20px;
+//   text-align:center;
+//   vertical-align: middle;
+//   background:$dark-grey;
+
+// }
+
+// #file_attente{
+
+//   border-radius: 50%;
+
+//   width: 20px;
+//   height: 20px;
+//   padding: 5px;
+
+//   background: $dark-grey;
+//   color: white;
+//   text-align: center;
+
+//   font-size: 12px;
+// //  padding-bottom: 5px;
+// }
 
 .calendar {
   // margin: auto;
@@ -70,17 +125,17 @@ abbr[title] {
   padding-bottom: 0.8em;
   background-color: rgb(98, 21, 34);
   color: white;
-  border-bottom: 1px solid white;
+  // border-bottom: 1px solid white;
   text-transform: uppercase;
   font-weight: 400;
 }
 
 .specialDay {
   font-size: 12px;
-  background:white;
+  background-color: #D8D8D8;
   color: $dark-grey;
-  border: 1px solid #eeeeee;
-  padding-top: 10px !important;
+  border: none;
+  padding-top: 3px !important;
   hr {
     margin-top: 5px;
     margin-bottom: 5px;
@@ -96,15 +151,19 @@ abbr[title] {
   }
 }
 
+.specialDay .row {
+  background: white;
+}
+
 .specialDay #dejdin {
   color: $dark-grey;
 }
 
 .otherMonth {
-  padding: 0;
-  background: #f9f9f9;
+  padding: 0px;
+  background: $body-bg;
   color: transparent;
-  border: 1px solid #eeeeee;
+  border-right: 1px solid #eeeeee;
 
   hr {
     border:none;
@@ -118,11 +177,27 @@ abbr[title] {
 
 .otherMonth .dejdin {
   color: transparent;
+  padding: 0px;
+}
+
+.otherMonth .circle {
+  background-color: transparent;
+  padding: 0px;
+}
+
+.otherMonth .dejdinend {
+  border: none;
+  padding: 0px;
+}
+
+.otherMonth #couverts {
+  color: transparent;
 }
 
 
 .otherMonth #file_attente {
   color: transparent;
+
 }
 
 .otherMonth, .day, .specialDay {
@@ -139,8 +214,8 @@ abbr[title] {
 //   color: black;
 // }
 // .specialDay a, .specialDay a:visited, .specialDay a:hover {
-//   color: black;
-//   text-decoration: none;
+  // color: black;
+  // text-decoration: none;
 //   padding: 0em;
 // }
 // .specialDay a:hover {
