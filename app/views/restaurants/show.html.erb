@@ -36,10 +36,11 @@
         </div>
 
         <div class="accueil">
-          <h3> VIP </h3>
+          <h3> VIP midi </h3>
+          <% bookings.for_period(:midi).for_date(date).each do |booking| %>
+          <% if booking.customer.satus == "VIP" %>
 
-          <% @restaurant.customers.for_status(:vip).each do |customer| %>
-          <p> <%= customer.first_name %> <%= customer.last_name %> </p>
+          <p> <%= booking.customer.first_name %> </p>
           <% end %>
         </div>
       </div>

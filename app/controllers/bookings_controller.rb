@@ -11,9 +11,11 @@ class BookingsController < ApplicationController
       @date = Date.today
     end
 
+    #@bookings = @restaurant.bookings.sort_by { |h| h[:start_time] }
     @bookings = @restaurant.bookings
     @diner_booking_total = total_cuttlery(:soir, @bookings)
     @lunch_booking_total = total_cuttlery(:midi, @bookings)
+
 
     respond_to do |format|
       format.html
@@ -78,10 +80,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-
-    params.require(:booking).permit(:start_time, :end_time, :date, :status, :period, :pax, :notes, :waiting_list)
-
-
+    params.require(:booking).permit(:start_time, :customer, :date, :status, :period, :pax, :notes, :waiting_list)
   end
 
   def find_booking
