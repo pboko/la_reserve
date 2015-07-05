@@ -15,6 +15,7 @@
 #  status        :string
 #  notes         :text
 #  period        :string
+#  waiting_list  :boolean
 #
 # Indexes
 #
@@ -37,4 +38,5 @@ class Booking < ActiveRecord::Base
 
   scope :for_period, ->(period) { where(:period => period.to_s.capitalize) }
   scope :for_date, ->(date) { where(:date => date) }
+  # scope :for_waiting_list, ->(waiting_list) { where(:waiting_list => waiting_list)}
 end

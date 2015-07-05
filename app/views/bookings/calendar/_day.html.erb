@@ -3,6 +3,7 @@
 
   <%= link_to(restaurant_bookings_path(@restaurant, date: date), remote: true) do %>
 
+
     <% if total_cuttlery_for(:midi, date, @bookings) >= @restaurant.capacity %>
        <div class='red col-xs-12 dejdinend'>
     <% elsif total_cuttlery_for(:midi, date, @bookings) >= (@restaurant.capacity - 10) %>
@@ -13,10 +14,9 @@
 
         <p class= "dejdin">midi</p>
         <span class= "dejdin col-xs-8 text-center" id="couverts"><%= total_cuttlery_for(:midi, date, @bookings) %>/<%= @restaurant.capacity %></span>
-        <div class= "dejdin circle col-xs-4 text-center">14</div>
+        <span class= "dejdin circle col-xs-4 text-center" id="file_attente"><%= total_waiting_cuttlery_for(:midi, date, @bookings) %></span>
       </div>
   <% end %>
-
 
   <%= link_to(restaurant_bookings_path(@restaurant, date: date), remote: true) do %>
     <% if total_cuttlery_for(:soir, date, @bookings) >= @restaurant.capacity %>
@@ -28,7 +28,7 @@
     <% end %>
       <p class= "dejdin">soir</p>
       <span class= "dejdin col-xs-8 text-center" id="couverts"><%= total_cuttlery_for(:soir, date, @bookings) %>/<%= @restaurant.capacity %></span>
-      <span class= "dejdin circle col-xs-4 text-center">14</span>
+      <span class= "dejdin circle col-xs-4 text-center" id="file_attente"><%= total_waiting_cuttlery_for(:soir, date, @bookings) %></span>
       </div>
   <% end %>
 </div>
