@@ -11,7 +11,6 @@
     <% else %>
        <div class="col-xs-12 dejdinend">
     <% end %>
-
         <p class= "dejdin">midi</p>
         <span class= "dejdin col-xs-8 text-center" id="couverts"><%= total_cuttlery_for(:midi, date, @bookings) %>/<%= @restaurant.capacity %></span>
         <span class= "dejdin circle col-xs-4 text-center" id="file_attente"><%= total_waiting_cuttlery_for(:midi, date, @bookings) %></span>

@@ -287,6 +287,14 @@ def previous_month(date)
   date - 1.month
 end
 
+def next_day(date)
+   date + 1.day
+end
+
+def previous_day(date)
+  date - 1.day
+end
+
 
 
 

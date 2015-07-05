@@ -15,11 +15,13 @@
               [d.mday, {:class => "specialDay"}]
         end %>
       </div>
+      <div class="col-md-10 col-md-offset-2">
+        <%= render "bookings/day_view", date: @date, restaurant: @restaurant, bookings: @bookings, diner_booking_total: @diner_booking_total, lunch_booking_total: @lunch_booking_total %>
+
+      </div>
     </div>
+
   </div>
-
-  <%= render "bookings/day_view", date: @date, restaurant: @restaurant, bookings: @bookings, diner_booking_total: @diner_booking_total, lunch_booking_total: @lunch_booking_total %>
-
 </div>
 
 
