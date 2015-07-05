@@ -1,85 +1,32 @@
 <div class="row" id="dayview">
+    <div class="col-md-10 col-md-offset-2">
+        <h2><%= date.strftime("%A %d %B %Y") %> </h2>
 
-      <h2><%= date.strftime("%A %d %B %Y") %> </h2>
+          <ul class="nav nav-pills ">
+            <li role="presentation" class="active switch-button"><a href="#resa-midi" data-toggle="tab">Midi</a></li>
+            <li role="presentation" class="switch-button"><a href="#resa-soir" data-toggle="tab">Soir</a></li>
+          </ul>
 
-        <ul class="nav nav-pills ">
-          <li role="presentation" class="active switch-button"><a href="#resa-midi" data-toggle="tab">Midi</a></li>
-          <li role="presentation" class="switch-button"><a href="#resa-soir" data-toggle="tab">Soir</a></li>
-        </ul>
+      <div class="row">
+        <div class="col-md-11">
+          <div class="panel panel-default">
 
-    <div class="row">
-      <div class="col-md-11">
-        <div class="panel panel-default">
-
-            <div class="tab-content">
-              <div role="tabpanel" class="tab-pane active" id="resa-midi">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th><i class="fa fa-clock-o"></i></th>
-                      <th>Statut</th>
-                      <th><i class="fa fa-cutlery"></i></th>
-                      <th>Client</th>
-                      <th>Notes</th>
-                      <th></th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <% bookings.for_period(:midi).for_date(date).each do |booking| %>
-                    <tr>
-                      <td>
-                        <%= booking.start_time.strftime("%H:%M")%>
-                      </td>
-                      <td>
-                        <%= booking.status %>
-                      </td>
-                      <td>
-                        <%= booking.pax %>
-                      </td>
-                      <td>
-                        <%= booking.customer.first_name if booking.customer.present? %>
-                      </td>
-                      <td>
-                        <%= booking.notes %>
-                      </td>
-                      <td class="index-icons">
-                        <%= link_to edit_restaurant_booking_path(restaurant, booking) do %>
-                          <i class="fa fa-pencil"></i>
-                        <%end %>
-                      </td>
-                      <td class="index-icons">
-                        <%= link_to restaurant_booking_path(restaurant, booking),
-                        method: :delete,
-                        data: { confirm: "Are you sure?" } do %>
-                          <i class="fa fa-trash-o"></i>
-                        <% end %>
-                      </td>
-                    </tr>
-                    <% end %>
-                  </tbody>
-                </table>
-
-                <div class="total">
-                  <h2>Total : <%= lunch_booking_total %> couverts</h2>
-                </div>
-              </div>
-
-              <div role="tabpanel" class="tab-pane" id="resa-soir">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th><i class="fa fa-clock-o"></i></th>
-                      <th>Statut</th>
-                      <th><i class="fa fa-cutlery"></i></th>
-                      <th>Client</th>
-                      <th>Notes</th>
-                      <th></th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <% bookings.for_period(:soir).for_date(date).each do |booking| %>
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="resa-midi">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th><i class="fa fa-clock-o"></i></th>
+                        <th>Statut</th>
+                        <th><i class="fa fa-cutlery"></i></th>
+                        <th>Client</th>
+                        <th>Notes</th>
+                        <th></th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% bookings.for_period(:midi).for_date(date).each do |booking| %>
                       <tr>
                         <td>
                           <%= booking.start_time.strftime("%H:%M")%>
@@ -90,9 +37,9 @@
                         <td>
                           <%= booking.pax %>
                         </td>
-                         <td>
-                        <%= booking.customer.first_name if booking.customer.present? %>
-                         </td>
+                        <td>
+                          <%= booking.customer.first_name if booking.customer.present? %>
+                        </td>
                         <td>
                           <%= booking.notes %>
                         </td>
@@ -109,17 +56,73 @@
                           <% end %>
                         </td>
                       </tr>
-                    <% end %>
-                  </tbody>
-                </table>
+                      <% end %>
+                    </tbody>
+                  </table>
 
-                <div class="total">
-                  <h2>Total : <%= diner_booking_total %> couverts </h2>
+                  <div class="total">
+                    <h2>Total : <%= lunch_booking_total %> couverts </h2>
+                  </div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="resa-soir">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th><i class="fa fa-clock-o"></i></th>
+                        <th>Statut</th>
+                        <th><i class="fa fa-cutlery"></i></th>
+                        <th>Client</th>
+                        <th>Notes</th>
+                        <th></th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% bookings.for_period(:soir).for_date(date).each do |booking| %>
+                        <tr>
+                          <td>
+                            <%= booking.start_time.strftime("%H:%M")%>
+                          </td>
+                          <td>
+                            <%= booking.status %>
+                          </td>
+                          <td>
+                            <%= booking.pax %>
+                          </td>
+                           <td>
+                          <%= booking.customer.first_name if booking.customer.present? %>
+                           </td>
+                          <td>
+                            <%= booking.notes %>
+                          </td>
+                          <td class="index-icons">
+                            <%= link_to edit_restaurant_booking_path(restaurant, booking) do %>
+                              <i class="fa fa-pencil"></i>
+                            <%end %>
+                          </td>
+                          <td class="index-icons">
+                            <%= link_to restaurant_booking_path(restaurant, booking),
+                            method: :delete,
+                            data: { confirm: "Are you sure?" } do %>
+                              <i class="fa fa-trash-o"></i>
+                            <% end %>
+                          </td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+
+                  <div class="total">
+                    <h2>Total : <%= diner_booking_total %> couverts </h2>
+
+                  </div>
+
                 </div>
               </div>
             </div>
+          </div>
         </div>
-      </div>
     </div>
+  </div>
 
-</div>

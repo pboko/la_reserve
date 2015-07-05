@@ -26,9 +26,7 @@
     <div class="form-group">
       <div class="col-sm-6 padding-right-5">
         <%= label_tag(:first_name, "Client", :class => "ontrol-label") %>
-
         <%= text_field_tag(:first_name, nil, :class => "form-control") %>
-
       </div>
       <div class="col-sm-6 padding-left-5 pax-top">
         <%= f.input :status, label: "Statut", collection: ["Reservé", "Confirmé", "Assis", "Arrivés", "Message", "Annulée", "No show"], as: :select, default: "Réservé" %>
