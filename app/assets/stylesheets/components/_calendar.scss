@@ -8,11 +8,29 @@ tbody {
 }
 
 .red{
-  background: #F78181;
+  background: $burgundy;
+  color:white;
+}
+
+.red .dejdin {
+  color:white;
+}
+
+.red #couverts {
+  color:white;
 }
 
 .orange{
-  background: orange;
+  background: $orange;
+  color:white;
+}
+
+.orange .dejdin {
+  color:white;
+}
+
+.orange #couverts {
+  color:white;
 }
 
 .dejdin{
