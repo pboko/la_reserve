@@ -3,7 +3,15 @@
     <div class="row">
       <div class="col-md-10 col-md-offset-2">
 
-        <h2><%= Date.today.strftime("%A %d %B %Y") %> </h2>
+        <div class="text-center" id="focus-day">
+          <%= link_to :date => previous_day(@date) do  %>
+            <i class="fa fa-arrow-left"></i>
+          <% end %>
+          <h2 class= "text-center"><%= @date.strftime("%A %d %B %Y") %> </h2>
+          <%= link_to :date => next_day(@date) do  %>
+            <i class="fa fa-arrow-right"></i>
+          <% end %>
+        </div>
 
         <div class="accueil">
             <h3> Midi </h3>
@@ -28,10 +36,11 @@
         </div>
 
         <div class="accueil">
-          <h3> VIP </h3>
+          <h3> VIP midi </h3>
+          <% bookings.for_period(:midi).for_date(date).each do |booking| %>
+          <% if booking.customer.satus == "VIP" %>
 
-          <% @restaurant.customers.for_status(:vip).each do |customer| %>
-          <p> <%= customer.first_name %> </p>
+          <p> <%= booking.customer.first_name %> </p>
           <% end %>
         </div>
       </div>

@@ -8,11 +8,29 @@ tbody {
 }
 
 .red{
-  background: #F78181;
+  background: $burgundy;
+  color:white;
+}
+
+.red .dejdin {
+  color:white;
+}
+
+.red #couverts {
+  color:white;
 }
 
 .orange{
-  background: orange;
+  background: $orange;
+  color:white;
+}
+
+.orange .dejdin {
+  color:white;
+}
+
+.orange #couverts {
+  color:white;
 }
 
 .dejdin{
@@ -45,16 +63,19 @@ tbody {
   font-weight: 700;
 }
 
-.circle{
-    width:25px;
-    height:25px;
-    border-radius:100%;
-    background-color:$dark-grey;
-    color:white;
-    text-align:center;
-    font-size:14px;
-    overflow:hidden;
-    padding: 2px;
+.font-bold {
+    font-weight: 700;
+    font-size: 15px;
+
+    // width:25px;
+    // height:25px;
+    // border-radius:100%;
+    // background-color:$gray-light;
+    // color:white;
+    // text-align:center;
+    // font-size:14px;
+    // overflow:hidden;
+    // padding: 2px;
 }
 
 // .circle {

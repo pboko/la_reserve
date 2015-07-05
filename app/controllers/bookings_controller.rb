@@ -68,8 +68,9 @@ class BookingsController < ApplicationController
 
   def total_cuttlery(period, bookings)
     count = 0
+    # count_wait = 0
     bookings.for_period(period).for_date(@date).each do |booking|
-      count += booking.pax
+      count += booking.pax unless booking.waiting_list?
     end
     return count
   end
@@ -79,7 +80,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_time, :customer, :date, :status, :period, :pax, :notes)
+    params.require(:booking).permit(:start_time, :customer, :date, :status, :period, :pax, :notes, :waiting_list)
   end
 
   def find_booking
