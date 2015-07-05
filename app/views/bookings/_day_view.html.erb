@@ -26,7 +26,8 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <% bookings.for_period(:midi).for_date(date).each do |booking| %>
+                      <%# bookings.sort_by { |h| h[:start_time] } %>
+                        <% bookings.for_period(:midi).for_date(date).each do |booking| %>
                       <tr>
                         <td>
                           <%= booking.start_time.strftime("%H:%M")%>

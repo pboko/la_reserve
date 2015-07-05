@@ -11,9 +11,11 @@ class BookingsController < ApplicationController
       @date = Date.today
     end
 
+    #@bookings = @restaurant.bookings.sort_by { |h| h[:start_time] }
     @bookings = @restaurant.bookings
     @diner_booking_total = total_cuttlery(:soir, @bookings)
     @lunch_booking_total = total_cuttlery(:midi, @bookings)
+
 
     respond_to do |format|
       format.html
@@ -31,7 +33,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = @restaurant.bookings.build(booking_params)
-    params[:customer_id]
+    params[:customer]
     params[:spot]
 
     @customer = Customer.new(first_name: params[:first_name])

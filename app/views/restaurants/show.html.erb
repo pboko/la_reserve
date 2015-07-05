@@ -31,7 +31,7 @@
           <h3> VIP </h3>
 
           <% @restaurant.customers.for_status(:vip).each do |customer| %>
-          <p> <%= customer.first_name %> <%= customer.last_name %> </p>
+          <p> <%= customer.first_name %> </p>
           <% end %>
         </div>
       </div>
