@@ -6,7 +6,9 @@
   <%= f.input :street %>
   <%= f.input :zip_code %>
   <%= f.input :city %>
-
+  <%= f.label :picture %>
+  <%= f.file_field :picture %>
+<br>
   <%= f.button :submit, class: "btn btn-primary btn-full-width" %>
 
 <% end %>
