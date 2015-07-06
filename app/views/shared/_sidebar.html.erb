@@ -1,11 +1,12 @@
 <% if @restaurant.nil? %>
-<% else %>
-<% if !current_user.restaurants.blank? && @restaurant.persisted? %>
+<% elsif !current_user.restaurants.blank? && @restaurant.persisted? %>
   <div id="nav-container">
 
-    <h1 class= "text-left"><%= @restaurant.name %></h1>
 
-      <button data-toggle="modal" data-target="#myModal2" class="btn btn-primary">Create booking</button>
+    <h1 class= "text-left"><%= @restaurant.picture? ? image_tag(@restaurant.picture.url(:medium)) : @restaurant.name %></h1>
+
+
+      <button data-toggle="modal" data-target="#sidebar-modal" class="btn btn-primary">Create booking</button>
 
 
     <div class="list">
@@ -49,8 +50,6 @@
 
     </div>
   </div>
-
-<% end %>
 <% end %>
 
-<%= render 'bookings/modal' %>
+<%= render 'bookings/modal', id: 'sidebar-modal' %>
