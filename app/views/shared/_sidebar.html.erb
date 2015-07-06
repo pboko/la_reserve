@@ -14,7 +14,7 @@
         <% end %>
       </div>
 
-
+      <hr class="dividor">
 
       <div id="calendar">
         <%= link_to restaurant_bookings_path(@restaurant), class: sidebar_css_class(:calendar) do %>
@@ -23,6 +23,7 @@
 
       </div>
 
+      <hr class="dividor">
 
       <div id="contact">
         <%= link_to restaurant_customers_path(@restaurant), class: sidebar_css_class(:contact) do %>
@@ -30,7 +31,7 @@
         <% end %>
       </div>
 
-
+      <hr class="dividor">
 
       <div id="config">
         <%= link_to edit_restaurant_settings_path(@restaurant), class: sidebar_css_class(:config) do %>
@@ -38,7 +39,7 @@
         <% end %>
       </div>
 
-
+      <hr class="dividor">
 
       <div id="stats">
         <%= link_to "#", class: sidebar_css_class(:stats) do %>
