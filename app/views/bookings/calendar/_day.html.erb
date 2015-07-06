@@ -13,7 +13,7 @@
     <% end %>
         <p class= "dejdin">midi</p>
         <span class= "dejdin col-xs-8 text-right" id="couverts"><%= total_cuttlery_for(:midi, date, @bookings) %>/<%= @restaurant.capacity %></span>
-        <span class= "dejdin col-xs-4 text-left font-bold" id="file_attente"><%= total_waiting_cuttlery_for(:midi, date, @bookings) %></span>
+        <span class= "dejdin col-xs-4 text-left font-bold" id="file_attente">(<%= total_waiting_cuttlery_for(:midi, date, @bookings) %>)</span>
       </div>
   <% end %>
 
@@ -27,7 +27,7 @@
     <% end %>
       <p class= "dejdin">soir</p>
       <span class= "dejdin col-xs-8 text-right" id="couverts"><%= total_cuttlery_for(:soir, date, @bookings) %>/<%= @restaurant.capacity %></span>
-      <span class= "dejdin col-xs-4 text-left font-bold" id="file_attente"><%= total_waiting_cuttlery_for(:soir, date, @bookings) %></span>
+      <span class= "dejdin col-xs-4 text-left font-bold" id="file_attente">(<%= total_waiting_cuttlery_for(:soir, date, @bookings) %>)</span>
       </div>
   <% end %>
 </div>

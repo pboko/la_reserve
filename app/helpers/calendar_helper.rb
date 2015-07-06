@@ -245,7 +245,7 @@ module CalendarHelper
   def generate_cell(cell_text, cell_attrs, date)
     cell_attrs      = cell_attrs.map {|k, v| %(#{k}="#{v}") }.join(" ")
     total_comments  = @restaurant.comments.for_service_date(date).count
-    comments_text = total_comments > 0 ? "(<span class='comments-count'>#{total_comments})</span>": nil
+    comments_text = total_comments > 0 ? "<span class='comments-count'>#{total_comments}</span>": nil
 
     "<td #{cell_attrs}>
       #{cell_text}
