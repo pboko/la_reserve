@@ -26,7 +26,11 @@
                   <hr>
                 </div>
                 <div class="panel-body">
-                  <%# simple_form_for() %>
+
+                  <div id="comments">
+                    <%= render 'comments/index', comments: @restaurant.comments %>
+                  </div>
+
                 </div>
               </div>
             </div>

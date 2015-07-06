@@ -15,7 +15,7 @@ class RestaurantsController < ApplicationController
       @date = Date.today
     end
 
-
+    @comment = Comment.new
 
   end
 
