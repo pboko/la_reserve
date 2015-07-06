@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150704152721) do
+
+ActiveRecord::Schema.define(version: 20150706144308) do
+
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +48,16 @@ ActiveRecord::Schema.define(version: 20150704152721) do
   add_index "bookings", ["customer_id"], name: "index_bookings_on_customer_id", using: :btree
   add_index "bookings", ["restaurant_id"], name: "index_bookings_on_restaurant_id", using: :btree
   add_index "bookings", ["waiter_id"], name: "index_bookings_on_waiter_id", using: :btree
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "restaurant_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.date     "service_date"
+  end
+
+  add_index "comments", ["restaurant_id"], name: "index_comments_on_restaurant_id", using: :btree
 
   create_table "customers", force: :cascade do |t|
     t.string   "first_name"
@@ -85,8 +98,12 @@ ActiveRecord::Schema.define(version: 20150704152721) do
     t.string   "street"
     t.string   "zip_code"
     t.integer  "capacity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
   create_table "spots", force: :cascade do |t|
@@ -133,6 +150,7 @@ ActiveRecord::Schema.define(version: 20150704152721) do
   add_foreign_key "bookings", "customers"
   add_foreign_key "bookings", "restaurants"
   add_foreign_key "bookings", "waiters"
+  add_foreign_key "comments", "restaurants"
   add_foreign_key "restaurant_customers", "customers"
   add_foreign_key "restaurant_customers", "restaurants"
   add_foreign_key "restaurant_users", "restaurants"

@@ -1,7 +1,39 @@
+#banner-homepage {
+  margin: 0px;
+  padding: 200px 0px;
+  color: black;
+  opacity: 1;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), image-url('tabledressee.jpg');
+  background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
+  font-size: 60px;
+  font-weight: 900;
+p{
+  font-size: 30px;
+}
+}
+
+
+
+
+.video-container {
+  position: absolute;
+
+  video {
+    width: 100%;
+  }
+}
+
 .homepage-hero-module {
-    border-right: none;
-    border-left: none;
-    position: relative;
+  position: relative;
+}
+
+
+.homepage-hero-module {
+  border-right: none;
+  border-left: none;
+  position: relative;
 }
 .no-video .video-container video,
 .touch .video-container video {
@@ -38,4 +70,39 @@
 }
 .video-container video.fillWidth {
     width: 100%;
+    transform: scale(1.2);
+}
+
+.filter {
+  z-index: 17;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.slogan{
+  max-width: 550px;
+  text-align: center;
+  position: relative;
+  z-index: 101;
+  color: white;
+  margin: 15em auto;
+h1{
+  font-weight: 500;
+  font-size: 4em;
+}
+p{
+  font-size: 1.5em;
+  font-weight: 100;
+}
+}
+
+.high_voltage_pages-show {
+  .navbar {
+    background: transparent;
+    border-bottom: 0;
+  }
 }

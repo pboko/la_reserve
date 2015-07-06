@@ -54,6 +54,23 @@
   }
  }
 
+ .edit_booking {
+  input {
+    &:focus {
+      outline: 0;
+      border-color: $dark-grey;
+      box-shadow: none;
+    }
+  }
+  select {
+    &:focus {
+      outline: 0;
+      border-color: $dark-grey;
+      box-shadow: none;
+    }
+  }
+ }
+
  .new_customer {
   input {
     &:focus {
@@ -76,8 +93,32 @@
       box-shadow: none;
     }
   }
-
  }
+
+ .edit_customer {
+  input {
+    &:focus {
+       outline: 0;
+       border-color: $dark-grey;
+       box-shadow: none;
+     }
+   }
+   select {
+     &:focus {
+       outline: 0;
+       border-color: $dark-grey;
+       box-shadow: none;
+     }
+   }
+   textarea {
+     &:focus {
+       outline: 0;
+       border-color: $dark-grey;
+       box-shadow: none;
+     }
+   }
+}
+
 
 label {
   font-size: 12px;
