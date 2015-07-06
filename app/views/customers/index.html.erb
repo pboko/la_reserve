@@ -6,7 +6,7 @@
           <div class="bordered-right">
             <div class="margin-bottom">
               <%= link_to new_restaurant_customer_path(@restaurant) do %>
-                <p><i class="fa fa-plus"></i> Add a customer</p>
+                <p><i class="fa fa-plus"></i> Ajouter un client</p>
               <% end %>
             </div>
 
@@ -15,7 +15,7 @@
               <ul>
                 <% @restaurant.customers.each do |customer| %>
                   <li>
-                    <%= link_to customer.full_name, restaurant_customer_path(@restaurant, customer), remotete: true %>
+                    <%= link_to customer.full_name, restaurant_customer_path(@restaurant, customer), remote: true %>
                   </li>
                 <% end %>
               </ul>

@@ -1,0 +1,10 @@
+<div role="tabpanel" class="tab-pane" id="config-waiter">
+  <div class="panel panel-default">
+
+    <div class="panel-body">
+      <h3> Gestion du personnel </h3>
+      <%= render 'settings/waiters/index', restaurant: @restaurant %>
+      <%= link_to '+ Ajouter un membre', new_restaurant_settings_waiter_path %>
+    </div>
+  </div>
+</div>
