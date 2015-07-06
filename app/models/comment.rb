@@ -7,6 +7,7 @@
 #  restaurant_id :integer
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  service_date  :date
 #
 # Indexes
 #
@@ -15,4 +16,6 @@
 
 class Comment < ActiveRecord::Base
   belongs_to :restaurant
+
+  scope :for_service_date, ->(date) { where(service_date: date) }
 end

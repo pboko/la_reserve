@@ -28,9 +28,10 @@
                 <div class="panel-body">
 
                   <div id="comments">
-                    <%= render 'comments/index', comments: @restaurant.comments %>
+                    <%= render 'comments/index', comments: @comments %>
                   </div>
-
+                  <hr>
+                    <%= render 'comments/form', restaurant: @restaurant, comment: @comment, service_date: @date %>
                 </div>
               </div>
             </div>
