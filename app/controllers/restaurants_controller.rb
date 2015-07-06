@@ -15,6 +15,8 @@ class RestaurantsController < ApplicationController
       @date = Date.today
     end
 
+
+
   end
 
   def new

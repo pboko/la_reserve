@@ -15,7 +15,7 @@
               <ul>
                 <% @restaurant.customers.each do |customer| %>
                   <li>
-                    <%= link_to customer.full_name, restaurant_customer_path(@restaurant, customer), remotete: true %>
+                    <%= link_to customer.full_name, restaurant_customer_path(@restaurant, customer), remote: true %>
                   </li>
                 <% end %>
               </ul>
