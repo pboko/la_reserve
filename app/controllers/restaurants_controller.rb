@@ -14,7 +14,7 @@ class RestaurantsController < ApplicationController
     else
       @date = Date.today
     end
-
+    @comment = Comment.new
   end
 
   def new

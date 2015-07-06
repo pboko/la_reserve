@@ -17,6 +17,7 @@ class Restaurant < ActiveRecord::Base
   has_many :restaurant_customers
   has_many :waiters, dependent: :destroy
   has_many :bookings
+  has_many :comments
   has_many :restaurant_users, dependent: :destroy
   has_many :users, through: :restaurant_users
   has_many :customers, through: :restaurant_customers
