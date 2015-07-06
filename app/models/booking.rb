@@ -35,8 +35,10 @@ class Booking < ActiveRecord::Base
   validates :start_time, presence: true
   # validates :end_time, presence: true
   validates :pax, presence: true
+  validates :period, presence: true
 
   scope :for_period, ->(period) { where(:period => period.to_s.capitalize) }
   scope :for_date, ->(date) { where(:date => date) }
   # scope :for_waiting_list, ->(waiting_list) { where(:waiting_list => waiting_list)}
+
 end

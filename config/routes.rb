@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
 
+  get 'settings/index'
+
+  get 'settings/edit'
+
+  get 'settings/update'
+
   devise_for :users
 
   resources :restaurants do

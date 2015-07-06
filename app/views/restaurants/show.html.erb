@@ -40,12 +40,15 @@
               </div>
               <div class="panel-body">
                 <div class="col-md-4">
+                  <h4>couverts</h4>
                   <p class= "nb-big"> <%= total_cuttlery_for(:midi, @date, @restaurant.bookings)%></p>
                 </div>
                 <div class="col-md-4">
+                  <h4>liste d'attente</h4>
                   <p class= "nb-big"> <%= total_waiting_cuttlery_for(:midi, @date, @restaurant.bookings)%></p>
                 </div>
                 <div class="col-md-4">
+                  <h4>VIP</h4>
 
                 </div>
               </div>
@@ -59,12 +62,15 @@
               </div>
               <div class="panel-body">
                 <div class="col-md-4">
+                  <h4>couverts</h4>
                   <p class= "nb-big"> <%= total_cuttlery_for(:soir, @date, @restaurant.bookings)%></p>
                 </div>
                 <div class="col-md-4">
+                  <h4>liste d'attente</h4>
                   <p class= "nb-big"> <%= total_waiting_cuttlery_for(:soir, @date, @restaurant.bookings)%></p>
                 </div>
                 <div class="col-md-4">
+                  <h4>VIP</h4>
 
                 </div>
               </div>
@@ -72,6 +78,10 @@
           </div>
         </div>
 
+      </div>
+    </div>
+  </div>
+</div>
 
 <!--                   <%# if @restaurant.bookings.customer.status == "VIP" %>
                     <%# @restaurant.bookings.customer.each do |customer| %>
@@ -82,7 +92,14 @@
                   <%# end %> -->
 
 
-      </div>
-    </div>
-  </div>
-</div>
+
+<!--         <div class="accueil">
+          <h3> VIP midi </h3>
+          <%# bookings.for_period(:midi).for_date(date).each do |booking| %>
+          <%# if booking.customer.satus == "VIP" %>
+
+          <p> <%#= booking.customer.first_name %> </p>
+          <%# end %>
+        </div>
+ -->
+
