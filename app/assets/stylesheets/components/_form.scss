@@ -79,6 +79,13 @@
 
  }
 
+label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
 
 .panel-title {
   font-weight: 700;
@@ -105,6 +112,18 @@
 #row-1{
   label {
     margin-right: 10px;
+  }
+}
+
+.panel-default > .panel-heading {
+  background-color: $body-bg;
+}
+
+.panel-heading {
+  background-color: #F9F9F9;
+  h3 {
+    font-size:16px;
+    text-align: center;
   }
 }
 
