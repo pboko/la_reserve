@@ -1,4 +1,4 @@
-<%= simple_form_for [@restaurant,@spot] do |f| %>
+<%= simple_form_for [@restaurant, :settings, @spot] do |f| %>
   <%= f.error_notification %>
 
   <%= f.input :name %>

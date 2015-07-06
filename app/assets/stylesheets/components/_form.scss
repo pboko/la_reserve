@@ -35,10 +35,7 @@
       box-shadow: none;
     }
   }
-
  }
-
-
 
  .new_booking {
   input {
@@ -56,6 +53,38 @@
     }
   }
  }
+
+ .new_customer {
+  input {
+    &:focus {
+      outline: 0;
+      border-color: $dark-grey;
+      box-shadow: none;
+    }
+  }
+  select {
+    &:focus {
+      outline: 0;
+      border-color: $dark-grey;
+      box-shadow: none;
+    }
+  }
+  textarea {
+    &:focus {
+      outline: 0;
+      border-color: $dark-grey;
+      box-shadow: none;
+    }
+  }
+
+ }
+
+label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
 
 
 .panel-title {
@@ -83,6 +112,18 @@
 #row-1{
   label {
     margin-right: 10px;
+  }
+}
+
+.panel-default > .panel-heading {
+  background-color: $body-bg;
+}
+
+.panel-heading {
+  background-color: #F9F9F9;
+  h3 {
+    font-size:16px;
+    text-align: center;
   }
 }
 
