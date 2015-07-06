@@ -4,11 +4,20 @@ class CommentsController < ApplicationController
       @comment = Comment.new(comment_params)
       @comment.restaurant = @restaurant
       # authorize @review
+
       if @comment.save
-        redirect_to restaurant_path(@restaurant)
+        respond_to do |format|
+          format.html { redirect_to restaurant_path(@restaurant) }
+          format.js  # <-- will render `app/views/reviews/create.js.erb`
+        end
       else
-        render 'restaurants/show'
+        respond_to do |format|
+          format.html { render 'restaurants/show' }
+          format.js  # <-- idem
+        end
       end
+
+
     end
 
     private

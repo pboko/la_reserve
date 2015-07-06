@@ -1,4 +1,4 @@
-<%= simple_form_for([ restaurant, comment ]) do |form| %>
-  <%= form.input :content %>
-  <%= form.button :submit %>
+<%= simple_form_for([ restaurant, comment ], remote: true) do |f| %>
+  <%= f.input :content, label: false, class: "form-control" %>
+  <%= f.button :submit %>
 <% end %>

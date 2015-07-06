@@ -26,14 +26,11 @@
                   <hr>
                 </div>
                 <div class="panel-body">
-                  <% if @restaurant.comments.blank? %>
-                    <p>Pas de notifications</p>
-                  <% else %>
-                    <% @restaurant.comments.each do |comment| %>
-                      <%= render 'comments/form', restaurant: @restaurant,  comment: @comment %>
-                    <% end %>
-                  <% end %>
+                  <div id="comments">
+                    <%= render 'comments/index', comments: @restaurant.comments %>
+                  </div>
 
+                  <%= render 'comments/form', restaurant: @restaurant, comment: @comment %>
                 </div>
               </div>
             </div>
