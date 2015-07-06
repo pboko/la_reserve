@@ -20,12 +20,12 @@ class Customer < ActiveRecord::Base
   has_many :restaurants, through: :restaurant_customers
   has_many :bookings
 
-  validates :first_name, presence: true
- # validates :last_name, presence: true
+  # validates :first_name, presence: true
+  validates :last_name, presence: true
   #validates :email, presence: true
 
   def full_name
-    "#{first_name} #{last_name}"
+    "#{first_name} #{last_name}".strip
   end
 
   scope :for_status, ->(status) { where(:status => status.to_s.upcase) }

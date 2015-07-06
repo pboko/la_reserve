@@ -1,16 +1,19 @@
 Rails.application.routes.draw do
-
-
   devise_for :users
 
   resources :restaurants do
-    resources :waiters
-    resources :spots
     resources :bookings
     resources :customers, only: [:index, :show, :new, :create, :edit, :update]
+
+    # resources :waiters
+    # resources :spots
     # resources :agenda, only: [:show]
+
+    resource :settings, only: [:edit, :update]
+
+    namespace :settings do
+      resources :spots
+      resources :waiters
+    end
   end
-
-
-
 end

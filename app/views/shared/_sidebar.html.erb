@@ -10,23 +10,23 @@
     <hr class="dividor">
 
     <div id="home">
-        <%= link_to restaurant_path(@restaurant) do %>
-          <p><i class="fa fa-th-large"></i> Accueil</p>
-        <% end %>
+      <%= link_to restaurant_path(@restaurant), class: sidebar_css_class(:home) do %>
+        <p><i class="fa fa-th-large"></i> Accueil</p>
+      <% end %>
     </div>
 
     <hr class="dividor">
 
     <div id="calendar">
-        <%= link_to restaurant_bookings_path(@restaurant) do %>
-          <p><i class="fa fa-calendar"></i> Calendrier</p>
-        <% end %>
-        <hr class="dividor">
+      <%= link_to restaurant_bookings_path(@restaurant), class: sidebar_css_class(:calendar) do %>
+        <p><i class="fa fa-calendar"></i> Calendrier</p>
+      <% end %>
+      <hr class="dividor">
     </div>
 
 
     <div id="contact">
-      <%= link_to restaurant_customers_path(@restaurant) do %>
+      <%= link_to restaurant_customers_path(@restaurant), class: sidebar_css_class(:contact) do %>
         <p><i class="fa fa-users"></i> Contacts</p>
       <% end %>
     </div>
@@ -34,12 +34,18 @@
     <hr class="dividor">
 
     <div id="config">
-      <%= link_to "#" do %>
+      <%= link_to edit_restaurant_settings_path(@restaurant), class: sidebar_css_class(:config) do %>
         <p><i class="fa fa-cog"></i> Configuration</p>
       <% end %>
     </div>
 
     <hr class="dividor">
+
+    <div id="stats">
+      <%= link_to "#", class: sidebar_css_class(:stats) do %>
+        <p><i class="fa fa-bar-chart"></i></i> Statistiques</p>
+      <% end %>
+    </div>
 
   </div>
 

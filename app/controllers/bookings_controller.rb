@@ -11,7 +11,8 @@ class BookingsController < ApplicationController
       @date = Date.today
     end
 
-    @bookings = @restaurant.bookings
+    @bookings = @restaurant.bookings.order(:start_time)
+
     @diner_booking_total = total_cuttlery(:soir, @bookings)
     @lunch_booking_total = total_cuttlery(:midi, @bookings)
 
@@ -31,12 +32,9 @@ class BookingsController < ApplicationController
 
   def create
     @booking = @restaurant.bookings.build(booking_params)
-    params[:customer]
-    params[:spot]
+    customer = @restaurant.customers.where(last_name: params[:last_name]).first_or_create
 
-    @customer = Customer.new(first_name: params[:first_name])
-    @customer.save
-    @booking.customer = @customer
+    @booking.customer = customer
     @booking.save
 
     if @booking.save
@@ -78,10 +76,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-
-    params.require(:booking).permit(:start_time, :end_time, :date, :status, :period, :pax, :notes, :waiting_list)
-
-
+    params.require(:booking).permit(:start_time, :date, :status, :period, :pax, :notes, :waiting_list)
   end
 
   def find_booking

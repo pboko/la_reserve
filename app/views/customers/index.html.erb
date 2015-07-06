@@ -13,10 +13,9 @@
             <div id="list-customers">
 
               <ul>
-                <% @restaurant.restaurant_customers.each do |restaurant_customer| %>
+                <% @restaurant.customers.each do |customer| %>
                   <li>
-                    <% @customer = Customer.find(restaurant_customer.customer_id) %>
-                    <%= link_to @customer.full_name, restaurant_customer_path(@restaurant, @customer), remote: true %>
+                    <%= link_to customer.full_name, restaurant_customer_path(@restaurant, customer), remotete: true %>
                   </li>
                 <% end %>
               </ul>

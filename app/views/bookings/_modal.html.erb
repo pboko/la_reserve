@@ -35,11 +35,11 @@
               </div>
               <div class="form-group">
                 <div class="col-sm-6 padding-right-5">
-                  <%= label_tag(:first_name, "Client", :class => "control-label") %>
-                  <%= text_field_tag(:first_name, nil, :class => "form-control") %>
+                  <%= label_tag(:last_name, "Client", :class => "control-label") %>
+                  <%= text_field_tag(:last_name, params[:last_name], :class => "form-control") %>
                 </div>
                 <div class="col-sm-6 padding-left-5 pax-top">
-                  <%= f.input :status, label: "Statut", collection: ["VIP","Reservé", "Confirmé", "Assis", "Arrivés", "Message", "Annulée", "No show"], as: :select, default: "Réservé" %>
+                  <%= f.input :status, label: "Statut", collection: ["Reservé", "Confirmé", "Assis", "Arrivés", "Message", "Annulée", "No show"], as: :select, default: "Réservé" %>
                 </div>
               </div>
               <div class="form-group">

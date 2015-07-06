@@ -4,45 +4,102 @@
       <div class="col-md-10 col-md-offset-2">
 
         <div class="text-center" id="focus-day">
-          <%= link_to :date => previous_day(@date) do  %>
-            <i class="fa fa-arrow-left"></i>
-          <% end %>
-          <h2 class= "text-center"><%= @date.strftime("%A %d %B %Y") %> </h2>
-          <%= link_to :date => next_day(@date) do  %>
-            <i class="fa fa-arrow-right"></i>
-          <% end %>
+          <h2 class= "text-center">
+            <%= link_to :date => previous_day(@date) do  %>
+              <i class="fa fa-arrow-left"></i>
+            <% end %>
+            <%= @date.strftime("%A %d %B %Y") %>
+            <%= link_to :date => next_day(@date) do  %>
+              <i class="fa fa-arrow-right"></i>
+            <% end %>
+          </h2>
         </div>
 
-        <div class="accueil">
-            <h3> Midi </h3>
+        <div class="sm-padded"></div>
 
-            <p> <%= total_cuttlery_for(:midi, @date, @restaurant.bookings) %> couverts </p>
-            <p> Liste d'attente : </p>
+        <div class="info-services">
+          <div id="post-it">
+            <div class="col-md-4">
+              <div class="panel panel-default text-center">
+                <div class="panel-heading">
+                  <h3 class= "panel-title"> Commentaires</h3>
+                  <hr>
+                </div>
+                <div class="panel-body">
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-8">
+            <div class="panel panel-default text-center">
+              <div class="panel-heading">
+                <h3 class="panel-title"> Midi</h3>
+                <hr>
+              </div>
+              <div class="panel-body">
+                <div class="col-md-4">
+                  <h4>couverts</h4>
+                  <p class= "nb-big"> <%= total_cuttlery_for(:midi, @date, @restaurant.bookings)%></p>
+                </div>
+                <div class="col-md-4">
+                  <h4>liste d'attente</h4>
+                  <p class= "nb-big"> <%= total_waiting_cuttlery_for(:midi, @date, @restaurant.bookings)%></p>
+                </div>
+                <div class="col-md-4">
+                  <h4>VIP</h4>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="panel panel-default text-center">
+              <div class="panel-heading">
+                <h3 class="panel-title"> Soir</h3>
+                <hr>
+              </div>
+              <div class="panel-body">
+                <div class="col-md-4">
+                  <h4>couverts</h4>
+                  <p class= "nb-big"> <%= total_cuttlery_for(:soir, @date, @restaurant.bookings)%></p>
+                </div>
+                <div class="col-md-4">
+                  <h4>liste d'attente</h4>
+                  <p class= "nb-big"> <%= total_waiting_cuttlery_for(:soir, @date, @restaurant.bookings)%></p>
+                </div>
+                <div class="col-md-4">
+                  <h4>VIP</h4>
+
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="accueil">
-          <h3> Soir </h3>
-          <p> <%= total_cuttlery_for(:soir, @date, @restaurant.bookings) %> couverts </p>
-          <p> Liste d'attente : </p>
-        </div>
-
-        <div class="accueil">
-          <h3> Liste d'attente </h3>
-          <p>  N réservations </p>
-        </div>
-
-        <div class="accueil">
-          <h3> Post-it </h3>
-        </div>
-
-        <div class="accueil">
-          <h3> VIP </h3>
-
-          <% @restaurant.customers.for_status(:vip).each do |customer| %>
-          <p> <%= customer.first_name %> <%= customer.last_name %> </p>
-          <% end %>
-        </div>
       </div>
     </div>
   </div>
 </div>
+
+<!--                   <%# if @restaurant.bookings.customer.status == "VIP" %>
+                    <%# @restaurant.bookings.customer.each do |customer| %>
+                    <p> <%#= customer.first_name %> <%#= customer.last_name %> </p>
+                    <%# end %>
+                  <%# else %>
+                    <p>Pas de VIP ce midi</p>
+                  <%# end %> -->
+
+
+
+<!--         <div class="accueil">
+          <h3> VIP midi </h3>
+          <%# bookings.for_period(:midi).for_date(date).each do |booking| %>
+          <%# if booking.customer.satus == "VIP" %>
+
+          <p> <%#= booking.customer.first_name %> </p>
+          <%# end %>
+        </div>
+ -->
+
