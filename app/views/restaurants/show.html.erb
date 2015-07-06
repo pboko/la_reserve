@@ -26,11 +26,12 @@
                   <hr>
                 </div>
                 <div class="panel-body">
-                  <div id="comments">
-                    <%= render 'comments/index', comments: @restaurant.comments %>
-                  </div>
 
-                  <%= render 'comments/form', restaurant: @restaurant, comment: @comment %>
+                  <div id="comments">
+                    <%= render 'comments/index', comments: @comments %>
+                  </div>
+                  <hr>
+                    <%= render 'comments/form', restaurant: @restaurant, comment: @comment, service_date: @date %>
                 </div>
               </div>
             </div>
@@ -53,7 +54,13 @@
                 </div>
                 <div class="col-md-4">
                   <h4>VIP</h4>
-
+                  <div id="list-vip">
+                    <% @restaurant.bookings.for_period(:midi).for_date(@date).each do |booking| %>
+                      <% if booking.customer.status == "VIP" %>
+                        <p> <%= booking.customer.full_name %> </p>
+                        <% end %>
+                    <% end %>
+                  </div>
                 </div>
               </div>
             </div>
@@ -76,6 +83,8 @@
                 <div class="col-md-4">
                   <h4>VIP</h4>
 
+
+
                 </div>
               </div>
             </div>
@@ -87,23 +96,4 @@
   </div>
 </div>
 
-<!--                   <%# if @restaurant.bookings.customer.status == "VIP" %>
-                    <%# @restaurant.bookings.customer.each do |customer| %>
-                    <p> <%#= customer.first_name %> <%#= customer.last_name %> </p>
-                    <%# end %>
-                  <%# else %>
-                    <p>Pas de VIP ce midi</p>
-                  <%# end %> -->
-
-
-
-<!--         <div class="accueil">
-          <h3> VIP midi </h3>
-          <%# bookings.for_period(:midi).for_date(date).each do |booking| %>
-          <%# if booking.customer.satus == "VIP" %>
-
-          <p> <%#= booking.customer.first_name %> </p>
-          <%# end %>
-        </div>
- -->
 

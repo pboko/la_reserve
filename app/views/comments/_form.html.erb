@@ -1,4 +1,4 @@
 <%= simple_form_for([ restaurant, comment ], remote: true) do |f| %>
-  <%= f.input :content, label: false, class: "form-control" %>
-  <%= f.button :submit %>
+  <%= f.input :service_date, as: :hidden, input_html: { value: service_date } %>
+  <%= f.input :content, as: :string, placeholder: "ajouter un commentaire" , label: false, class: "form-control" %>
 <% end %>

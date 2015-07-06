@@ -8,13 +8,14 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-
     if params[:date]
       @date = Date.parse(params[:date])
     else
       @date = Date.today
     end
-    @comment = Comment.new
+
+    @comment  = Comment.new
+    @comments = @restaurant.comments.for_service_date(@date)
   end
 
   def new

@@ -11,6 +11,22 @@ table {
   width: 100%;
 }
 
+.comments-count {
+  margin-left: 40px;
+  border-radius: 50%;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  padding: 2px 0px;
+
+  background: $dark-grey;
+  color: white;
+  text-align: center;
+
+  font-size: 8px;
+//  padding-bottom: 5px;
+}
+
 .red{
   background: $burgundy;
   color:white;
@@ -260,7 +276,7 @@ abbr[title] {
 
 #chevrons {
   a{
-    margin-right: 185px;
+    // margin-right: 185px;
     font-size: 14px;
     font-weight:300;
     color: white;
