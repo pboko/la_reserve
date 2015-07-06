@@ -1,0 +1,16 @@
+<div role="tabpanel" class="tab-pane settings-view <%= "active" if local_assigns.has_key?(:active) %>" id="config-resto">
+  <div class="panel panel-default">
+
+    <div class="panel-body">
+      <h3> Coordonnées </h3>
+      <%= simple_form_for @restaurant, url: restaurant_settings_path do |f| %>
+        <%= f.input :name , label: "Nom du restaurant" %>
+        <%= f.input :capacity, label: "Capacité", input_html: { min: '0'} %>
+        <%= f.input :street, label: "Adresse" %>
+        <%= f.input :zip_code, label: "Code postal" %>
+        <%= f.input :city, label: "Ville" %>
+        <%= f.submit :submit, value: "Enregistrer", class: "btn btn-primary btn-full-width" %>
+      <% end %>
+    </div>
+  </div>
+</div>

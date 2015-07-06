@@ -1,6 +1,6 @@
 <div class="row" id="dayview">
 
-  <h2><%= date.strftime("%A %d %B %Y") %> </h2>
+  <h2 id="date-detail"><%= date.strftime("%A %d %B %Y") %> </h2>
 
       <ul class="nav nav-pills ">
         <li role="presentation" class="active switch-button"><a href="#resa-midi" data-toggle="tab">Midi</a></li>
@@ -111,7 +111,7 @@
                         <% end %>
                       </td>
                     </tr>
-                  <% end %>
+                <% end %>
                 </tbody>
               </table>
               <div class="total">
@@ -124,7 +124,6 @@
                 <thead>
                   <tr>
                     <th><i class="fa fa-clock-o"></i></th>
-                    <th>Service</th>
                     <th>Statut</th>
                     <th><i class="fa fa-cutlery"></i></th>
                     <th>Client</th>

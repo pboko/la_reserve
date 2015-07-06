@@ -1,0 +1,29 @@
+.settings-view {
+
+  ol{
+    margin-top: 30px;
+  }
+
+  li{
+    padding: 10px 10px;
+    margin-right: 20px;
+  }
+
+  a{
+    margin-right: 10px;
+    &:first-of-type{
+      i{
+       margin-left: 10px;
+      }
+    }
+  }
+
+  h3{
+    padding-bottom: 10px;
+  }
+}
+
+
+
+
+

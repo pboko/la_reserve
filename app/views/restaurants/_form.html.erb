@@ -1,14 +1,15 @@
 <%= simple_form_for @restaurant do |f| %>
   <%= f.error_notification %>
 
-  <%= f.input :name %>
-  <%= f.input :capacity,  input_html: { min: '0'} %>
-  <%= f.input :street %>
-  <%= f.input :zip_code %>
-  <%= f.input :city %>
+  <%= f.input :name , label: "Nom du restaurant" %>
+  <%= f.input :capacity, label: "Capacité", input_html: { min: '0'} %>
+  <%= f.input :street, label: "Adresse" %>
+  <%= f.input :zip_code, label: "Code postal" %>
+  <%= f.input :city, label: "Ville" %>
   <%= f.label :picture %>
   <%= f.file_field :picture %>
-<br>
-  <%= f.button :submit, class: "btn btn-primary btn-full-width" %>
+  <br>
+
+  <%= f.button :submit, label: "Sauvegarder", class: "btn btn-primary btn-full-width" %>
 
 <% end %>

@@ -1,30 +1,26 @@
-<div class="margin-top">
-
-  <div class="container">
+<div class="margin-top page-content">
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-md-4 col-md-offset-4">
+      <div class="col-md-10 col-md-offset-1">
 
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Edition restaurant</h3>
-          </div>
-          <div class="panel-body">
-            <%= simple_form_for @restaurant, url: restaurant_settings_path do |f| %>
-              <%= f.input :name %>
-              <%= f.input :city %>
-              <%= f.input :street %>
-              <%= f.input :zip_code %>
-              <%= f.input :capacity %>
-              <%= f.submit %>
-            <% end %>
+        <ul class="nav nav-pills ">
+          <li role="presentation" class="active switch-button"><a href="#config-resto" data-toggle="tab">Restaurant</a></li>
+          <li role="presentation" class="switch-button"><a href="#config-waiter" data-toggle="tab">Personnel</a></li>
+          <li role="presentation" class="switch-button"><a href="#config-spot" data-toggle="tab">Tables</a></li>
+        </ul>
+
+        <div class="panel-default">
+          <div class="tab-content">
+            <%= render 'settings/tabs/restaurant', active: true %>
+            <%= render 'settings/tabs/waiters' %>
+            <%= render 'settings/tabs/spots' %>
           </div>
         </div>
-
 
       </div>
     </div>
   </div>
-
 </div>
+
 
 

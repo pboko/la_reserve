@@ -2,11 +2,9 @@
 <% elsif !current_user.restaurants.blank? && @restaurant.persisted? %>
   <div id="nav-container">
 
-
     <h1 class= "text-left"><%= @restaurant.picture? ? image_tag(@restaurant.picture.url(:medium)) : @restaurant.name %></h1>
 
-
-      <button data-toggle="modal" data-target="#sidebar-modal" class="btn btn-primary">Create booking</button>
+      <button data-toggle="modal" data-target="#sidebar-modal" class="btn btn-primary"><i class="fa fa-plus"></i> Réservation</button>
 
 
     <div class="list">
