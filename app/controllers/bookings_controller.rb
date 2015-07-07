@@ -48,6 +48,10 @@ class BookingsController < ApplicationController
   end
 
   def update
+    customer = @restaurant.customers.where(last_name: params[:last_name]).first_or_create
+
+    @booking.customer = customer
+
     if @booking.update(booking_params)
       redirect_to restaurant_bookings_path(@restaurant)
     else

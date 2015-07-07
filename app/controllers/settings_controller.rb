@@ -6,7 +6,7 @@ class SettingsController < ApplicationController
 
   def update
     if @restaurant.update(restaurant_params)
-      redirect_to restaurant_settings_path(@restaurant)
+      redirect_to edit_restaurant_settings_path(@restaurant)
     else
       render :edit
     end
@@ -24,7 +24,8 @@ class SettingsController < ApplicationController
       :city,
       :street,
       :zip_code,
-      :capacity
+      :capacity,
+      :picture
     )
   end
 end
