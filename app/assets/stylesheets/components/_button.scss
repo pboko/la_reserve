@@ -22,32 +22,6 @@
 
 }
 
-.switch-button{
-  width: 286px;
-  background-color: $body-bg;
-  color: white !important;
-  border-radius: 5px;
-  margin-top: 15px;
-  a {
-    margin-top: 15px;
-    &:hover{
-    color: white;
-    background-color: $burgundy!important;
-    margin-top: 15px;
-    }
-  }
-
-
-  &.active {
-    a {
-      margin-top: 15px;
-      background-color: $burgundy !important;
-      color: white!important;
-      text-decoration: none!important;
-    }
-  }
-
-}
 
 .index-icons{
   i{

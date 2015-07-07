@@ -1,0 +1,55 @@
+#dayview {
+  ul {
+    margin-top: -11px;
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 0px;
+    margin-top: 48px;
+  }
+}
+
+.switch-button{
+  width: 153px;
+  background-color: $body-bg;
+  color: white !important;
+  border-radius: 5px;
+  margin-top: 15px;
+  a {
+    margin-top: 15px;
+    &:hover{
+    color: white;
+    background-color: $burgundy!important;
+    margin-top: 15px;
+    }
+  }
+
+
+  &.active {
+    a {
+      margin-top: 15px;
+      background-color: $burgundy !important;
+      color: white!important;
+      text-decoration: none!important;
+    }
+  }
+}
+
+#dayview .table {
+  a {
+    margin-left: 5px;
+  }
+}
+
+.total {
+  h3 {
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-left: 17px;
+    margin-top: -9px;
+    color: $burgundy;
+    font-weight:700;
+  }
+}

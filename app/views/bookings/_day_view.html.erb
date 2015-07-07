@@ -2,7 +2,7 @@
 
   <h2 id="date-detail"><%= date.strftime("%A %d %B %Y") %> </h2>
 
-      <ul class="nav nav-pills ">
+      <ul class="nav nav-pills text-center">
         <li role="presentation" class="active switch-button"><a href="#resa-midi" data-toggle="tab">Midi</a></li>
         <li role="presentation" class="switch-button"><a href="#resa-soir" data-toggle="tab">Soir</a></li>
         <li role="presentation" class="switch-button"><a href="#liste-dattente" data-toggle="tab">Liste d'attente</a></li>
@@ -19,9 +19,8 @@
                     <th><i class="fa fa-clock-o"></i></th>
                     <th>Statut</th>
                     <th><i class="fa fa-cutlery"></i></th>
-                    <th>Client</th>
+                    <th><i class="fa fa-user"></i></th>
                     <th>Notes</th>
-                    <th></th>
                     <th></th>
                   </tr>
                 </thead>
@@ -39,7 +38,7 @@
                           <%= booking.pax %>
                         </td>
                          <td>
-                        <%= booking.customer.full_name if booking.customer.present? %>
+                        <%= booking.customer.last_name if booking.customer.present? %>
                          </td>
                         <td>
                           <%= booking.notes %>
@@ -48,8 +47,6 @@
                           <%= link_to edit_restaurant_booking_path(restaurant, booking) do %>
                             <i class="fa fa-pencil"></i>
                           <%end %>
-                        </td>
-                        <td class="index-icons">
                           <%= link_to restaurant_booking_path(restaurant, booking),
                           method: :delete,
                           data: { confirm: "Are you sure?" } do %>
@@ -63,7 +60,7 @@
                 </tbody>
               </table>
               <div class="total">
-                <h2>Total : <%= lunch_booking_total %> couverts </h2>
+                <h3>Total : <%= lunch_booking_total %> couverts </h3>
               </div>
             </div>
 
@@ -74,7 +71,7 @@
                     <th><i class="fa fa-clock-o"></i></th>
                     <th>Statut</th>
                     <th><i class="fa fa-cutlery"></i></th>
-                    <th>Client</th>
+                    <th><i class="fa fa-user"></i></th>
                     <th>Notes</th>
                     <th></th>
                     <th></th>
@@ -102,8 +99,6 @@
                         <%= link_to edit_restaurant_booking_path(restaurant, booking) do %>
                           <i class="fa fa-pencil"></i>
                         <%end %>
-                      </td>
-                      <td class="index-icons">
                         <%= link_to restaurant_booking_path(restaurant, booking),
                         method: :delete,
                         data: { confirm: "Are you sure?" } do %>
@@ -115,7 +110,7 @@
                 </tbody>
               </table>
               <div class="total">
-                <h2>Total : <%= diner_booking_total %> couverts </h2>
+                <h3>Total : <%= diner_booking_total %> couverts </h3>
               </div>
             </div>
 
@@ -124,11 +119,9 @@
                 <thead>
                   <tr>
                     <th><i class="fa fa-clock-o"></i></th>
-                    <th>Statut</th>
+                    <th>Service</th>
                     <th><i class="fa fa-cutlery"></i></th>
-                    <th>Client</th>
-                    <th>Notes</th>
-                    <th></th>
+                    <th><i class="fa fa-user"></i></th>
                     <th></th>
                   </tr>
                 </thead>
@@ -143,23 +136,15 @@
                           <%= booking.period %>
                         </td>
                         <td>
-                          <%= booking.status %>
-                        </td>
-                        <td>
                           <%= booking.pax %>
                         </td>
                         <td>
                           <%= booking.customer.full_name if booking.customer.present? %>
                         </td>
-                        <td>
-                          <%= booking.notes %>
-                        </td>
                         <td class="index-icons">
                           <%= link_to edit_restaurant_booking_path(restaurant, booking) do %>
                             <i class="fa fa-pencil"></i>
                           <%end %>
-                        </td>
-                        <td class="index-icons">
                           <%= link_to restaurant_booking_path(restaurant, booking),
                           method: :delete,
                           data: { confirm: "Are you sure?" } do %>
@@ -172,6 +157,9 @@
                   <% end %>
                 </tbody>
               </table>
+              <div class="total">
+                <h3>Total : <%= total_waiting_cuttlery_for(:midi, date, @bookings) + total_waiting_cuttlery_for(:soir, date, @bookings) %> couverts </h3>
+              </div>
             </div>
           </div>
       </div>
