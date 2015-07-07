@@ -78,6 +78,7 @@
                 </thead>
                 <tbody class="text-center">
                   <% bookings.for_period(:soir).for_date(date).each do |booking| %>
+                  <div <% unless booking.waiting_list? %>>
                     <tr>
                       <td>
                         <%= booking.start_time.strftime("%H:%M")%>
@@ -105,6 +106,8 @@
                         <% end %>
                       </td>
                     </tr>
+                    <% end %>
+                  </div>
                 <% end %>
                 </tbody>
               </table>
