@@ -1,6 +1,6 @@
 <div class="row" id="dayview">
 
-  <h2 id="date-detail"><%= date.strftime("%A %d %B %Y") %> </h2>
+  <h2 id="date-detail"><%= l (Date.today), format: :long %> </h2>
 
       <ul class="nav nav-pills text-center">
         <li role="presentation" class="active switch-button"><a href="#resa-midi" data-toggle="tab">Midi</a></li>
