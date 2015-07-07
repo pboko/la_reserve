@@ -1,0 +1,10 @@
+<div role="tabpanel" class="tab-pane" id="config-spot">
+  <div class="panel panel-default">
+
+    <div class="panel-body">
+      <h3> Gestion des tables</h3>
+      <%= render 'settings/spots/index', restaurant: @restaurant %>
+      <%= link_to '+ Ajouter une table', new_restaurant_settings_spot_path %>
+    </div>
+  </div>
+</div>

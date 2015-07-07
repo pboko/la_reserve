@@ -1,9 +1,40 @@
-<%= simple_form_for [@restaurant, :settings, @spot] do |f| %>
-  <%= f.error_notification %>
+<div class="margin-top">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-2">
+        <ul class="nav nav-pills ">
+        <li role="presentation" class="switch-button"><a href="#config-resto" data-toggle="tab">Restaurant</a></li>
+        <li role="presentation" class="switch-button"><a href="#config-waiter" data-toggle="tab">Personnel</a></li>
+        <li role="presentation" class="active switch-button"><a href="#config-spot" data-toggle="tab">Tables</a></li>
+      </ul>
+        <div class="row">
+          <div class="col-md-11">
+            <div class="panel panel-default">
+              <div class="tab-content">
+                <%= render 'settings/tabs/restaurant' %>
+                <%= render 'settings/tabs/waiters' %>
 
-  <%= f.input :name %>
-  <%= f.input :capacity %>
+                <div role="tabpanel" class="tab-pane active" id="config-spot">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                     <h3 class="panel-title">Enregistrer une nouvelle table</h3>
+                    </div>
+                    <div class="panel-body">
+                      <%= simple_form_for [@restaurant, :settings, @spot] do |f| %>
+                      <%= f.error_notification %>
 
-
-  <%= f.button :submit %>
-<% end %>
+                      <%= f.input :name %>
+                      <%= f.input :capacity %>
+                      <%= f.submit :submit, value: "Enregistrer", class: "btn btn-primary btn-full-width" %>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

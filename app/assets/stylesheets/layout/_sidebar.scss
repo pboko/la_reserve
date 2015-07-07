@@ -19,7 +19,16 @@
   }
   button {
     width: 100%;
+    i {
+    margin-right: 10px;
+    }
   }
+
+  hr {
+    border-color: $gray-lighter;
+    margin: 10px 0px;
+  }
+
   p {
     font-size: 18px;
     font-weight: 300;
@@ -51,4 +60,8 @@
       }
     }
   }
+}
+
+.page-content {
+  margin-left: 230px;
 }

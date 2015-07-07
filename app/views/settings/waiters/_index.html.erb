@@ -1,0 +1,19 @@
+<div class="settings-view">
+  <ol>
+    <% restaurant.waiters.each do |waiter| %>
+      <li>
+        <%= waiter.name.capitalize %>
+        <div class="pull-right">
+          <%= link_to edit_restaurant_settings_waiter_path(restaurant, waiter) do %>
+            <i class="fa fa-pencil"></i>
+          <% end %>
+          <%= link_to edit_restaurant_settings_waiter_path(restaurant, waiter),
+            method: :delete,
+            data: { confirm: "Are you sure sure sure ?" } do %>
+            <i class="fa fa-trash-o"></i>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ol>
+</div>

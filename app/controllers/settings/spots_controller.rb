@@ -2,7 +2,7 @@ module Settings
   class SpotsController < ApplicationController
 
     before_action :find_spot, only: [:show, :edit, :update, :destroy]
-    before_action :find_restaurant, only: [:new, :create, :index]
+    before_action :find_restaurant, only: [:index, :edit, :update, :new, :create, :destroy]
 
     def index
       @spots = Spot.all
@@ -17,8 +17,11 @@ module Settings
 
     def create
       @spot = @restaurant.spots.build(spot_params)
-      @spot.save
-      redirect_to restaurant_settings_spots_path(@restaurant)
+      if @spot.save
+      redirect_to edit_restaurant_settings_path(@restaurant)
+      else
+        render :new
+      end
     end
 
     def edit
@@ -26,15 +29,15 @@ module Settings
 
     def update
       if @spot.update(spot_params)
-        redirect_to restaurant_settings_spot_path(@spot)
+        redirect_to edit_restaurant_settings_path(@restaurant)
       else
-        render :edit
+        render :back
       end
     end
 
     def destroy
       @spot.destroy
-      redirect_to restaurant_settings_spots_path(@spot.restaurant)
+      redirect_to edit_restaurant_settings_path(@restaurant)
     end
 
     private
@@ -50,6 +53,5 @@ module Settings
     def spot_params
       params.require(:spot).permit(:name, :capacity)
     end
-
   end
 end

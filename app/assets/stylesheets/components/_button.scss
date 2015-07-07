@@ -23,26 +23,30 @@
 }
 
 .switch-button{
-width: 100px;
-background-color: #7A1B2C;
-color: white !important;
-border-radius: 5px;
+  width: 288px;
+  background-color: $body-bg;
+  color: white !important;
+  border-radius: 5px;
+  margin-top: 15px;
   a {
+    margin-top: 15px;
+    &:hover{
     color: white;
+    background-color: $burgundy!important;
+    margin-top: 15px;
+    }
   }
+
 
   &.active {
     a {
-      background-color: grey !important;
+      margin-top: 15px;
+      background-color: $burgundy !important;
       color: white!important;
       text-decoration: none!important;
     }
   }
 
-  &:hover{
-  color: white;
-  background-color: grey;
-  }
 }
 
 .index-icons{
@@ -51,3 +55,27 @@ border-radius: 5px;
   }
 }
 
+.settings-switch-button{
+  width: 281px;
+  background-color: $body-bg;
+  color: white !important;
+  border-radius: 5px;
+  margin-top: 15px;
+  a {
+    margin-top: 15px;
+    &:hover{
+    color: white;
+    background-color: $burgundy!important;
+    margin-top: 15px;
+    }
+  }
+
+  &.active {
+    a {
+      margin-top: 15px;
+      background-color: $burgundy !important;
+      color: white!important;
+      text-decoration: none!important;
+    }
+  }
+}

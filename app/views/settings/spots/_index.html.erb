@@ -1,0 +1,19 @@
+<div class="settings-view">
+  <ol>
+    <% restaurant.spots.each do |spot| %>
+      <li> Table <%= spot.name %> - <%= spot.capacity %> pax
+        <div class="pull-right">
+          <%= link_to edit_restaurant_settings_spot_path(restaurant, spot) do %>
+            <i class="fa fa-pencil"></i>
+          <% end %>
+          <%= link_to edit_restaurant_settings_spot_path(@restaurant, spot),
+          method: :delete,
+          data: { confirm: "Are you sure sure sure ?" } do
+          %>
+          <i class="fa fa-trash-o"></i>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ol>
+</div>
