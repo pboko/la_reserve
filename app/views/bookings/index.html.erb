@@ -1,31 +1,35 @@
 
-<div class="margin-top">
-  <div class="container">
+<div class="sm-margin-top page-content">
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-md-10 col-md-offset-2">
-        <div class="text-center" id="chevrons">
-          <%= link_to :date => previous_month(@date) do  %>
-            <i class="fa fa-arrow-left"></i>
-          <% end %>
-          <%= link_to :date => next_month(@date) do  %>
-            <i class="fa fa-arrow-right"></i>
-          <% end %>
+      <div class="col-md-6">
+        <div class="margin-left cal-top">
+          <div class="text-center" id="chevrons">
+            <%= link_to :date => previous_month(@date) do  %>
+              <i class="fa fa-arrow-left"></i>
+            <% end %>
+            <%= link_to :date => next_month(@date) do  %>
+              <i class="fa fa-arrow-right"></i>
+            <% end %>
+          </div>
+          <%= calendar(:year => @date.year, :month => @date.month, :first_day_of_week => 1) do |d|
+                [d.mday, {:class => "specialDay"}]
+          end %>
         </div>
-        <%= calendar(:year => @date.year, :month => @date.month, :first_day_of_week => 1) do |d|
-              [d.mday, {:class => "specialDay"}]
-        end %>
       </div>
-      <div class="col-md-10 col-md-offset-2">
-        <%= render "bookings/day_view",
+      <div class="col-md-6">
+        <div class="margin-left">
+          <%= render "bookings/day_view",
           date: @date,
           restaurant: @restaurant,
           bookings: @bookings,
           diner_booking_total: @diner_booking_total,
           lunch_booking_total: @lunch_booking_total %>
+        </div>
 
       </div>
     </div>
-
+    <div class="sm-padded"></div>
   </div>
 </div>
 

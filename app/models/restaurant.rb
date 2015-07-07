@@ -27,7 +27,7 @@ class Restaurant < ActiveRecord::Base
   has_many :customers, through: :restaurant_customers
 
   has_attached_file :picture,
-    styles: { medium: "150x150>", thumb: "100x100>" }
+    styles: { medium: "170x170>", thumb: "100x100>" }
 
   validates :name, presence: true
 
