@@ -245,8 +245,17 @@ module CalendarHelper
   def generate_cell(cell_text, cell_attrs, date)
     cell_attrs      = cell_attrs.map {|k, v| %(#{k}="#{v}") }.join(" ")
     total_comments  = @restaurant.comments.for_service_date(date).count
-    comments_text = total_comments > 0 ? "<span class='comments-count'>#{total_comments}</span>": nil
+    list_of_comments = []
+    @restaurant.comments.for_service_date(date).each do |comment|
+     list_of_comments << comment.content
+    end
+    list = "<ul>"
+    list_of_comments.each do |c|
+      list += "<li>" + "- " + c + "</li>" + "</br>"
 
+    end
+    list += "</ul>"
+    comments_text = total_comments > 0 ? %(<span class='comments-count comments-bullet' data-toggle='popover' data-placement='bottom' data-content="#{list}">#{total_comments}</span>) : nil
     "<td #{cell_attrs}>
       #{cell_text}
       #{comments_text}
