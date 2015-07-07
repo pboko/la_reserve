@@ -10,6 +10,10 @@ table {
   width: 100%;
 }
 
+.popover-content {
+  color: $dark-grey;
+}
+
 .cal-top {
   margin-top: 70px;
 }
@@ -19,6 +23,7 @@ table {
 }
 
 .comments-count {
+  cursor: pointer;
   margin-left: 10px;
   border-radius: 50%;
   position: absolute;
@@ -31,7 +36,8 @@ table {
   text-align: center;
 
   font-size: 8px;
-//  padding-bottom: 5px;
+  // list-style: inherit;
+  // padding-left: 20px;
 }
 
 .red{

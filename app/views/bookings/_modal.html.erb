@@ -11,24 +11,32 @@
          <%#= f.error_notification %>
          <div class="form-group">
             <div class="col-sm-6 padding-right-5">
-            <%= f.label :date %>
-            <%= f.text_field :date, placeholder: "Date", class: "form-control", :data => {:provide => :datepicker, 'date-format' => "dd/mm/yyyy"} %>
+              <%= f.label :date %>
+              <% if local_assigns.has_key?(:date) %>
+                <%= text_field_tag(:date, date, :class => "form-control datepicker") %>
+              <% else %>
+                <%= text_field_tag(:date, params[:date], :class => "form-control datepicker") %>
+              <% end %>
             </div>
             <div class="col-sm-6 padding-left-5 pax-top">
             <%= f.input :pax, label: "Couverts", class: "form-control", placeholder: 'Nombre de couverts' %>
             </div>
           </div>
           <div class="form-group">
-            <div class="col-sm-4 padding-right-5">
-              <%= f.label :start_time, label:"Heure" %>
-              <%= f.time_field :start_time, class: "form-control" %>
+            <div class="col-sm-3 padding-left-5 pax-top">
+               <%= f.input :period, label: "Service", collection: ["Soir", "Midi"], as: :select, default: "Soir" %>
             </div>
-            <div class="col-sm-4 padding-right-5 padding-left-5 pax-top">
+            <div class="col-sm-3 padding-right-5">
+                <div class='select-midi is-hidden select'>
+                  <%= select(:start_time, "person_id", ["13h30", "12h30", "13h00", "14h00", "14h30"], :class => "form-control") %>
+                </div>
+                <div class='select-soir select'>
+                  <%= select(:start_time, "person_id", ["20h30", "19h30", "20h00", "21h00", "21h30", "22h"], :class => "form-control")%>
+                </div>
+            </div>
+            <div class="col-sm-3 padding-right-5 padding-left-5 pax-top">
               <%= label_tag(:spot, "Table", :class => "control-label") %>
               <%= text_field_tag(:spot, nil, :class => "form-control")%>
-            </div>
-            <div class="col-sm-4 padding-left-5 pax-top">
-               <%= f.input :period, label: "Service", collection: ["Midi", "Soir"], as: :select, default: "Midi" %>
             </div>
           </div>
           <div class="form-group">
@@ -58,4 +66,5 @@
  </div>
 </div>
 <% end %>
+
 
