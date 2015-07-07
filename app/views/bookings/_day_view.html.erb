@@ -74,7 +74,6 @@
                     <th><i class="fa fa-user"></i></th>
                     <th>Notes</th>
                     <th></th>
-                    <th></th>
                   </tr>
                 </thead>
                 <tbody class="text-center">
@@ -90,7 +89,7 @@
                         <%= booking.pax %>
                       </td>
                        <td>
-                      <%= booking.customer.full_name if booking.customer.present?%>
+                      <%= booking.customer.last_name if booking.customer.present?%>
                        </td>
                       <td>
                         <%= booking.notes %>
@@ -139,7 +138,7 @@
                           <%= booking.pax %>
                         </td>
                         <td>
-                          <%= booking.customer.full_name if booking.customer.present? %>
+                          <%= booking.customer.last_name if booking.customer.present? %>
                         </td>
                         <td class="index-icons">
                           <%= link_to edit_restaurant_booking_path(restaurant, booking) do %>
