@@ -40,7 +40,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to restaurant_bookings_path(@restaurant)
     else
-      render :new
+      render :back
     end
   end
 

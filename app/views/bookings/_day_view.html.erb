@@ -1,6 +1,11 @@
 <div class="row" id="dayview">
 
-  <h2 id="date-detail"><%= l (Date.today), format: :long %> </h2>
+  <h2 id="date-detail"><%= l (date), format: :long %> </h2>
+
+  <button data-toggle="modal" data-target="#dayview-modal" class="btn btn-primary"><i class="fa fa-plus"></i> Réservation</button>
+  <%= render 'bookings/modal', id: "dayview-modal", date: date %>
+
+  <% if bookings.for_date(date).exists? %>
 
       <ul class="nav nav-pills ">
         <li role="presentation" class="active switch-button"><a href="#resa-midi" data-toggle="tab">Midi</a></li>
@@ -177,5 +182,8 @@
       </div>
     </div>
   </div>
+  <% else %>
+    <p> Vous n'avez pas de réservation aujourd'hui </p>
+  <% end %>
 </div>
 

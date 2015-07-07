@@ -76,7 +76,7 @@ en:
     - Saturday
 
     formats:
-      default: "%Y-%m-%d"
+      default: "%d-%m-%Y"
       long: "%A %d %B %Y"
       short: "%b %d"
     month_names:
