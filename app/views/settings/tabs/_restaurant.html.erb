@@ -9,6 +9,9 @@
         <%= f.input :street, label: "Adresse" %>
         <%= f.input :zip_code, label: "Code postal" %>
         <%= f.input :city, label: "Ville" %>
+        <%= f.label :picture, label: "Photo" %>
+        <%= f.file_field :picture %>
+        <br>
         <%= f.submit :submit, value: "Enregistrer", class: "btn btn-primary btn-full-width" %>
       <% end %>
     </div>

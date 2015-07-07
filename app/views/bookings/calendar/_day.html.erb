@@ -1,20 +1,22 @@
 
 <div class="row">
-  <%= link_to(restaurant_bookings_path(@restaurant, date: date), remote: true) do %>
 
-    <div class="<%= agenda_day_css_class(:midi, date, @bookings, @restaurant.capacity) %>">
-      <p class= "dejdin">midi</p>
-      <span class= "dejdin col-xs-8 text-right" id="couverts"><%= total_cuttlery_for(:midi, date, @bookings) %>/<%= @restaurant.capacity %></span>
-      <span class= "dejdin col-xs-4 text-left font-bold" id="file_attente"><%= total_waiting_cuttlery_for(:midi, date, @bookings) %></span>
-    </div>
+    <%= link_to(restaurant_bookings_path(@restaurant, date: date), remote: true) do %>
 
-  <% end %>
+      <div class="<%= agenda_day_css_class(:midi, date, @bookings, @restaurant.capacity) %>">
+        <p class= "dejdin">midi</p>
+        <span class= "dejdin col-xs-7 text-right" id="couverts"><%= total_cuttlery_for(:midi, date, @bookings) %>/<%= @restaurant.capacity %></span>
+        <span class= "dejdin col-xs-5 text-left font-bold" id="file_attente">(<%= total_waiting_cuttlery_for(:midi, date, @bookings) %>)</span>
+      </div>
+
+    <% end %>
+
 
   <%= link_to(restaurant_bookings_path(@restaurant, date: date), remote: true) do %>
     <div class="<%= agenda_day_css_class(:soir, date, @bookings, @restaurant.capacity) %>">
       <p class= "dejdin">soir</p>
-      <span class= "dejdin col-xs-8 text-right" id="couverts"><%= total_cuttlery_for(:soir, date, @bookings) %>/<%= @restaurant.capacity %></span>
-      <span class= "dejdin col-xs-4 text-left font-bold" id="file_attente">(<%= total_waiting_cuttlery_for(:soir, date, @bookings) %>)</span>
+      <span class= "dejdin col-xs-7 text-right" id="couverts"><%= total_cuttlery_for(:soir, date, @bookings) %>/<%= @restaurant.capacity %></span>
+      <span class= "dejdin col-xs-5 text-left font-bold" id="file_attente">(<%= total_waiting_cuttlery_for(:soir, date, @bookings) %>)</span>
       </div>
   <% end %>
 </div>
