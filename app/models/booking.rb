@@ -45,7 +45,9 @@ class Booking < ActiveRecord::Base
   private
 
   def send_confirmation_email
-    CustomerMailer.confirmation(self).deliver_now
+    if customer.email
+      CustomerMailer.confirmation(self.customer).deliver_now
+    end
   end
 
 end

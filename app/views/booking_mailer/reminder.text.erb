@@ -1,0 +1,4 @@
+Rendez-vous à l'adresse suivante pour confirmer votre résa <%= booking_confirmation_url(@booking.token, choice: 'confirm') %>
+
+Pour annuler votre résea, cliquez sur le lien suivant :
+<%= booking_confirmation_url(@booking.token, choice: 'cancel') %>
