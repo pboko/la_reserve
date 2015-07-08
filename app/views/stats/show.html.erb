@@ -1,0 +1,51 @@
+<div class="margin-top page-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h2> Statistiques </h2>
+          <p> Filtrer par période </p>
+        <div class="search-stats">
+          <%= form_tag restaurant_stats_path(@restaurant), method: :get, class: "form-inline" do %>
+            <div class="form-group">
+              <%= label_tag :start_date, "Du " %>
+              <%= text_field_tag :start_date, nil, class: "datepicker form-control" %>
+            </div>
+            <div class="form-group">
+              <%= label_tag :start_date, "Au " %>
+              <%= text_field_tag :end_date, nil, class: "datepicker form-control" %>
+            </div>
+            <div class="form-group">
+              <%= submit_tag "Afficher", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+        </div>
+      <div class="search-results">
+        <div class="panel panel-default text-center">
+          <div class="panel-heading">
+            <h3 class="panel-title">Nombre de couverts du <%= @start_date %> au <%= @end_date %> </h3>
+          </div>
+          <div class="panel-body">
+              <div class="col-md-12">
+                <div class="panel-body ">
+                  <div class="col-md-4">
+                    <h4>Midi</h4>
+                    <p class= "nb-big"> <%= @diner_stats %></p>
+                  </div>
+                  <div class="col-md-4">
+                    <h4>Soir</h4>
+                    <p class= "nb-big"><%= @lunch_stats %></p>
+                  </div>
+                  <div class="col-md-4">
+                    <h4>Total</h4>
+                      <p class= "nb-big"><%= @total_stats %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

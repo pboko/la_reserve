@@ -1,7 +1,8 @@
 $(document).ready(function(){
   $('.datepicker').datepicker({
     format: "yyyy-mm-dd",
-    defaultViewDate: new Date()
+    startView: new Date(),
+    orientation: "top left"
   });
 
   $('#btn-resa').on('click', function(){
@@ -11,3 +12,4 @@ $(document).ready(function(){
     });
   })
 });
+
