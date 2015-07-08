@@ -1,4 +1,4 @@
-#banner-homepage {
+  #banner-homepage {
   margin: 0px;
   padding: 200px 0px;
   color: black;
@@ -84,14 +84,17 @@ p{
 }
 
 .slogan{
-  max-width: 550px;
-  text-align: center;
-  position: relative;
+  max-width: 900px;
+  // text-align: left;
+  position: absolute;
   z-index: 101;
   color: white;
-  margin: 15em auto;
+  bottom: 0;
+  margin-bottom: 20px;
+  margin-left: 0px;
+
 h1{
-  font-weight: 500;
+  font-weight: 400;
   font-size: 4em;
 }
 p{

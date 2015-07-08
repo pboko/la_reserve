@@ -9,10 +9,12 @@
         <div class="row">
 
           <% @restaurants.each do |restaurant| %>
-            <div class="col-md-3">
-              <div class="card-burgundy text-center">
+            <div class="col-md-4">
+              <div class="square text-center">
                 <%= link_to restaurant_path(restaurant) do %>
+                 <div class="padding-square">
                   <%= restaurant.name.capitalize %>
+                 </div>
                   <%#= link_to 'Edit', edit_restaurant_path(restaurant) %>
                   <%#= link_to 'Delete', restaurant_path(restaurant),
                   method: :delete,
@@ -22,10 +24,13 @@
               </div>
             </div>
           <% end %>
-          <div class="col-md-3">
-            <div class="card-burgundy text-center">
+
+          <div class="col-md-4">
+            <div class="square text-center">
               <%= link_to new_restaurant_path do %>
+              <div class="padding-square">
                 <i class="fa fa-plus"></i>
+              </div>
               <% end %>
             </div>
           </div>

@@ -1,7 +1,7 @@
 
 <div class="row">
 
-    <%= link_to(restaurant_bookings_path(@restaurant, date: date), remote: true) do %>
+    <%= link_to(restaurant_bookings_path(@restaurant, date: date, time: 'midi'), remote: true) do %> <!-- on rajoute un params time pour choisir midi ou soir -->
 
       <div class="<%= agenda_day_css_class(:midi, date, @bookings, @restaurant.capacity) %>">
         <p class= "dejdin">midi</p>
@@ -12,7 +12,7 @@
     <% end %>
 
 
-  <%= link_to(restaurant_bookings_path(@restaurant, date: date), remote: true) do %>
+  <%= link_to(restaurant_bookings_path(@restaurant, date: date, time: 'soir'), remote: true) do %>
     <div class="<%= agenda_day_css_class(:soir, date, @bookings, @restaurant.capacity) %>">
       <p class= "dejdin">soir</p>
       <span class= "dejdin col-xs-7 text-right" id="couverts"><%= total_cuttlery_for(:soir, date, @bookings) %>/<%= @restaurant.capacity %></span>
