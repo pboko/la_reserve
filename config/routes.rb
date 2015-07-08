@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :restaurants do
       resources :bookings
       resources :customers, only: [:index, :show, :new, :create, :edit, :update]
-      resources :comments, only: :create
+      resources :comments, only: [:create, :destroy]
       # resources :waiters
       # resources :spots
       # resources :agenda, only: [:show]
