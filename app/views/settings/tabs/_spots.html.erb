@@ -4,6 +4,9 @@
     <div class="panel-body">
       <h3> Gestion des tables</h3>
       <%= render 'settings/spots/index', restaurant: @restaurant %>
+      <div class="settings-view total">
+        <h3> Total : <%= total_seats %> places assises </h3>
+      </div>
       <%= link_to '+ Ajouter une table', new_restaurant_settings_spot_path %>
     </div>
   </div>

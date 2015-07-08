@@ -1,8 +1,6 @@
 module Settings
-  class WaitersController < ApplicationController
-
+  class WaitersController < Settings::BaseController
     before_action :find_waiter, only: [:show, :edit, :update, :destroy]
-    before_action :find_restaurant, only: [:index, :edit, :update, :new, :create, :destroy]
 
     def index
       @waiters = Waiter.all
@@ -44,10 +42,6 @@ module Settings
 
     def find_waiter
       @waiter = Waiter.find(params[:id])
-    end
-
-    def find_restaurant
-      @restaurant = Restaurant.find(params[:restaurant_id])
     end
 
     def waiter_params

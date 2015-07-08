@@ -18,6 +18,8 @@ Rails.application.routes.draw do
         resources :spots
         resources :waiters
       end
+
+      resource :stats, only: [:show]
     end
   end
 end

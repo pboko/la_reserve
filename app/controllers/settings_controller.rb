@@ -1,6 +1,4 @@
-class SettingsController < ApplicationController
-  before_action :find_restaurant
-
+class SettingsController < Settings::BaseController
   def edit
   end
 

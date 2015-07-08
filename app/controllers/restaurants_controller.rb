@@ -1,6 +1,6 @@
 class RestaurantsController < ApplicationController
 
-  before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :find_restaurant, only: [:show, :edit, :update, :destroy, :stats]
 
   def index
     @user = current_user

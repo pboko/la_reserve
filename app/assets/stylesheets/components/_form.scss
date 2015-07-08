@@ -173,3 +173,30 @@ label {
     border: none;
   }
 }
+
+.search-stats {
+  text-align: center;
+  margin: auto;
+  margin-bottom: 20px;
+  background-color: whitesmoke
+}
+
+.search-results{
+  margin-top: 30px;
+
+  h3 {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  opacity: 0.5;
+  }
+
+  h4{
+    text-transform: uppercase;
+    color: #7A1B2C;
+    font-size: 12px;
+    font-weight: 400;
+    margin-top: 15px;
+    margin-bottom: 0px;
+  }
+}
