@@ -16,6 +16,7 @@
 #  notes         :text
 #  period        :string
 #  waiting_list  :boolean
+#  token         :string
 #
 # Indexes
 #
@@ -25,6 +26,7 @@
 #
 
 class Booking < ActiveRecord::Base
+
   belongs_to :restaurant
   belongs_to :customer
   belongs_to :waiter

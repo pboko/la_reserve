@@ -1,9 +1,9 @@
 <div class="row" id="dayview">
 
-  <h2 id="date-detail"><%= l (date), format: :long %> </h2>
+  <h2 id="date-detail"><%= l (date), format: :long %> <button id="btn-resa" data-toggle="modal" data-target="#dayview-modal" class="btn btn-primary"><i class="fa fa-plus"></i> Réservation</button>
+  <%= render 'bookings/modal', id: "dayview-modal", date: date %> </h2>
 
-  <button data-toggle="modal" data-target="#dayview-modal" class="btn btn-primary"><i class="fa fa-plus"></i> Réservation</button>
-  <%= render 'bookings/modal', id: "dayview-modal", date: date %>
+
 
   <% if bookings.for_date(date).exists? %>
 
@@ -83,6 +83,7 @@
                 </thead>
                 <tbody class="text-center">
                   <% bookings.for_period(:soir).for_date(date).each do |booking| %>
+                  <div <% unless booking.waiting_list? %>>
                     <tr>
                       <td>
                         <%= booking.start_time.strftime("%H:%M")%>
@@ -110,6 +111,8 @@
                         <% end %>
                       </td>
                     </tr>
+                    <% end %>
+                  </div>
                 <% end %>
                 </tbody>
               </table>

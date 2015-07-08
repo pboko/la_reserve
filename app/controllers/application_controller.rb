@@ -1,30 +1,20 @@
 class ApplicationController < ActionController::Base
   # include Pundit
-  before_action :set_locale
-
-  def set_locale
-    I18n.locale = params[:locale] || I18n.default_locale
-  end
-
-  def default_url_options
-    { locale: I18n.locale == I18n.default_locale ? nil : I18n.locale }
-  end
-
   protect_from_forgery with: :exception
 
+  before_action :set_locale
   before_action :set_restaurant, if: :user_signed_in?
   before_action :set_restaurants, if: :user_signed_in?
 
   before_action :authenticate_user!, unless: :pages_controller?
+  before_action :redirect_signed_in_user, if: :user_signed_in?
 
   # after_action :verify_authorized, except:  :index, unless: :devise_or_pages_controller?
   # after_action :verify_policy_scoped, only: :index, unless: :devise_or_pages_controller?
 
   # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
-  before_filter :configure_permitted_parameters, if: :devise_controller?
-  ## ...
-
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   private
 
@@ -34,6 +24,20 @@ class ApplicationController < ActionController::Base
 
   def pages_controller?
     controller_name == "pages"  # Brought by the `high_voltage` gem
+  end
+
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
+
+  def default_url_options
+    { locale: I18n.locale == I18n.default_locale ? nil : I18n.locale }
+  end
+
+  def redirect_signed_in_user
+    if pages_controller? && params[:id] == "home"
+      redirect_to restaurants_path
+    end
   end
 
   def set_restaurant

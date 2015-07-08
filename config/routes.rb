@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
     devise_for :users
 
+    resources :booking_confirmations, only: [:show]
+
     resources :restaurants do
       resources :bookings
       resources :customers, only: [:index, :show, :new, :create, :edit, :update]

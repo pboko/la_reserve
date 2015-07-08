@@ -1,14 +1,21 @@
 #dayview {
   ul {
-    margin-top: -11px;
+    margin-top: -30px;
   }
-
   h2 {
     font-size: 20px;
     font-weight: 400;
     margin-bottom: 0px;
-    margin-top: 48px;
+    margin-top: 30px;
   }
+
+}
+
+#btn-resa {
+
+    margin-left: 107px;
+    margin-bottom: 23px;
+
 }
 
 .switch-button{
@@ -21,7 +28,7 @@
     margin-top: 15px;
     &:hover{
     color: white;
-    background-color: $burgundy!important;
+    background-color: $burgundy !important;
     margin-top: 15px;
     }
   }

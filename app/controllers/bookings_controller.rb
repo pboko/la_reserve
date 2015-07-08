@@ -33,15 +33,20 @@ class BookingsController < ApplicationController
 
   def create
     @booking = @restaurant.bookings.build(booking_params)
-    customer = @restaurant.customers.where(last_name: params[:last_name]).first_or_create
+    customer = @restaurant.customers.where(last_name: params[:last_name]).first_or_create do |customer|
+      customer.email        = params[:email]        if params[:email].present?
+      customer.first_name   = params[:first_name]   if params[:first_name].present?
+      customer.phone_number = params[:phone_number] if params[:phone_number].present?
+    end
 
-    @booking.customer = customer
-    @booking.save
+    @booking.start_time = DateTime.strptime(params[:start_time], "%Hh%M")
+    @booking.customer   = customer
 
     if @booking.save
       redirect_to restaurant_bookings_path(@restaurant)
     else
-      render :back
+      raise
+      render :new
     end
   end
 
@@ -81,7 +86,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_time, :date, :status, :period, :pax, :notes, :waiting_list)
+    params.require(:booking).permit(:date, :status, :period, :pax, :notes, :waiting_list)
   end
 
   def find_booking

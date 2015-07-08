@@ -1,39 +1,66 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 col-md-offset-4">
-      <h1><%= @customer.full_name %>
-        <%= link_to edit_restaurant_customer_path(@restaurant, @customer) do %>
-          <i class="fa fa-pencil-square"></i>
-        <% end %>
-      </h1>
+<div class="margin-top page-content">
+  <div class="container-fluid">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="row">
+        <div class="col-md-9">
+          <h2><%= @customer.full_name %></h2>
+        </div>
+        <div class="col-md-3 text-right">
+          <h2>
+            <%= link_to edit_restaurant_customer_path(@restaurant, @customer) do %>
+              <i class="fa fa-pencil-square"></i>
+            <% end %>
+          </h2>
+        </div>
+      </div>
       <hr class="dividor">
       <div class="row">
         <div class="col-md-9">
           <% if @customer.email? %>
-            <p><%= @customer.email %></p>
+            <a href="mailto:<%= customer.email %>"><%= @customer.email %></a>
+          <% else %>
+            ...
           <% end %>
-          <% if @customer.phone_number? %>
-            <p><%= @customer.phone_number%></p>
-          <% end %>
+          <br>
+          <p><%= @customer.phone_number? ? @customer.phone_number : "..." %></p>
         </div>
-        <div class="col-md-3">
-          <a href="#" class="btn btn-primary">Add a booking</a>
+        <div class="col-md-3 text-right">
+
+          <button data-toggle="modal" data-target="#customer-modal" class="btn btn-primary"><i class="fa fa-plus"></i> Réservation</button>
           <%#= link_to "Add a booking", class: "btn btn-primary" %>
         </div>
       </div>
       <hr class="dividor">
-      <div class="row">
-        <div class="col-md-6">
-          <h3>Status</h3>
+      <div class="row text-center">
+        <div class="col-md-4">
+          <h3>Nb résa</h3>
+          <br><div class="nb-big"><%= @customer.bookings.count %></div>
         </div>
-        <div class="col-md-6">
-          <h3>Comments</h3>
+        <div class="col-md-4">
+          <h3>Nb annulations</h3>
+          <br><div class="nb-big"><%= @customer.bookings.where(status: "Annulée").count %></div>
+        </div>
+        <div class="col-md-4">
+          <h3>Nb no-show</h3>
+          <br><div class="nb-big"><%= @customer.bookings.where(status: "No show").count %></div>
         </div>
       </div>
-
-
+      <hr class="dividor">
+      <div class="row text-center">
+        <div class="col-md-6">
+          <h3>Statut</h3>
+          <br>
+          <%= @customer.status? ? @customer.status : "--" %>
+        </div>
+        <div class="col-md-6">
+          <h3>Commentaires</h3>
+          <br>
+          <%= @customer.comments? ? @customer.comments : "--" %>
+        </div>
+      </div>
+      <div class="sm-padded"></div>
     </div>
   </div>
-</div>
+<div>
 
 
