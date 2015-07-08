@@ -2,7 +2,7 @@
  * Colors & Fonts
  * ------------------------------------- */
 $navbar-color: white;
-$navbar-hover-color: lighten($burgundy, 50%);
+$navbar-hover-color: lighten($dark-grey, 50%);
 $navbar-font-family: $navbar-font;
 $navbar-font-size: 14px;
 $navbar-text-transform: capitalize;
@@ -74,8 +74,9 @@ $navbar-profile-border-width: 2px;
 
   .navbar-nav > li > a:hover,
   .navbar-nav > .open > a:hover {
-    color: $navbar-hover-color;
+    color: white;
     background-color: transparent;
+    font-weight: bold;
   }
 
   .navbar-brand,
