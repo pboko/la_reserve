@@ -42,7 +42,7 @@
       <hr class="dividor">
 
       <div id="stats">
-        <%= link_to "#", class: sidebar_css_class(:stats) do %>
+        <%= link_to restaurant_stats_path(@restaurant), class: sidebar_css_class(:stats) do %>
           <p><i class="fa fa-bar-chart"></i></i> Statistiques</p>
         <% end %>
       </div>

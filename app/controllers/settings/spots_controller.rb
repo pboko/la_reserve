@@ -1,11 +1,9 @@
 module Settings
-  class SpotsController < ApplicationController
-
+  class SpotsController < Settings::BaseController
     before_action :find_spot, only: [:show, :edit, :update, :destroy]
-    before_action :find_restaurant, only: [:index, :edit, :update, :new, :create, :destroy]
 
     def index
-      @spots = Spot.all
+      @spots = @restaurant.spots
     end
 
     def show
@@ -44,10 +42,6 @@ module Settings
 
     def find_spot
       @spot = Spot.find(params[:id])
-    end
-
-    def find_restaurant
-      @restaurant = Restaurant.find(params[:restaurant_id])
     end
 
     def spot_params
