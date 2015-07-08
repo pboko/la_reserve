@@ -3,10 +3,7 @@ class CustomersController < ApplicationController
   before_action :find_restaurant
   def index
     @restaurant = Restaurant.find(params[:restaurant_id])
-    @customers = @restaurant.customers
-
-
-
+    @customers = @restaurant.customers.order("last_name, first_name")
   end
 
   def show

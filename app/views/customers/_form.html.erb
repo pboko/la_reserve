@@ -19,10 +19,10 @@
     </div>
     <div class="form-group">
       <div class="col-sm-3 padding-right-5">
-        <%= f.input :gender, collection: ["Mr", "Mme"], as: :select, label: "Civilité" %>
+        <%= f.input :gender, collection: ["Mr", "Mme"], as: :select, label: "Civilité", input_html: { title: '' } %>
       </div>
       <div class="col-sm-9 padding-left-5">
-        <%= f.input :status, collection: ["VIP", "Excellent client", "Très bon client", "Bon client", "Normal", "Liste marron", "Prospect", "Liste noire"], as: :select, label: "Statut" %>
+        <%= f.input :status, collection: ["VIP", "Excellent client", "Très bon client", "Bon client", "Normal", "Liste marron", "Prospect", "Liste noire"], as: :select, label: "Statut", input_html: { title: '' } %>
       </div>
     </div>
     <%= f.input :comments %>
