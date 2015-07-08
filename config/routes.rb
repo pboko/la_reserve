@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       # resources :agenda, only: [:show]
 
       resource :settings, only: [:edit, :update]
+      # resource :notifications, only: [:update]
 
       namespace :settings do
         resources :spots

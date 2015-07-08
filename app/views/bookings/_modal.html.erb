@@ -12,7 +12,11 @@
               <%#= f.error_notification %>
               <div class="form-group">
                 <div class="col-sm-3 padding-right-5">
-                  <%= f.input :date, as: :string, input_html: { class: "form-control datepicker" } %>
+                  <% if local_assigns.has_key?(:date) %>
+                    <%= f.input :date, as: :string, input_html: { class: "form-control datepicker", value: date} %>
+                  <% else %>
+                    <%= f.input :date, as: :string, input_html: { class: "form-control datepicker" } %>
+                  <% end %>
                 </div>
                 <div class="col-sm-5 padding-left-5 padding-right-5 pax-top">
                 <%= f.input :pax, label: "Couverts", class: "form-control", placeholder: 'Nombre de couverts' %>
