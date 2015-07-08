@@ -1,4 +1,5 @@
 source "https://rubygems.org"
+source 'https://rails-assets.org'
 
 ruby "2.2.2"
 
@@ -25,6 +26,7 @@ gem "devise-i18n-views"
 gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails', :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
 
 gem "calendar_helper"
+gem 'rails-assets-silviomoreto--bootstrap-select'
 
 gem "autoprefixer-rails"
 

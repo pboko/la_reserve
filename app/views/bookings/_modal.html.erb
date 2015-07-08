@@ -1,63 +1,103 @@
 <% if @restaurant && current_user.restaurants.present? && @restaurant.persisted? %>
   <div class="modal fade" id="<%= id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content panel panel-default">
         <div class="modal-header panel-heading">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h3 class="panel-title" id="myModalLabel">Prendre une réservation</h3>
         </div>
         <div class="modal-body panel-body">
-       <%= simple_form_for [@restaurant, @booking] do |f| %>
-         <%#= f.error_notification %>
-         <div class="form-group">
-            <div class="col-sm-6 padding-right-5">
-              <%= f.label :date %>
-              <% if local_assigns.has_key?(:date) %>
-                <%= text_field_tag(:date, date, :class => "form-control datepicker") %>
-              <% else %>
-                <%= text_field_tag(:date, params[:date], :class => "form-control datepicker") %>
-              <% end %>
-            </div>
-            <div class="col-sm-6 padding-left-5 pax-top">
-            <%= f.input :pax, label: "Couverts", class: "form-control", placeholder: 'Nombre de couverts' %>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-sm-3 padding-left-5 pax-top">
-               <%= f.input :period, label: "Service", collection: ["Soir", "Midi"], as: :select, default: "Soir" %>
-            </div>
-            <div class="col-sm-3 padding-right-5">
-                <%= label_tag(:start_time, "Heure", :class => "control-label") %>
-                <div class='select-midi is-hidden select'>
-                  <%= select(:start_time, "person_id", ["12h30", "13h00", "13h30", "14h00", "14h30"], :class => "form-control") %>
+          <%= simple_form_for [@restaurant, @booking] do |f| %>
+          <div class="col-sm-7 padding-right-15 bordered-right">
+              <%#= f.error_notification %>
+              <div class="form-group">
+                <div class="col-sm-3 padding-right-5">
+                  <%= f.input :date, as: :string, input_html: { class: "form-control datepicker" } %>
                 </div>
-                <div class='select-soir select'>
-                  <%= select(:start_time, "person_id", ["19h30", "20h00", "20h30", "21h00", "21h30", "22h"], :class => "form-control")%>
+                <div class="col-sm-5 padding-left-5 padding-right-5 pax-top">
+                <%= f.input :pax, label: "Couverts", class: "form-control", placeholder: 'Nombre de couverts' %>
                 </div>
-            </div>
-            <div class="col-sm-3 padding-right-5 padding-left-5 pax-top">
-              <%= label_tag(:spot, "Table", :class => "control-label") %>
-              <%= text_field_tag(:spot, nil, :class => "form-control")%>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-sm-6 padding-left-5 pax-top">
-              <%= f.input :status, label: "Statut", collection: ["Reservé", "Confirmé", "Assis", "Arrivés", "Message", "Annulée", "No show"], as: :select, default: "Réservé" %>
-            </div>
-          </div>
-          <div class="form-group">
-            <%= f.input :notes %>
-          </div>
-          <%= f.label :waiting_list, "Liste d'attente"%>
-          <%= f.check_box :waiting_list, class: "margin-left-10"%>
+                <div class="col-sm-4 padding-left-5 pax-top">
+                  <%= f.input :status, label: "Statut", collection: ["Reservé", "Confirmé", "Assis", "Arrivés", "Message", "Annulée", "No show"], as: :select, default: "Réservé" %>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-4 padding-right-5 pax-top">
+                   <%= f.input :period, label: "Service", collection: ["Soir", "Midi"], as: :select, default: "Soir" %>
+                </div>
+                <div class="col-sm-4 padding-left-5 padding-right-5">
+                  <div class="form-group">
+                    <%= label_tag(:start_time, "Heure", class: "control-label") %>
+                    <div class='select-midi is-hidden select'>
+                      <%= select_tag(:start_time, options_for_select(["12h30", "13h00", "13h30", "14h00", "14h30"]), class: "form-control") %>
+                    </div>
+                    <div class='select-soir select'>
+                      <%= select_tag(:start_time, options_for_select(["19h30", "20h00", "20h30", "21h00", "21h30", "22h"]), class: "form-control")%>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4 padding-left-5 pax-top">
+                  <div class="form-group">
+                    <%= label_tag(:spot, "Table", :class => "control-label") %>
+                    <%= text_field_tag(:spot, nil, :class => "form-control")%>
+                  </div>
+                </div>
+              </div>
 
-          <%= f.button :submit, value: "Réserver", class: "btn btn-primary btn-full-width" %>
+              <%= f.input :notes %>
 
-       <% end %>
-     </div>
-   </div>
- </div>
-</div>
+              <%= f.label :waiting_list, "Liste d'attente"%>
+              <%= f.check_box :waiting_list, class: "margin-left-10"%>
+
+
+          </div>
+          <div class="col-sm-5 padding-left-15">
+
+              <div class="form-group">
+                <div class="form-group col-sm-6 padding-righ-5">
+                  <%= label_tag(:first_name, "Prénom", :class => "control-label") %>
+                  <% if local_assigns.has_key?(:customer) %>
+                    <%= text_field_tag(:first_name, customer.first_name, :class => "form-control") %>
+                  <% else %>
+                    <%= text_field_tag(:first_name, params[:first_name], :class => "form-control") %>
+                  <% end %>
+                </div>
+                <div class="form-group col-sm-6 padding-left-5">
+                  <%= label_tag(:last_name, "Nom de famille", :class => "control-label") %>
+                  <% if local_assigns.has_key?(:customer) %>
+                    <%= text_field_tag(:last_name, customer.last_name, :class => "form-control") %>
+                  <% else %>
+                    <%= text_field_tag(:last_name, params[:last_name], :class => "form-control") %>
+                  <% end %>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <%= label_tag(:email, "Email", :class => "control-label") %>
+                <% if local_assigns.has_key?(:customer) %>
+                  <%= text_field_tag(:email, customer.email, :class => "form-control") %>
+                <% else %>
+                  <%= text_field_tag(:email, params[:email], :class => "form-control") %>
+                <% end %>
+              </div>
+              <div class="form-group">
+                <%= label_tag(:phone_number, "Téléphone", :class => "control-label") %>
+                <% if local_assigns.has_key?(:customer) %>
+                  <%= text_field_tag(:phone_number, customer.phone_number, :class => "form-control") %>
+                <% else %>
+                  <%= text_field_tag(:phone_number, params[:phone_number], :class => "form-control") %>
+                <% end %>
+              </div>
+
+              <%= f.button :submit, value: "Réserver", class: "btn btn-primary btn-full-width" %>
+
+            </div>
+
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>
 
 

@@ -31,7 +31,7 @@ module Settings
       if @spot.update(spot_params)
         redirect_to edit_restaurant_settings_path(@restaurant)
       else
-        render :back
+        render :edit
       end
     end
 

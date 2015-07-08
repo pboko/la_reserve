@@ -16,6 +16,7 @@
 #  notes         :text
 #  period        :string
 #  waiting_list  :boolean
+#  token         :string
 #
 # Indexes
 #
@@ -25,7 +26,7 @@
 #
 
 class Booking < ActiveRecord::Base
-  after_create :send_confirmation_email
+
   belongs_to :restaurant
   belongs_to :customer
   belongs_to :waiter
@@ -41,13 +42,5 @@ class Booking < ActiveRecord::Base
   scope :for_period, ->(period) { where(:period => period.to_s.capitalize) }
   scope :for_date, ->(date) { where(:date => date) }
   # scope :for_waiting_list, ->(waiting_list) { where(:waiting_list => waiting_list)}
-
-  private
-
-  def send_confirmation_email
-    if customer.email
-      CustomerMailer.confirmation(self.customer).deliver_now
-    end
-  end
 
 end
