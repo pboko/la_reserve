@@ -40,14 +40,6 @@
             </div>
           </div>
           <div class="form-group">
-            <div class="col-sm-6 padding-right-5">
-              <%= label_tag(:last_name, "Client", :class => "control-label") %>
-              <% if local_assigns.has_key?(:customer) %>
-                <%= text_field_tag(:last_name, customer.last_name, :class => "form-control") %>
-              <% else %>
-                <%= text_field_tag(:last_name, params[:last_name], :class => "form-control") %>
-              <% end %>
-            </div>
             <div class="col-sm-6 padding-left-5 pax-top">
               <%= f.input :status, label: "Statut", collection: ["Reservé", "Confirmé", "Assis", "Arrivés", "Message", "Annulée", "No show"], as: :select, default: "Réservé" %>
             </div>
@@ -67,4 +59,13 @@
 </div>
 <% end %>
 
+
+<!-- <div class="col-sm-6 padding-right-5">
+  <%#= label_tag(:last_name, "Client", :class => "control-label") %>
+  <%# if local_assigns.has_key?(:customer) %>
+    <%#= text_field_tag(:last_name, customer.last_name, :class => "form-control") %>
+  <%# else %>
+    <%#= text_field_tag(:last_name, params[:last_name], :class => "form-control") %>
+  <%# end %>
+</div> -->
 
