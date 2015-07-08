@@ -10,7 +10,8 @@ class BookingsController < ApplicationController
     else
       @date = Date.today
     end
-
+    @time = params[:time]
+    # on instancie le params time
     @bookings = @restaurant.bookings.order(:start_time)
 
     @diner_booking_total = total_cuttlery(:soir, @bookings)
