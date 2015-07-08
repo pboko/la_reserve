@@ -84,14 +84,17 @@ p{
 }
 
 .slogan{
-  max-width: 900px;
+  max-width: 500px;
   // text-align: left;
   position: absolute;
   z-index: 101;
   color: white;
   bottom: 0;
-  margin-bottom: 20px;
-  margin-left: 0px;
+  // margin-bottom: 20px;
+  // margin-left: 0px;
+  // margin: auto;
+  bottom: 50%;
+  top: 40%;
 
 h1{
   font-weight: 400;

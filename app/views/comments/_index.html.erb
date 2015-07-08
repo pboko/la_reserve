@@ -1,9 +1,14 @@
-<% if comments.blank? %>
-  <p>Pas de notifications</p>
-<% else %>
+<% if comments.present? %>
+  <!-- <p>Pas de notifications</p> -->
   <% comments.each do |comment| %>
-    <div>
-      <%= comment.content %>
+    <div class="row wordwrap">
+      - <%= comment.content.capitalize %>
+      <%= link_to restaurant_comment_path(@restaurant, comment),
+        method: :delete,
+        data: { confirm: "Are you sure?" } do %>
+          x
+        <% end %>
     </div>
+    </br>
   <% end %>
 <% end %>
