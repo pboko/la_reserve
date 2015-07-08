@@ -1,6 +1,6 @@
 <div class="row" id="dayview">
 
-  <h2 id="date-detail"><%= l (date), format: :long %> <button data-toggle="modal" data-target="#dayview-modal" class="btn btn-primary"><i class="fa fa-plus"></i> Réservation</button>
+  <h2 id="date-detail"><%= l (date), format: :long %> <button id="btn-resa" data-toggle="modal" data-target="#dayview-modal" class="btn btn-primary"><i class="fa fa-plus"></i> Réservation</button>
   <%= render 'bookings/modal', id: "dayview-modal", date: date %> </h2>
 
 

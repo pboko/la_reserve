@@ -11,7 +11,6 @@
       </h2>
     </div>
   </div>
-
   <hr class="dividor">
   <div class="row">
     <div class="col-md-9">
@@ -21,7 +20,7 @@
         ...
       <% end %>
       <br>
-      <%= customer.phone_number? ? customer.phone_number : "..." %></p>
+      <p><%= customer.phone_number? ? customer.phone_number : "..." %></p>
     </div>
     <div class="col-md-3 text-right">
 
@@ -58,6 +57,6 @@
     </div>
   </div>
   <div class="sm-padded"></div>
-
+</div>
 
 <%= render 'bookings/modal', id: "customer-modal", customer: customer %>
