@@ -33,6 +33,12 @@
   </div>
 </div>
 
+<% content_for :after_js do %>
+  <%= javascript_tag do %>
+    toggleTab()
+  <% end %>
+<% end %>
+<!-- on appelle la fonction js toggleTab qui permet de faire le lien entre des éléments de tableaux -->
 
 
 

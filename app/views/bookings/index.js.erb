@@ -1,3 +1,13 @@
 $('#dayview').replaceWith("<%= j render 'bookings/day_view', date: @date, restaurant: @restaurant, bookings: @bookings, diner_booking_total: @diner_booking_total, lunch_booking_total: @lunch_booking_total %>");
 //window.location.search = '<%= "date=#{@date}" %>'
-window.location.href = "#dayview";
+
+if ("<%= @time %>" == 'midi') {
+  window.location.href = "#resa-midi";
+} else if ("<%= @time %>" == 'soir') {
+  window.location.href = "#resa-soir";
+}
+// permet de rediriger vers le midi ou le soir en fonction du params.
+
+$('body').animate({
+ scrollTop: $('#dayview').offset().top - 70
+}, 1000);

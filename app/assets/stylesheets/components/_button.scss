@@ -3,6 +3,27 @@
  * ------------------------------------- */
 
 
+
+.padding-square{
+padding: 96px 0px;
+}
+
+.square {
+    width: 220px;
+    height: 220px;
+    // padding-top: 96px;
+    margin: 20px;
+    text-align: center;
+    background: #7A1B2C;
+  a {
+    color: white;
+  }
+
+  &:hover {
+    background: darken($burgundy, 10%)
+  }
+}
+
 .btn-primary {
   &:hover {
     background-color: $burgundy;
