@@ -15,6 +15,18 @@
   overflow: scroll;
 }
 
+.info-customer{
+  h4{
+    text-transform: uppercase;
+    color: #7A1B2C;
+    font-size: 12px;
+    font-weight: 400;
+    margin-bottom: -20px;
+  }
+  p{
+    margin-top: 10px;
+  }
+}
 
 // #customer_show {
 //   height: 500px;

@@ -137,7 +137,7 @@
                     <div <% if booking.waiting_list? %>>
                       <tr>
                         <td>
-                          <%= booking.start_time.hour %>h<%= booking.start_time.min %>
+                          <%= booking.start_time.strftime("%H:%M") %>
                         </td>
                          <td>
                           <%= booking.period %>

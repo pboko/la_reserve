@@ -17,10 +17,10 @@
       <% if customer.email? %>
         <a href="mailto:<%= customer.email %>"><%= customer.email %></a>
       <% else %>
-        ...
+
       <% end %>
       <br>
-      <p><%= customer.phone_number? ? customer.phone_number : "..." %></p>
+      <p><%= customer.phone_number? ? customer.phone_number : "" %></p>
     </div>
     <div class="col-md-3 text-right">
 
@@ -29,31 +29,31 @@
     </div>
   </div>
   <hr class="dividor">
-  <div class="row text-center">
+  <div class="row text-center info-customer">
     <div class="col-md-4">
-      <h3>Nb résa</h3>
+      <h4>Réservations</h4>
       <br><div class="nb-big"><%= customer.bookings.count %></div>
     </div>
     <div class="col-md-4">
-      <h3>Nb annulations</h3>
+      <h4>Annulations</h4>
       <br><div class="nb-big"><%= customer.bookings.where(status: "Annulée").count %></div>
     </div>
     <div class="col-md-4">
-      <h3>Nb no-show</h3>
+      <h4>No-show</h4>
       <br><div class="nb-big"><%= customer.bookings.where(status: "No show").count %></div>
     </div>
   </div>
   <hr class="dividor">
-  <div class="row text-center">
+  <div class="row text-center info-customer">
     <div class="col-md-6">
-      <h3>Statut</h3>
+      <h4>Statut</h4>
       <br>
-      <%= customer.status? ? customer.status : "--" %>
+      <p><%= customer.status? ? customer.status : "--" %></p>
     </div>
     <div class="col-md-6">
-      <h3>Commentaires</h3>
+      <h4>Commentaires</h4>
       <br>
-      <%= customer.comments? ? customer.comments : "--" %>
+      <p><%= customer.comments? ? customer.comments : "--" %></p>
     </div>
   </div>
   <div class="sm-padded"></div>
