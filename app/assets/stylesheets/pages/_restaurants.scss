@@ -15,14 +15,19 @@
 }
 
 #list-vip {
-  height: 120px;
+  height: 130px;
   overflow: scroll;
-  margin-top: 30px;
-  p {
+}
+
+#vip-name {
+  margin-bottom: 30px;
+}
+
+ .sm-name {
     font-weight: 300;
     font-size: 14px;
+    margin-bottom: 2px;
   }
-}
 
 .info-services {
   h4 {

@@ -45,7 +45,6 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to restaurant_bookings_path(@restaurant)
     else
-      raise
       render :new
     end
   end
@@ -54,7 +53,11 @@ class BookingsController < ApplicationController
   end
 
   def update
-    customer = @restaurant.customers.where(last_name: params[:last_name]).first_or_create
+    customer = @restaurant.customers.where(last_name: params[:last_name]).first_or_create do |customer|
+      customer.email        = params[:email]        if params[:email].present?
+      customer.first_name   = params[:first_name]   if params[:first_name].present?
+      customer.phone_number = params[:phone_number] if params[:phone_number].present?
+    end
 
     @booking.customer = customer
 

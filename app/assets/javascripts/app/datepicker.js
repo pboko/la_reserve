@@ -1,8 +1,11 @@
 $(document).ready(function(){
   $('.datepicker').datepicker({
     format: "yyyy-mm-dd",
+    language: "fr",
     startView: new Date(),
-    orientation: "top left"
+    weekStart: 1,
+    orientation: "top auto",
+    autoclose: true
   });
 
 
