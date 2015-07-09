@@ -15,7 +15,10 @@ p{
 }
 
 
-
+.home-button{
+z-index: 102;
+position: absolute;
+}
 
 .video-container {
   position: absolute;
@@ -84,7 +87,7 @@ p{
 }
 
 .slogan{
-  max-width: 500px;
+  max-width: 520px;
   // text-align: left;
   position: absolute;
   z-index: 101;

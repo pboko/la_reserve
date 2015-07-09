@@ -1,11 +1,11 @@
-<div class="margin-top page-content">
+x@<div class="margin-top page-content">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
 
           <p> Filtrer par période </p>
         <div class="search-stats">
-          <%= form_tag restaurant_stats_path(@restaurant), method: :get, class: "form-inline" do %>
+          <%= form_tag restaurant_stats_path(@restaurant), method: :get, class: "form-inline trans-back" do %>
             <div class="form-group">
               <%= label_tag :start_date, "Du " %>
               <%= text_field_tag :start_date, nil, class: "datepicker form-control" %>
