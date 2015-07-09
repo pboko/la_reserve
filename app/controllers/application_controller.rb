@@ -42,7 +42,8 @@ class ApplicationController < ActionController::Base
 
   def set_restaurant
     #@restaurant = current_user.restaurants.first
-    @booking  = Booking.new_for_evening
+    @date     = params[:date] ? Date.parse(params[:date]) : Date.current
+    @booking  = Booking.new_for_evening(@date)
     @customer = Customer.new
   end
 

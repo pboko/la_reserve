@@ -16,3 +16,11 @@ $('body').scrollTop(0)
   //  scrollTop: $('#dayview').offset().top - 70
   // }, 1000);
 
+$('#dayview .datepicker').datepicker({
+  format: "yyyy-mm-dd",
+  language: "fr",
+  startView: new Date(),
+  weekStart: 1,
+  orientation: "top auto",
+  autoclose: true
+});

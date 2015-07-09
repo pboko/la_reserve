@@ -21,10 +21,10 @@
           <%= label_tag(:start_time, "Heure", class: "control-label") %>
           <%= hidden_field_tag(:start_time, l(@booking.start_time, format: :start_time), class: "start-time--hidden") %>
           <div class='select-midi select <%= 'is-hidden' if @booking.period == 'Soir' %>'>
-            <%= select_tag(:start_time_midi, options_for_select(["12h30", "13h00", "13h30", "14h00", "14h30"], l(@booking.start_time, format: :start_time)), class: "form-control start-time") %>
+            <%= select_tag(:start_time_midi, options_for_select(["12h30", "13h00", "13h30", "14h00", "14h30"], l(@booking.start_time, format: :start_time)), class: "form-control start-time start-time--midi") %>
           </div>
           <div class='select-soir select <%= 'is-hidden' if @booking.period == 'Midi' %>'>
-            <%= select_tag(:start_time_soir, options_for_select(["19h30", "20h00", "20h30", "21h00", "21h30", "22h"], l(@booking.start_time, format: :start_time)), class: "form-control start-time")%>
+            <%= select_tag(:start_time_soir, options_for_select(["19h30", "20h00", "20h30", "21h00", "21h30", "22h"], l(@booking.start_time, format: :start_time)), class: "form-control start-time start-time--soir")%>
           </div>
         </div>
       </div>

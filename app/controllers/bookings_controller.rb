@@ -1,15 +1,9 @@
 class BookingsController < ApplicationController
   before_action :find_restaurant
-  before_action :find_booking,            only: [:show, :edit, :update, :destroy]
+  before_action :find_booking,              only: [:show, :edit, :update, :destroy]
   before_action :update_or_create_customer, only: [:create, :update]
 
   def index
-    if params[:date]
-      @date = Date.parse(params[:date])
-    else
-      @date = Date.today
-    end
-
     @time = params[:time]
     # on instancie le params time
     @bookings = @restaurant.bookings.order(:start_time)
@@ -27,7 +21,7 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @booking = Booking.new_for_evening
+    @booking = Booking.new_for_evening(@date)
   end
 
   def create

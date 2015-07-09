@@ -3,6 +3,12 @@ $(function(){
     if ($(this).val() == "Midi") {
       $('.select-soir').addClass('is-hidden');
       $('.select-midi').removeClass('is-hidden');
+
+      var form = $(this).parents("form:first");
+      var first_hour = form.find(".start-time--midi option:first").val();
+      var hidden_start_time = form.find(".start-time--hidden");
+
+      $(hidden_start_time).val(first_hour);
     } else if ($(this).val() == "Soir") {
       $('.select-soir').removeClass('is-hidden');
       $('.select-midi').addClass('is-hidden');
@@ -11,9 +17,9 @@ $(function(){
 
   $(document).on('change', ".start-time", function(){
     var new_time = $(this).val();
-    var field = $(this).parents("form:first").find(".start-time--hidden");
+    var hidden_start_time = $(this).parents("form:first").find(".start-time--hidden");
 
-    $(field).val(new_time);
+    $(hidden_start_time).val(new_time);
   });
 });
 
