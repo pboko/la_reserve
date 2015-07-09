@@ -48,14 +48,24 @@
   word-wrap: break-word;
 }
 
+.info-services {
+  a{
+    i{
+      position: absolute;
+      margin-left: 6px;
+      margin-top: 3px;
+      font-size: 18px;
+      opacity: 1;
+    }
+  }
+}
+
 #home {
   margin-top: 20px;
 }
 
 #nav-container {
-
   a {
-
     p {
       opacity: 0.55;
     }
@@ -66,6 +76,29 @@
     }
   }
 }
+
+li:hover {
+
+}
+li:after {
+
+}
+li:first-child {
+
+}
+li:last-child {
+
+}
+
+.card-recipe {
+  &-header {
+  }
+  &-body{
+  }
+}
+
+
+
 
 .page-content {
   margin-left: 230px;

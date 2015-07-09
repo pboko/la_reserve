@@ -7,8 +7,9 @@ class StatsController < ApplicationController
 
     @bookings = @restaurant.bookings.where(date: (@start_date..@end_date))
 
-    @lunch_stats = @bookings.where(period: "Midi").sum(:pax)
-    @diner_stats = @bookings.where(period: "Soir").sum(:pax)
+
+    @lunch_stats = @bookings.where(period: "Midi").where(waiting_list: false).sum(:pax)
+    @diner_stats = @bookings.where(period: "Soir").where(waiting_list: false).sum(:pax)
     @total_stats = @lunch_stats + @diner_stats
 
   end
