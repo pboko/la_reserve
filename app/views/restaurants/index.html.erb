@@ -9,7 +9,7 @@
         <div class="row">
 
           <% @restaurants.each do |restaurant| %>
-            <div class="col-md-4">
+            <div class="col-md-3">
               <div class="square text-center">
                 <%= link_to restaurant_path(restaurant) do %>
                  <div class="padding-square">
@@ -25,7 +25,7 @@
             </div>
           <% end %>
 
-          <div class="col-md-4">
+          <div class="col-md-3">
             <div class="square text-center">
               <%= link_to new_restaurant_path do %>
               <div class="padding-square">
