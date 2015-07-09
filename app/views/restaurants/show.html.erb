@@ -90,9 +90,9 @@
                     <h4>VIP</h4>
                   </div>
                   <div id="list-vip">
-                    <% bookings = @restaurant.bookings.for_period(:midi).for_date(@date) %>
+                    <% bookings = @restaurant.bookings.for_period(:soir).for_date(@date) %>
 
-                      <% @restaurant.bookings.for_period(:midi).for_date(@date).each do |booking| %>
+                      <% @restaurant.bookings.for_period(:soir.for_date(@date).each do |booking| %>
 
                         <% if booking.customer.status == "VIP" %>
                           <p class="sm-name" > <%= booking.customer.full_name %> </p>
