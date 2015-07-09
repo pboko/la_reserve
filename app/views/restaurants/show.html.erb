@@ -86,10 +86,20 @@
                   <p class= "nb-big"> <%= total_waiting_cuttlery_for(:soir, @date, @restaurant.bookings)%></p>
                 </div>
                 <div class="col-md-4">
-                  <h4>VIP</h4>
+                  <div id="vip-name">
+                    <h4>VIP</h4>
+                  </div>
+                  <div id="list-vip">
+                    <% bookings = @restaurant.bookings.for_period(:midi).for_date(@date) %>
 
+                      <% @restaurant.bookings.for_period(:midi).for_date(@date).each do |booking| %>
 
+                        <% if booking.customer.status == "VIP" %>
+                          <p class="sm-name" > <%= booking.customer.full_name %> </p>
+                        <% end %>
+                      <% end %>
 
+                  </div>
                 </div>
               </div>
             </div>
