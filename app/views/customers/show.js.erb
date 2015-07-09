@@ -1,6 +1,14 @@
  // Create a paragraph for the new review. But hide it.
-  var customer = $("<%= j render 'customers/show', customer: @customer %>"); //.hide();
-  // Add it to the DOM, at the end of the existing reviews. It's still hidden.
-  $('#customer_show').html(customer);
-  // Show the new review with an animation!
-  // customer.slideRight();
+var customer = $("<%= j render 'customers/show', customer: @customer %>"); //.hide();
+// Add it to the DOM, at the end of the existing reviews. It's still hidden.
+$('#customer_show').html(customer);
+// Show the new review with an animation!
+// customer.slideRight();
+$('#customer_show .datepicker').datepicker({
+  format: "yyyy-mm-dd",
+  language: "fr",
+  startView: new Date(),
+  weekStart: 1,
+  orientation: "top auto",
+  autoclose: true
+});

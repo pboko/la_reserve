@@ -1,8 +1,13 @@
+<h1 style="color: #7A1B2C; font-family: Arial; text-align: center "> Bonjour <%= @booking.customer.full_name %> </h1>
 
+<p style="color: #333333; font-family: Arial; text-align: center"> Vous avez une réservation à <%= @restaurant.name %> le <%=l(Date.today + 3.days) %> </p>
+<br>
+<p style="color: #7A1B2C; font-family: Arial; text-align: center "><%= link_to "Cliquez ici pour confirmer votre résa", booking_confirmation_url(@booking.token, choice: 'confirm'), style: "color: #7A1B2C; font-family: Arial"%>
 
+<%= link_to "Cliquez ici pour annuler votre résa",  booking_confirmation_url(@booking.token, choice: 'cancel'), style: "color: #7A1B2C; font-family: Arial" %>
+</p>
 
+<p style="color: #333333; font-family: Arial; text-align: center"> Nous vous remercierons par avance pour votre réponse et espérons vous voir bientôt dans notre établissement ! </p>
 
-
-<%= link_to "Cliquez ici pour confirmer votre résa", booking_confirmation_url(@booking.token, choice: 'confirm') %>
-
-<%= link_to "Cliquez ici pour annuler votre résa",  booking_confirmation_url(@booking.token, choice: 'cancel') %>
+<p style="color: #333333; font-family: Arial; text-align: center">Cordialement,</p>
+<p style="color: #333333; font-family: Arial; text-align: center">L'équipe de <%= @restaurant.name %></p>

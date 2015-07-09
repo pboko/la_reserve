@@ -1,6 +1,5 @@
 $(function(){
   $(document).on('change', "#booking_period", function(){
-    console.log("test");
     if ($(this).val() == "Midi") {
       $('.select-soir').addClass('is-hidden');
       $('.select-midi').removeClass('is-hidden');
@@ -8,6 +7,13 @@ $(function(){
       $('.select-soir').removeClass('is-hidden');
       $('.select-midi').addClass('is-hidden');
     }
+  });
+
+  $(document).on('change', ".start-time", function(){
+    var new_time = $(this).val();
+    var field = $(this).parents("form:first").find(".start-time--hidden");
+
+    $(field).val(new_time);
   });
 });
 

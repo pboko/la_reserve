@@ -1,6 +1,19 @@
-<% if @choice == 'confirm' %>
-<% elsif @choise == 'cancel' %>
-<% end %>
+<div class="container text-center sm-padded">
 
+  <%= image_tag "logo-customer.svg" %>
+
+  <div class="padded">
+    <div class="row">
+      <div class="col-sm-4 col-sm-offset-4">
+        <% if @choice == 'confirm' %>
+          <h3> Merci <%= @booking.customer.first_name %> ! </h3>
+          <p>Votre réservation a bien été confirmée</p>
+        <% elsif @choice == 'cancel' %>
+          <p>Votre réservation a bien été annulée</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
 

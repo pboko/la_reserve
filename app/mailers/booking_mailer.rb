@@ -1,6 +1,7 @@
 class BookingMailer < ApplicationMailer
   def reminder(booking_id)
     @booking = Booking.find(booking_id)
+    @restaurant = @booking.restaurant
     @customer = @booking.customer
 
     mail(

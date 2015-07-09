@@ -8,7 +8,6 @@ $(document).ready(function(){
     autoclose: true
   });
 
-
   // $('body').on('click', '.datepicker td', function(){
   //   $('.datepicker').remove()
   // })
