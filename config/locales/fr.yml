@@ -1,5 +1,13 @@
 fr:
   date:
+    day_names:
+      - Dimanche
+      - Lundi
+      - Mardi
+      - Mercredi
+      - Jeudi
+      - Vendredi
+      - Samedi
     formats:
       default: "%d/%m/%Y"
       short: "%e %b"
