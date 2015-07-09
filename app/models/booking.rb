@@ -43,4 +43,12 @@ class Booking < ActiveRecord::Base
   scope :for_date, ->(date) { where(:date => date) }
   # scope :for_waiting_list, ->(waiting_list) { where(:waiting_list => waiting_list)}
 
+  def self.new_for_evening
+    start_time = Time.zone.at(19.hours) + 30.minutes
+
+    new(
+      period:     "Soir",
+      start_time: start_time
+    )
+  end
 end

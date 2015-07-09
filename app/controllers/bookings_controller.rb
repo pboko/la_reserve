@@ -1,15 +1,15 @@
 class BookingsController < ApplicationController
-
   before_action :find_restaurant
-  before_action :find_booking, only: [:show, :edit, :update, :destroy]
+  before_action :find_booking,            only: [:show, :edit, :update, :destroy]
+  before_action :update_or_create_customer, only: [:create, :update]
 
   def index
-
     if params[:date]
       @date = Date.parse(params[:date])
     else
       @date = Date.today
     end
+
     @time = params[:time]
     # on instancie le params time
     @bookings = @restaurant.bookings.order(:start_time)
@@ -21,26 +21,19 @@ class BookingsController < ApplicationController
       format.html
       format.js
     end
-
   end
 
   def show
   end
 
   def new
-    @booking = Booking.new
+    @booking = Booking.new_for_evening
   end
 
   def create
-    @booking = @restaurant.bookings.build(booking_params)
-    customer = @restaurant.customers.where(last_name: params[:last_name]).first_or_create do |customer|
-      customer.email        = params[:email]        if params[:email].present?
-      customer.first_name   = params[:first_name]   if params[:first_name].present?
-      customer.phone_number = params[:phone_number] if params[:phone_number].present?
-    end
-
+    @booking            = @restaurant.bookings.build(booking_params)
     @booking.start_time = DateTime.strptime(params[:start_time], "%Hh%M")
-    @booking.customer   = customer
+    @booking.customer   = @customer
 
     if @booking.save
       redirect_to restaurant_bookings_path(@restaurant)
@@ -53,15 +46,12 @@ class BookingsController < ApplicationController
   end
 
   def update
-    customer = @restaurant.customers.where(last_name: params[:last_name]).first_or_create do |customer|
-      customer.email        = params[:email]        if params[:email].present?
-      customer.first_name   = params[:first_name]   if params[:first_name].present?
-      customer.phone_number = params[:phone_number] if params[:phone_number].present?
-    end
+    @booking.assign_attributes(booking_params)
 
-    @booking.customer = customer
+    @booking.customer   = @customer
+    @booking.start_time = DateTime.strptime(params[:start_time], "%Hh%M")
 
-    if @booking.update(booking_params)
+    if @booking.save
       redirect_to restaurant_bookings_path(@restaurant)
     else
       render :edit
@@ -93,7 +83,14 @@ class BookingsController < ApplicationController
   end
 
   def find_booking
-  @booking = Booking.find(params[:id])
+    @booking = Booking.find(params[:id])
   end
 
+  def update_or_create_customer
+    customer_params = params.require(:customer).permit(:email, :first_name, :last_name, :phone_number)
+    last_name       = customer_params.delete(:last_name)
+    @customer       = @restaurant.customers.where(last_name: last_name).first_or_create
+
+    @customer.update(customer_params)
+  end
 end

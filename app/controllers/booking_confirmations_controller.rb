@@ -7,9 +7,9 @@ class BookingConfirmationsController < ApplicationController
 
     case @choice
     when 'confirm'
-      @booking.status = "confirmé"
+      @booking.status = "Confirmé"
     when 'cancel'
-      @booking.status = "annulé"
+      @booking.status = "Annulé"
     end
 
     @booking.save
