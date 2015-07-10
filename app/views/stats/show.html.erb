@@ -8,11 +8,11 @@ x@<div class="margin-top page-content">
           <%= form_tag restaurant_stats_path(@restaurant), method: :get, class: "form-inline trans-back" do %>
             <div class="form-group">
               <%= label_tag :start_date, "Du " %>
-              <%= text_field_tag :start_date, nil, class: "datepicker form-control" %>
+              <%= text_field_tag :start_date, @start_date, class: "datepicker form-control" %>
             </div>
             <div class="form-group">
               <%= label_tag :start_date, "Au " %>
-              <%= text_field_tag :end_date, nil, class: "datepicker form-control" %>
+              <%= text_field_tag :end_date, @end_date, class: "datepicker form-control" %>
             </div>
             <div class="form-group">
               <%= submit_tag "Afficher", class: "btn btn-primary" %>
@@ -29,11 +29,11 @@ x@<div class="margin-top page-content">
                 <div class="panel-body ">
                   <div class="col-md-4">
                     <h4>Midi</h4>
-                    <p class= "nb-big"> <%= @diner_stats %></p>
+                    <p class= "nb-big"> <%= @lunch_stats %></p>
                   </div>
                   <div class="col-md-4">
                     <h4>Soir</h4>
-                    <p class= "nb-big"><%= @lunch_stats %></p>
+                    <p class= "nb-big"><%= @diner_stats %></p>
                   </div>
                   <div class="col-md-4">
                     <h4>Total</h4>

@@ -3,7 +3,7 @@
     <%#= f.error_notification %>
     <div class="form-group">
       <div class="col-sm-3 padding-right-5">
-        <%= f.input :date, as: :string, input_html: { class: "form-control datepicker" } %>
+        <%= f.input :date, as: :string, input_html: { class: "form-control datepicker", id: "form-modal" } %>
       </div>
       <div class="col-sm-5 padding-left-5 padding-right-5 pax-top">
       <%= f.input :pax, label: "Couverts", class: "form-control", placeholder: 'Nombre de couverts' %>

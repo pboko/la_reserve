@@ -28,5 +28,9 @@ class Customer < ActiveRecord::Base
     "#{first_name} #{last_name}".strip
   end
 
+  def full_name_reverse
+    "#{last_name} #{first_name}".strip
+  end
+
   scope :for_status, ->(status) { where(:status => status.to_s.upcase) }
 end
