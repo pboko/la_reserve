@@ -1,4 +1,11 @@
-.datepicker-dropdown {
-    margin-top: 88px;
-  }
 
+
+.datepicker-dropdown {
+  margin-top: 88px;
+}
+
+.stats-show {
+  .datepicker-dropdown {
+    margin-top: 0;
+  }
+}
