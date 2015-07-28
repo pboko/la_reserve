@@ -1,6 +1,6 @@
 <div class="row" id="dayview">
   <h2 id="date-detail"><button id="btn-resa" data-toggle="modal" data-target="#dayview-modal" class="btn btn-primary"><i class="fa fa-plus"></i> Réservation</button><%= l(date, format: :long) %>
-  <%= render 'bookings/modal', id: "dayview-modal", date: date, customer: @customer %> </h2>
+  <%= render 'bookings/modal', id: "dayview-modal", date: date, customer: @customer, spot:@spot %> </h2>
 
   <% if bookings.for_date(date).exists? %>
       <ul class="nav nav-pills text-center">

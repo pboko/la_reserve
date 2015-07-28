@@ -30,8 +30,8 @@
       </div>
       <div class="col-sm-4 padding-left-5 pax-top">
         <div class="form-group">
-          <%= label_tag(:spot, "Table", :class => "control-label") %>
-          <%= text_field_tag(:spot, nil, :class => "form-control")%>
+          <%= label_tag(:spot, "Table", class: "control-label") %>
+          <%= select_tag(:spot, options_for_select(@restaurant.spots.name),class: "form-control") %>
         </div>
       </div>
     </div>

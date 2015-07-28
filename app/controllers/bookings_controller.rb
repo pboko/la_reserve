@@ -28,6 +28,7 @@ class BookingsController < ApplicationController
     @booking            = @restaurant.bookings.build(booking_params)
     @booking.start_time = DateTime.strptime(params[:start_time], "%Hh%M")
     @booking.customer   = @customer
+    @booking.spot = @spot
 
     if @booking.save
       redirect_to restaurant_bookings_path(@restaurant)
@@ -44,6 +45,7 @@ class BookingsController < ApplicationController
 
     @booking.customer   = @customer
     @booking.start_time = DateTime.strptime(params[:start_time], "%Hh%M")
+    @booking.spot = @spot
 
     if @booking.save
       redirect_to restaurant_bookings_path(@restaurant)
@@ -73,7 +75,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:date, :status, :period, :pax, :notes, :waiting_list)
+    params.require(:booking).permit(:date, :status, :period, :spot, :pax, :notes, :waiting_list)
   end
 
   def find_booking
