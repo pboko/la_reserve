@@ -17,6 +17,7 @@
 #  updated_at             :datetime         not null
 #  first_name             :string
 #  last_name              :string
+#  admin                  :boolean
 #
 # Indexes
 #
@@ -36,4 +37,5 @@ class User < ActiveRecord::Base
   validates :email, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
+  validates :admin, presence: true
 end

@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  skip_after_action :verify_policy_scoped
   def create
     @restaurant = Restaurant.find(params[:restaurant_id])
     @comment    = @restaurant.comments.new(comment_params)

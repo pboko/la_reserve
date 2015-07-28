@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  # include Pundit
+  include Pundit
   protect_from_forgery with: :exception
 
   before_action :set_locale
@@ -9,10 +9,10 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!, unless: :pages_controller?
   before_action :redirect_signed_in_user, if: :user_signed_in?
 
-  # after_action :verify_authorized, except:  :index, unless: :devise_or_pages_controller?
-  # after_action :verify_policy_scoped, only: :index, unless: :devise_or_pages_controller?
+  after_action :verify_authorized, except:  :index, unless: :devise_or_pages_controller?
+  after_action :verify_policy_scoped, only: :index, unless: :devise_or_pages_controller?
 
-  # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 

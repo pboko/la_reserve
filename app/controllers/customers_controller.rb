@@ -1,6 +1,7 @@
 class CustomersController < ApplicationController
   before_action :find_customer, only: [:show, :edit, :update]
   before_action :find_restaurant
+  skip_after_action :verify_policy_scoped
   def index
     @restaurant = Restaurant.find(params[:restaurant_id])
     @customers = @restaurant.customers.order("last_name, first_name")

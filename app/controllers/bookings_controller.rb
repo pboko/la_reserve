@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
   before_action :find_restaurant
   before_action :find_booking,              only: [:show, :edit, :update, :destroy]
   before_action :update_or_create_customer, only: [:create, :update]
+  skip_after_action :verify_policy_scoped
 
   def index
     @time = params[:time]
