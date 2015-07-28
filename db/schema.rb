@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150708124414) do
+ActiveRecord::Schema.define(version: 20150728134542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,18 @@ ActiveRecord::Schema.define(version: 20150708124414) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
+
+  create_table "messages", force: :cascade do |t|
+    t.string   "state"
+    t.boolean  "read"
+    t.integer  "restaurant_id"
+    t.integer  "booking_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "messages", ["booking_id"], name: "index_messages_on_booking_id", using: :btree
+  add_index "messages", ["restaurant_id"], name: "index_messages_on_restaurant_id", using: :btree
 
   create_table "restaurant_customers", force: :cascade do |t|
     t.integer  "restaurant_id"
@@ -149,6 +161,8 @@ ActiveRecord::Schema.define(version: 20150708124414) do
   add_foreign_key "bookings", "restaurants"
   add_foreign_key "bookings", "waiters"
   add_foreign_key "comments", "restaurants"
+  add_foreign_key "messages", "bookings"
+  add_foreign_key "messages", "restaurants"
   add_foreign_key "restaurant_customers", "customers"
   add_foreign_key "restaurant_customers", "restaurants"
   add_foreign_key "restaurant_users", "restaurants"

@@ -25,6 +25,7 @@ class Restaurant < ActiveRecord::Base
   has_many :restaurant_users, dependent: :destroy
   has_many :users, through: :restaurant_users
   has_many :customers, through: :restaurant_customers
+  has_many :messages
 
   has_attached_file :picture,
     styles: { medium: "170x170>", thumb: "100x100>" }
