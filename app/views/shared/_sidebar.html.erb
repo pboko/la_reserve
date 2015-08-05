@@ -47,6 +47,14 @@
         <% end %>
       </div>
 
+      <hr class="dividor">
+
+      <div id="messages">
+        <%= link_to restaurant_messages_path(@restaurant), class: sidebar_css_class(:messages) do %>
+          <p><i class="fa fa-envelope"></i></i> Messages</p>
+        <% end %>
+      </div>
+
     </div>
   </div>
 <% end %>

@@ -13,5 +13,6 @@ class BookingConfirmationsController < ApplicationController
     end
 
     @booking.save
+    #message = Message.create(state: "confirmé", read: false)
   end
 end
