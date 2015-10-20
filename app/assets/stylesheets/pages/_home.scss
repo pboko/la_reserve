@@ -1,112 +1,20 @@
-  #banner-homepage {
-  margin: 0px;
-  padding: 200px 0px;
-  color: black;
-  opacity: 1;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), image-url('tabledressee.jpg');
-  background-size: cover;
-  background-position: right center;
-  background-repeat: no-repeat;
-  font-size: 60px;
-  font-weight: 900;
-p{
-  font-size: 30px;
-}
+.home-img {
+  margin-top: -460px;
 }
 
-
-.home-button{
-z-index: 102;
-position: absolute;
-}
-
-.video-container {
-  position: absolute;
-
-  video {
-    width: 100%;
+.features {
+  margin-top: -235px;
+  padding-top: 18em;
+  padding-bottom: 8em;
+  h4 {
+    margin-top: 30px;
+    text-transform: uppercase;
+    font-size: 16px;
   }
 }
 
-.homepage-hero-module {
-  position: relative;
-}
-
-
-.homepage-hero-module {
-  border-right: none;
-  border-left: none;
-  position: relative;
-}
-.no-video .video-container video,
-.touch .video-container video {
-    display: none;
-}
-.no-video .video-container .poster,
-.touch .video-container .poster {
-    display: block !important;
-}
-.video-container {
-    position: relative;
-    bottom: 0%;
-    left: 0%;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    background: #000;
-}
-.video-container .poster img {
-    width: 100%;
-    bottom: 0;
-    position: absolute;
-}
-.video-container .filter {
-    z-index: 100;
-    position: absolute;
-    background: rgba(0, 0, 0, 0.4);
-    width: 100%;
-}
-.video-container video {
-    position: absolute;
-    z-index: 0;
-    bottom: 0;
-}
-.video-container video.fillWidth {
-    width: 100%;
-    transform: scale(1.2);
-}
-
-.filter {
-  z-index: 17;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.slogan{
-  max-width: 520px;
-  // text-align: left;
-  position: absolute;
-  z-index: 101;
-  color: white;
-  bottom: 0;
-  // margin-bottom: 20px;
-  // margin-left: 0px;
-  // margin: auto;
-  bottom: 50%;
-  top: 40%;
-
-h1{
-  font-weight: 400;
-  font-size: 4em;
-}
-p{
-  font-size: 1.5em;
-  font-weight: 100;
-}
+.img-responsive {
+  margin: auto;
 }
 
 .high_voltage_pages-show {
@@ -115,3 +23,4 @@ p{
     border-bottom: 0;
   }
 }
+
