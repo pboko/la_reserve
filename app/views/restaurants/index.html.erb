@@ -1,47 +1,30 @@
 <div class="margin-top">
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-10 col-md-offset-1">
-
-<!--       <h2> My restaurants </h2> -->
-
-        <div class="row">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
 
           <% @restaurants.each do |restaurant| %>
-            <div class="col-md-3">
-              <div class="square text-center">
-                <%= link_to restaurant_path(restaurant) do %>
-                 <div class="padding-square">
-                  <%= restaurant.name.capitalize %>
-                 </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+              <div class="card text-center">
+                <p><%= restaurant.name.capitalize %></p>
+                <%= link_to "", restaurant_path(restaurant), class: "card-link"%>
                   <%#= link_to 'Edit', edit_restaurant_path(restaurant) %>
                   <%#= link_to 'Delete', restaurant_path(restaurant),
                   method: :delete,
                   data: { confirm: "Are you sure sure sure ?" }
                   %>
-                <% end %>
               </div>
             </div>
           <% end %>
 
-          <div class="col-md-3">
-            <div class="square text-center">
-              <%= link_to new_restaurant_path do %>
-              <div class="padding-square">
-                <i class="fa fa-plus"></i>
-              </div>
-              <% end %>
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="card text-center">
+              <p><i class="fa fa-plus"></i></p>
+              <%= link_to "", new_restaurant_path, class: "card-link"%>
             </div>
           </div>
-        </div>
 
+      </div>
     </div>
   </div>
-</div>
-
-
-
-
-
 </div>

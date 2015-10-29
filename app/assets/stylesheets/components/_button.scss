@@ -2,31 +2,6 @@
  * You killer button SASS module
  * ------------------------------------- */
 
-
-
-.padding-square{
-padding: 96px 0px;
-}
-
-.square {
-    width: 220px;
-    height: 220px;
-    // padding-top: 96px;
-    margin: 20px;
-    text-align: center;
-    background: #7A1B2C;
-    -webkit-transition: background-color 0.4s ease; /* Safari */
-    transition: background-color 0.4s ease;
-  a {
-    color: white;
-  }
-    &:hover {
-      font-size: 102%;
-      // font-weight: bold;
-      background: darken($burgundy, 10%)
-    }
-}
-
 .btn-primary {
   &:hover {
     background-color: $burgundy;
@@ -60,8 +35,6 @@ padding: 96px 0px;
     margin-top: 15px;
     }
   }
-
-
   &.active {
     a {
       margin-top: 15px;
@@ -70,9 +43,7 @@ padding: 96px 0px;
       text-decoration: none!important;
     }
   }
-
 }
-
 
 .index-icons{
   i{
@@ -94,7 +65,6 @@ padding: 96px 0px;
     margin-top: 15px;
     }
   }
-
   &.active {
     a {
       margin-top: 15px;

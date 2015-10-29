@@ -1,0 +1,21 @@
+.bloc {
+  border-top: 1px solid $gray-lighter;
+  &-white {
+    background: white;
+  }
+  &-grey {
+    background: $gray-lighter;
+  }
+}
+
+
+.big-icon {
+  width: 800px;
+}
+
+
+.all-features {
+  h1 {
+    margin-bottom: 35px;
+  }
+}
