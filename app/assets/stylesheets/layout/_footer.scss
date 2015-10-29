@@ -1,1 +1,11 @@
 // Your footer style
+.footer {
+  background: $burgundy;
+  padding-top: 20px;
+  padding-bottom: 15px;
+  p {
+    color: white;
+    font-weight: 100;
+    font-size: 14px;
+  }
+}
