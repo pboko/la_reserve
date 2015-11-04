@@ -6,9 +6,8 @@
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
         <g id="noun_4503" sketch:type="MSLayerGroup">
-            <path d="M78.43,634.57 L78.43,0 L0,0 L0,713 L713,713 L713,634.57 L78.43,634.57 Z" id="Shape" fill="#7A1B2C" sketch:type="MSShapeGroup"></path>
-            <path d="M506.45103,168.33217 L561.05257,210.27083 L447.13656,347.50907 L319.31705,246.08482 L136.4682,459.37164 L182.25706,498.62942 L327.25274,329.42026 L455.75673,431.42917 L608.78792,247.46804 L663.09,289.69903 L663.09,128.81058 L506.45103,168.33217 Z" id="Shape" fill="#5E1625" sketch:type="MSShapeGroup"></path>
+            <path d="M78.43,634.57 L78.43,0 L0,0 L0,713 L713,713 L713,634.57 L78.43,634.57 L78.43,634.57 Z" id="Shape" fill="#7A1B2C" sketch:type="MSShapeGroup"></path>
+            <path d="M506.45103,168.33217 L561.05257,210.27083 L447.13656,347.50907 L319.31705,246.08482 L136.4682,459.37164 L182.25706,498.62942 L327.25274,329.42026 L455.75673,431.42917 L608.78792,247.46804 L663.09,289.69903 L663.09,128.81058 L506.45103,168.33217 L506.45103,168.33217 Z" id="Shape" fill="#5E1625" sketch:type="MSShapeGroup"></path>
         </g>
     </g>
 </svg>
-

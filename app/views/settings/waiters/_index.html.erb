@@ -7,7 +7,7 @@
           <%= link_to edit_restaurant_settings_waiter_path(restaurant, waiter) do %>
             <i class="fa fa-pencil"></i>
           <% end %>
-          <%= link_to edit_restaurant_settings_waiter_path(restaurant, waiter),
+          <%= link_to restaurant_settings_waiter_path(restaurant, waiter),
             method: :delete,
             data: { confirm: "Are you sure sure sure ?" } do %>
             <i class="fa fa-trash-o"></i>
