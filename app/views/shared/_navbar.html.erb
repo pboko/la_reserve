@@ -66,6 +66,15 @@
             <%#= link_to t(".sign_up", default: "Sign up"), new_user_registration_path %>
           </li> -->
           <li>
+            <%= link_to t(".sign_in", default: "Accueil"), page_path('home') %>
+          </li>
+          <li>
+            <%= link_to t(".sign_in", default: "Fonctions"), page_path('features') %>
+          </li>
+          <li>
+            <%= link_to t(".sign_in", default: "Tarifs"), page_path('features') %>
+          </li>
+          <li>
             <%= link_to t(".sign_in", default: "Connexion"), new_user_session_path %>
           </li>
            <li>

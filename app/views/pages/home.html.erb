@@ -18,6 +18,10 @@
   <%= image_tag "laptop_calendar.png", class: "img-medium img-responsive" %>
 </div>
 
+<div class="text-center bg-light-grey">
+  <%= link_to t(".top_call_to_action", default: "Créer un compte gratuitement"), new_user_registration_path, class: "btn btn-primary" %>
+</div>
+
 <div class="features text-center bg-light-grey">
   <div class="container">
     <div class="row">
@@ -43,7 +47,7 @@
       </div>
     </div>
     <div class="row">
-      <%= link_to "Toutes les fonctionnalités", page_path('features'), class: "btn btn-primary" %>
+      <%= link_to "Voir toutes les fonctionnalités", page_path('features'), class: "btn btn-primary" %>
     </div>
   </div>
 </div>

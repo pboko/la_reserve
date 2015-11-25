@@ -1,5 +1,8 @@
 .bloc {
   border-top: 1px solid $gray-lighter;
+  a{
+    color : white
+   }
   &-white {
     background: white;
   }
