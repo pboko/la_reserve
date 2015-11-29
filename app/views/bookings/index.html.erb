@@ -5,10 +5,10 @@
         <div class="margin-left cal-top">
           <div class="text-center" id="chevrons">
             <%= link_to :date => previous_month(@date) do  %>
-              <i class="fa fa-arrow-left" style="position: relative; top: -19px;"> </i>
+              <i class="fa fa-arrow-left"> </i>
             <% end %>
             <%= link_to :date => next_month(@date) do  %>
-              <i class="fa fa-arrow-right" style="position: relative; top: -19px; left: 30px;"> </i>
+              <i class="fa fa-arrow-right"> </i>
             <% end %>
           </div>
           <%= calendar(:year => @date.year, :month => @date.month, :first_day_of_week => 1) do |d|
