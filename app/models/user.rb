@@ -30,10 +30,26 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  after_create :send_welcome_email
+  after_create :register_user_to_mailshimp_list
+
+  private
+
   has_many :restaurant_users
   has_many :restaurants, through: :restaurant_users
 
   validates :email, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
+
+  private
+
+  def send_welcome_email
+    UserMailer.welcome(self).deliver_now
+  end
+
+  def register_user_to_mailshimp_list
+    SubscribeToNewsletter.new.run(self.email)
+  end
+
 end

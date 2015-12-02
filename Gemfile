@@ -30,6 +30,8 @@ gem 'rails-assets-silviomoreto--bootstrap-select'
 
 gem "autoprefixer-rails"
 
+gem "gibbon"
+
 group :development, :test do
   gem "spring"
   gem "annotate"
