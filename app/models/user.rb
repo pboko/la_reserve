@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   after_create :send_welcome_email
-  after_create :register_user_to_mailshimp_list
+  #after_create :register_user_to_mailshimp_list
 
   private
 

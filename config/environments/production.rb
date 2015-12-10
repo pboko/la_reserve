@@ -84,4 +84,8 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.default_url_options = { host: ENV.fetch("HOST"), locale: I18n.locale }
+
+  # Initialize default meta tags.
+  DEFAULT_META = YAML.load_file(Rails.root.join('config/meta.yml'))
+
 end

@@ -97,3 +97,7 @@ en:
     - :year
     - :month
     - :day
+
+  time:
+    formats:
+      start_time: "%Hh%M"
