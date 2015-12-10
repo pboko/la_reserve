@@ -49,7 +49,7 @@ class User < ActiveRecord::Base
   end
 
   def register_user_to_mailshimp_list
-    SubscribeToNewsletter.new.run(self.email)
+    SubscribeToNewsletter.new(self).run(self.email)
   end
 
 end
