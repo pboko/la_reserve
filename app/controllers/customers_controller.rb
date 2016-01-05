@@ -1,3 +1,5 @@
+require 'csv'
+
 class CustomersController < ApplicationController
   before_action :find_customer, only: [:show, :edit, :update]
   before_action :find_restaurant
@@ -5,6 +7,13 @@ class CustomersController < ApplicationController
   def index
     @restaurant = Restaurant.find(params[:restaurant_id])
     @customers = @restaurant.customers.order("last_name, first_name")
+    respond_to do |format|
+      format.html
+      format.csv do
+        headers['Content-Disposition'] = "attachment; filename=\"liste_clients\""
+        headers['Content-Type'] ||= 'text/csv'
+      end
+    end
   end
 
   def show
@@ -45,20 +54,18 @@ class CustomersController < ApplicationController
     params.require(:customer).permit(:first_name, :last_name, :email, :phone_number, :vip, :status, :gender, :comments)
   end
 
-
   #def load_customer_csv
     #CSV.foreach(csv_file, headers: :first_row, header_converters: :symbol) do |row|
-      #customer << Customer.new(row[:id]), row[:first_name], row[:last_name], row[:email]
+      #customer << Customer.new((row[:id]), row[:first_name], row[:last_name], row[:email])
     #end
   #end
 
   #def write_customer_csv
     #CSV.open(csv_file, "w") do |csv|
       #csv << ["id", "first_name", "last_name", "email"]
-      #customer.each do |customer|
+      #customers.each do |customer|
         #csv << [customer.id, customer.first_name, customer.last_name, customer.email]
       #end
     #end
   #end
-
 end

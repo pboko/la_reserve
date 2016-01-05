@@ -5,6 +5,9 @@
         <div class="col-md-2 col-md-offset-2">
           <div class="bordered-right">
             <div class="margin-bottom">
+              <%= link_to restaurant_customers_path(format: :csv) do %>
+                <p><i class="fa fa-download"></i> Exporter les données</p>
+              <% end %>
               <%= link_to new_restaurant_customer_path(@restaurant) do %>
                 <p><i class="fa fa-plus"></i> Ajouter un client</p>
               <% end %>
