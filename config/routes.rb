@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'pages/features' => 'high_voltage/pages#show', id: 'features'
 
-  scope '(:locale)', locale: /en|es/ do
+  # scope '(:locale)', locale: /en|es/ do
 
 
     devise_for :users
@@ -26,5 +26,5 @@ Rails.application.routes.draw do
 
       resource :stats, only: [:show]
     end
-  end
+  # end
 end

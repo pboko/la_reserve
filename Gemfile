@@ -32,8 +32,6 @@ gem "autoprefixer-rails"
 
 gem "gibbon"
 
-gem "figaro"
-
 group :development, :test do
   gem "spring"
   gem "annotate"
