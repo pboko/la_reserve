@@ -32,5 +32,14 @@ class Customer < ActiveRecord::Base
     "#{last_name} #{first_name}".strip
   end
 
+  def self.to_csv
+    CSV.generate do |csv|
+      csv << ["id", "first_name", "last_name", "email"]
+      all.each do |customer|
+        csv << [customer.id, customer.first_name, customer.last_name, customer.email]
+      end
+    end
+  end
+
   scope :for_status, ->(status) { where(:status => status.to_s.upcase) }
 end
