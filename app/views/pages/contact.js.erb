@@ -1,0 +1,8 @@
+$(document).ready(function() {
+    $('#send_contact_message').click(function() {
+        $('#contact_request').attr('action',
+                       'mailto:olivia.brami@gmail.com?subject="Prise de contact"' +
+                       $('#nom_visiteur').val() + '&body=' + $('#prénom_visiteur').val());
+        $('#contact_request').submit();
+    });
+});
