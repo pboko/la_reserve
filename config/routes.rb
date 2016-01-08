@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  get 'pages/features' => 'high_voltage/pages#show', id: 'features'
+
+  root :to => 'pages#home'
+
+  get '/features' => 'pages#features', id: 'features'
+  get '/contact' => 'pages#contact', id: 'contact'
+  get '/more_info' => 'pages#more_info', id: 'more_info'
 
   # scope '(:locale)', locale: /en|es/ do
 
