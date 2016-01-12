@@ -5,7 +5,8 @@ $(document).ready(function(){
     startView: new Date(),
     weekStart: 1,
     orientation: "top auto",
-    autoclose: true
+    autoclose: true,
+    startDate: new Date()
   });
 
   // $('body').on('click', '.datepicker td', function(){

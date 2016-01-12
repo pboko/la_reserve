@@ -23,7 +23,12 @@ class SettingsController < Settings::BaseController
       :street,
       :zip_code,
       :capacity,
-      :picture
+      :picture,
+      :services,
+      :opening_days,
+      :opening_hours,
+      :closing_hours,
+      :tag_list
     )
   end
 end

@@ -14,9 +14,17 @@
 #  picture_content_type :string
 #  picture_file_size    :integer
 #  picture_updated_at   :datetime
+#  opening_days         :string
+#  opening_hours        :time
+#  closing_hours        :time
+#  services             :string
 #
 
 class Restaurant < ActiveRecord::Base
+
+  #acts_as_taggable_on
+  #acts_as_taggable_on :services, :opening_days, :opening_hours, :closing_hours
+
   has_many :spots
   has_many :restaurant_customers
   has_many :waiters, dependent: :destroy
