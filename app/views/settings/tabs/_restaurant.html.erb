@@ -14,7 +14,97 @@
         <%= f.submit :submit, value: "Enregistrer", class: "btn btn-primary btn-full-width" %>
       <% end %>
     </div>
-  </div>
 
+    <div class="panel-body">
+      <h3> Module de réservations </h3>
+      <%= simple_form_for @restaurant, url: restaurant_settings_path do |f| %>
+
+        <div class="form-group">
+          <div class="col-sm-2 padding-left-5 padding-right-5">
+            <%= f.input :capacity, label: "Capacité", class: "control-label" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-12 padding-left-5 padding-right-5 margin-top-15">
+            <%= f.label "Jours d'ouverure", class: "control-label" %>
+          </div>
+          <div class="col-sm-3 padding-left-15 padding-right-15" >
+            <%= f.label :opening_days, "- Lundi" %>
+            <%= f.check_box :opening_days, class: "margin-left-10" %>
+          </div>
+          <div class="col-sm-3 padding-left-15 padding-right-15" >
+            <%= f.label :opening_days, "- Mardi" %>
+            <%= f.check_box :opening_days, class: "margin-left-10" %>
+          </div>
+          <div class="col-sm-3 padding-left-15 padding-right-15" >
+            <%= f.label :opening_days, "- Mercredi" %>
+            <%= f.check_box :opening_days, class: "margin-left-10", :checked=>true %>
+          </div>
+          <div class="col-sm-3 padding-left-15 padding-right-15" >
+            <%= f.label :opening_days, "- Jeudi"%>
+            <%= f.check_box :opening_days, class: "margin-left-10", :checked=>true %>
+          </div>
+          <div class="col-sm-3 padding-left-15 padding-right-15" >
+            <%= f.label :opening_days, "- Vendredi"%>
+            <%= f.check_box :opening_days, class: "margin-left-10", :checked=>true %>
+          </div>
+          <div class="col-sm-3 padding-left-15 padding-right-15" >
+            <%= f.label :opening_days, "- Samedi"%>
+            <%= f.check_box :opening_days, class: "margin-left-10", :checked=>true %>
+          </div>
+          <div class="col-sm-3 padding-left-15 padding-right-15" >
+            <%= f.label :opening_days, "- Dimanche"%>
+            <%= f.check_box :opening_days, class: "margin-left-10" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-12 padding-left-5 padding-right-5 margin-top-15">
+            <%= f.label "Services proposés", class: "control-label" %>
+          </div>
+          <div class="col-sm-3 padding-left-15 padding-right-15" id="open_midi">
+            <%= f.label :services, "- Midi"%>
+            <%= f.check_box :services, class: "margin-left-10" %>
+          </div>
+          <div class="col-sm-3 padding-left-15 padding-right-15" id="open_soir" >
+            <%= f.label :services, "- Soir"%>
+            <%= f.check_box :services, class: "margin-left-10", :checked=>true %>
+          </div>
+        </div>
+
+        <div class="form-group opening-hours-midi hidden">
+          <div class="col-sm-12 padding-left-5 padding-right-5 margin-top-15">
+            <%= f.label "Midi (HH:MM)", class: "control-label" %>
+          </div>
+          <div class="col-sm-3 padding-left-15 padding-right-15">
+            <%= label_tag(:opening_hours, "- Heure d'ouverture", class: "control-label") %>
+            <%= f.time_field :opening_hours, format: :start_time, class: "form-control" %>
+          </div>
+          <div class="col-sm-3 padding-left-15 padding-right-15 ">
+            <%= label_tag(:closing_hours, "- Heure de fermeture", class: "control-label") %>
+            <%= f.time_field :closing_hours, format: :start_time, class: "form-control " %>
+          </div>
+        </div>
+
+        <div class="form-group opening-hours-soir visible">
+          <div class="col-sm-12 padding-left-5 padding-right-5 margin-top-15">
+            <%= f.label "Soir (HH:MM)", class: "control-label" %>
+          </div>
+          <div class="col-sm-3 padding-left-15 padding-right-15">
+            <%= label_tag(:opening_hours, "- Heure d'ouverture", class: "control-label") %>
+            <%= f.time_field :opening_hours, format: :start_time, class: "form-control" %>
+          </div>
+          <div class="col-sm-3 padding-left-15 padding-right-15 ">
+            <%= label_tag(:closing_hours, "- Heure de fermeture", class: "control-label") %>
+            <%= f.time_field :closing_hours, format: :start_time, class: "form-control" %>
+          </div>
+        </div>
+
+        <%= f.submit :submit, value: "Enregistrer", class: "btn btn-primary btn-full-width margin-top-30" %>
+      <% end %>
+    </div>
+
+  </div>
 </div>
 

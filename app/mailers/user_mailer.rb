@@ -11,7 +11,7 @@ class UserMailer < ApplicationMailer
     @last_name = last_name
     @email = email
     @message = message
-    mail(to: "olivia.brami@gmail.com", from: "#{@first_name} #{@last_name} <#{@email}>", subject: "Demande d'informations")
+    mail(to: "olivia@lareserve.io", from: "#{@first_name} #{@last_name} <#{@email}>", subject: "Demande d'informations")
   end
 end
 

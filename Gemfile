@@ -31,6 +31,8 @@ gem "autoprefixer-rails"
 
 gem "gibbon"
 
+gem 'acts-as-taggable-on', '~> 3.4'
+
 group :development, :test do
   gem "spring"
   gem "annotate"
