@@ -1,9 +1,8 @@
 $(document).ready(function() {
 
   $('#open_midi').click(function(){
-    $('.opening-hours-midi').removeClass('hidden').addClass('visible');
-    $('#open_midi').is(':checked');
-    $('.opening-hours-midi').show();
+    $('.opening-hours-midi').removeClass('visible').addClass('hidden');
+    $('.opening-hours-show').show();
     // if($("#open_midi").is(':checked')
     //   $('.opening-hours-midi').removeClass('hidden').addClass('visible');
     // else

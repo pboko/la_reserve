@@ -14,7 +14,11 @@ Rails.application.routes.draw do
     resources :booking_confirmations, only: [:show]
 
     resources :restaurants do
-      resources :bookings
+      resources :bookings do
+        member do
+          get 'widget' => 'bookings#widget'
+        end
+      end
       resources :customers, only: [:index, :show, :new, :create, :edit, :update]
       resources :comments, only: [:create, :destroy]
       # resources :waiters

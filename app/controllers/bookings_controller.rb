@@ -36,6 +36,12 @@ class BookingsController < ApplicationController
     end
   end
 
+  def widget
+    @booking            = @restaurant.bookings.build(booking_params)
+    @booking.start_time = DateTime.strptime(params[:start_time], "%Hh%M")
+    @booking.customer   = @customer
+  end
+
   def edit
   end
 

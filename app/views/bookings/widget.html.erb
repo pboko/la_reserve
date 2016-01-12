@@ -1,0 +1,50 @@
+<%= simple_form_for [@restaurant, @booking] do |f| %>
+  <div class="col-sm-7 padding-right-15 bordered-right">
+    <%#= f.error_notification %>
+    <div class="form-group">
+      <div id= "form-modal" class="col-sm-3 padding-right-5">
+        <%= f.input :date, as: :string, input_html: { class: "form-control datepicker" } %>
+      </div>
+      <div class="col-sm-5 padding-left-5 padding-right-5 pax-top">
+      <%= f.input :pax, label: "Couverts", class: "form-control", placeholder: 'Nombre de couverts' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-4 padding-right-5 pax-top">
+         <%= f.input :period, label: "Service", collection: ["Midi", "Soir"], as: :select, selected: @booking.period %>
+      </div>
+      <div class="col-sm-4 padding-left-5 padding-right-5">
+        <div class="form-group">
+          <%= label_tag(:start_time, "Heure", class: "control-label") %>
+          <%= hidden_field_tag(:start_time, l(@booking.start_time, format: :start_time), class: "start-time--hidden") %>
+          <div class='select-midi select <%= 'is-hidden' if @booking.period == 'Soir' %>'>
+            <%= select_tag(:start_time_midi, options_for_select(["12h30", "13h00", "13h30", "14h00", "14h30"], l(@booking.start_time, format: :start_time)), class: "form-control start-time start-time--midi") %>
+          </div>
+          <div class='select-soir select <%= 'is-hidden' if @booking.period == 'Midi' %>'>
+            <%= select_tag(:start_time_soir, options_for_select(["19h30", "20h00", "20h30", "21h00", "21h30", "22h"], l(@booking.start_time, format: :start_time)), class: "form-control start-time start-time--soir")%>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4 padding-left-5 pax-top">
+      </div>
+    </div>
+
+    <%= f.input :notes %>
+  </div>
+  <div class="col-sm-5 padding-left-15">
+    <%= simple_fields_for customer do |customer_form| %>
+      <div class="form-group">
+        <div class="col-sm-6 padding-righ-5">
+          <%= customer_form.input :first_name, label: "Prénom" %>
+        </div>
+        <div class="col-sm-6 padding-left-5">
+          <%= customer_form.input :last_name, label: "Nom de famille" %>
+        </div>
+      </div>
+      <%= customer_form.input :email, label: "Email" %>
+      <%= customer_form.input :phone_number, label: "Téléphone" %>
+    <% end %>
+
+    <%= f.button :submit, value: "Réserver", class: "btn btn-primary btn-full-width" %>
+  </div>
+<% end %>
